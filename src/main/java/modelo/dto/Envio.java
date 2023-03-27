@@ -4,14 +4,18 @@ import java.util.Date;
 
 public abstract class Envio {
 
-	int codEnvio;
-	String idCliente;
-	Date fechaEntrada;
-	Date fechaSalida;
-	Date fechaLlegada;
-	boolean entregado;
-	String direccionDestino;
-	String tracking;
+	private int codEnvio; //autoincrement en la base de datos
+	private String idCliente;
+	private Date fechaEntrada;
+	private Date fechaSalida;
+	private Date fechaLlegada;
+	private boolean entregado;
+	private String direccionDestino;
+	private String tracking;
+	
+	private Sucursal sucursal;
+	
+	
 
 	// setter and getters
 
