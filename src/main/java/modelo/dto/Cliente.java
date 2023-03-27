@@ -8,6 +8,14 @@ public abstract class Cliente  {
 	private String telefono;
 	private String contrasena;
 	
+	public Historial getHistorial() {
+		return historial;
+	}
+	public void setHistorial(Historial historial) {
+		this.historial = historial;
+	}
+	private Historial historial;
+	
 	// setter and getters
 	public String getNombre() {
 		return nombre;
