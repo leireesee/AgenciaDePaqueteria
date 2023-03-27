@@ -2,6 +2,6 @@ package modelo.dto;
 
 public class Paquete extends Envio{
 	
-	int cantidadBultos;
-
+	private int cantidadBultos;
+	private Bulto bulto ;
 }
