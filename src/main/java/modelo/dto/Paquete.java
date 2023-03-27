@@ -1,7 +1,9 @@
 package modelo.dto;
 
+import java.util.ArrayList;
+
 public class Paquete extends Envio{
 	
 	private int cantidadBultos;
-	private Bulto bulto ;
+	private ArrayList<Bulto> bultos ;
 }
