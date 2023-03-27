@@ -1,6 +1,6 @@
 package modelo.dto;
 
-public class Cartas extends Envio {
+public class Carta extends Envio {
 
 	boolean mensual;
 
