@@ -3,9 +3,9 @@ package modelo.dto;
 import java.util.ArrayList;
 
 public class Paquete extends Envio {
-
+	
+	private int codPaquete;
 	private int cantidadBultos;
-	private ArrayList<Bulto> bultos;
 
 	// setter and getters
 
@@ -17,12 +17,14 @@ public class Paquete extends Envio {
 		this.cantidadBultos = cantidadBultos;
 	}
 
-	public ArrayList<Bulto> getBultos() {
-		return bultos;
+	public int getCodPaquete() {
+		return codPaquete;
 	}
 
-	public void setBultos(ArrayList<Bulto> bultos) {
-		this.bultos = bultos;
+	public void setCodPaquete(int codPaquete) {
+		this.codPaquete = codPaquete;
 	}
+
+
 
 }
