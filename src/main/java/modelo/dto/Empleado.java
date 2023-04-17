@@ -12,10 +12,18 @@ public class Empleado {
 	private double nomina;
 	private double comision;
 	private int codDepartamento;
+	private String contrasena;
+	
 	
 	//getters and setters
 	public int getCodSucursal() {
 		return codSucursal;
+	}
+	public String getContrasena() {
+		return contrasena;
+	}
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
 	}
 	public void setCodSucursal(int codSucursal) {
 		this.codSucursal = codSucursal;
