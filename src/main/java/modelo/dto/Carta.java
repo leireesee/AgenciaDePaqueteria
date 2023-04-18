@@ -2,7 +2,8 @@ package modelo.dto;
 
 public class Carta extends Envio {
 
-	boolean mensual;
+	private boolean mensual;
+	private int cod_mensual;
 
 	// setter and getters
 
