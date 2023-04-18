@@ -2,7 +2,7 @@ package modelo.dto;
 
 import java.util.Date;
 
-public abstract class Envio {
+public  class Envio {
 
 	private int codEnvio; //autoincrement en la base de datos
 	private int codSucursal;

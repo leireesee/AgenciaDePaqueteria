@@ -83,7 +83,7 @@ public class ModeloEnvio extends Conector {
 			resultado = st.executeQuery(senteciaSelect);
 			while (resultado.next()) {
 
-				Envio envio =null;
+				Envio envio = new Envio();
 				envio.setCodEnvio(resultado.getInt("cod_envio"));
 				envio.setCodSucursal(resultado.getInt("cod_sucursal"));
 				envio.setIdCliente(resultado.getString("id_cliente"));
@@ -103,12 +103,37 @@ public class ModeloEnvio extends Conector {
 		return envios;
 	}//fin clase verEnvios
 
-	public Envio verEnvio() {
-		return null;
-	}
 
-	public String verTracking() {
+	public Envio verEnvio(int codEnvio ) {
 
+		String senteciaSelect = "SELECT * FROM envio WHERE cod_envio=?";
+
+		try {
+			PreparedStatement pstSelect=super.conexion.prepareStatement(senteciaSelect);
+			pstSelect.setInt(1, codEnvio);
+			
+			ResultSet resultado= pstSelect.executeQuery();
+			resultado.next();
+			
+			Envio envio = new Envio();
+			
+			envio.setCodEnvio(resultado.getInt("cod_envio"));
+			envio.setCodSucursal(resultado.getInt("cod_sucursal"));
+			envio.setIdCliente(resultado.getString("id_cliente"));
+			envio.setFechaEntrada(resultado.getDate("fecha_entrada"));
+			envio.setFechaSalida(resultado.getDate("fecha_salida"));
+			envio.setFechaLlegada(resultado.getDate("fecha_llegada"));
+			envio.setEntregado(resultado.getBoolean("entregado"));
+			envio.setDireccionDestino(resultado.getString("direccion_destino"));
+			envio.setTracking(resultado.getString("tracking"));
+			return envio;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		
+	
 		return null;
 	}
 
