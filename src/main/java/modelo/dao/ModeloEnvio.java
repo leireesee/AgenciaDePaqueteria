@@ -2,6 +2,7 @@ package modelo.dao;
 
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -67,8 +68,40 @@ public class ModeloEnvio extends Conector {
 
 	public ArrayList<Envio> verEnvios() {
 
-		return null;
-	}
+
+		String senteciaSelect = "SELECT * FROM envio";
+		java.sql.Statement st = null;
+		try {
+			st = super.conexion.createStatement();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		ArrayList<Envio> envios = new ArrayList<Envio>();
+
+		ResultSet resultado;
+		try {
+			resultado = st.executeQuery(senteciaSelect);
+			while (resultado.next()) {
+
+				Envio envio =null;
+				envio.setCodEnvio(resultado.getInt("cod_envio"));
+				envio.setCodSucursal(resultado.getInt("cod_sucursal"));
+				envio.setIdCliente(resultado.getString("id_cliente"));
+				envio.setFechaEntrada(resultado.getDate("fecha_entrada"));
+				envio.setFechaSalida(resultado.getDate("fecha_salida"));
+				envio.setFechaLlegada(resultado.getDate("fecha_llegada"));
+				envio.setEntregado(resultado.getBoolean("entregado"));
+				envio.setDireccionDestino(resultado.getString("direccion_destino"));
+				envio.setTracking(resultado.getString("tracking"));
+				envios.add(envio);
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return envios;
+	}//fin clase verEnvios
 
 	public Envio verEnvio() {
 		return null;
