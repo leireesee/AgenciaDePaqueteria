@@ -33,6 +33,21 @@ public class ModeloCarta extends Conector {
 			e.printStackTrace();
 		}
 	}
+
+	public void modificarCarta(Carta carta) {
+		PreparedStatement pstUpdate;
+
+		try {
+			pstUpdate = super.conexion.prepareStatement("UPDATE carta SET mensual=? WHERE cod_envio=?");{
+				pstUpdate.setBoolean(1, carta.isMensual());
+				pstUpdate.setInt(2, carta.getCodEnvio());
+				pstUpdate.execute();
+			}
+	}catch (SQLException e) {
+		e.printStackTrace();
+	}
 	
 	
-}// fin clase modeloCarta
+	}
+}
+// fin clase modeloCarta
