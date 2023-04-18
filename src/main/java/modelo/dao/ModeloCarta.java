@@ -12,7 +12,7 @@ public class ModeloCarta extends Conector {
 		PreparedStatement pstInsert;
 		try {
 			pstInsert = super.conexion.prepareStatement("INSERT INTO carta (mensual, cod_envio) VALUES (?,?)");
-			
+
 			pstInsert.setBoolean(1, carta.isMensual());
 			pstInsert.setInt(2, carta.getCodEnvio());
 			pstInsert.execute();
@@ -20,6 +20,19 @@ public class ModeloCarta extends Conector {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
 	}
-}//fin clase modeloCarta
+
+	public void eliminarCarta(int codEnvio) {
+		PreparedStatement pstDelete;
+		try {
+			pstDelete = super.conexion.prepareStatement("DELETE FROM carta WHERE cod_envio=?");
+			pstDelete.setInt(1, codEnvio);
+			pstDelete.execute();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+}// fin clase modeloCarta
