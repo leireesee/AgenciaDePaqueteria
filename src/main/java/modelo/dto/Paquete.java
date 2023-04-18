@@ -9,6 +9,7 @@ public class Paquete extends Envio {
 
 	// setter and getters
 
+	
 	public int getCantidadBultos() {
 		return cantidadBultos;
 	}

@@ -3,7 +3,6 @@ package modelo.dto;
 public class Carta extends Envio {
 
 	private boolean mensual;
-	private int cod_mensual;
 
 	// setter and getters
 
@@ -14,5 +13,6 @@ public class Carta extends Envio {
 	public void setMensual(boolean mensual) {
 		this.mensual = mensual;
 	}
+
 
 }

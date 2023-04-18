@@ -42,6 +42,7 @@ public class ModeloCarta extends Conector {
 				pstUpdate.setBoolean(1, carta.isMensual());
 				pstUpdate.setInt(2, carta.getCodEnvio());
 				pstUpdate.execute();
+				
 			}
 	}catch (SQLException e) {
 		e.printStackTrace();
