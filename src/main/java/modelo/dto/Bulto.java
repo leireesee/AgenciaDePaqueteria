@@ -3,6 +3,7 @@ package modelo.dto;
 public class Bulto  {
 
 	private String codBulto;
+	private int cod_envio;
 	private int codPaquete;
 	private double peso;
 	private String tamano;
@@ -30,6 +31,12 @@ public class Bulto  {
 	}
 	public void setTamano(String tamano) {
 		this.tamano = tamano;
+	}
+	public int getCod_envio() {
+		return cod_envio;
+	}
+	public void setCod_envio(int cod_envio) {
+		this.cod_envio = cod_envio;
 	}
 	
 
