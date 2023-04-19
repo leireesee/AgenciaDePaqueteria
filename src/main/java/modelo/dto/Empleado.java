@@ -2,7 +2,7 @@ package modelo.dto;
 
 public class Empleado {
 
-	private int codSucursal;
+	private Sucursal sucursal;
 	private String dni;
 	private String nombre;
 	private String direccion;
@@ -11,23 +11,25 @@ public class Empleado {
 	private String categoria;
 	private double nomina;
 	private double comision;
-	private int codDepartamento;
+	private Departamento departamento;
 	private String contrasena;
 	
 	
 	//getters and setters
-	public int getCodSucursal() {
-		return codSucursal;
-	}
+	
 	public String getContrasena() {
 		return contrasena;
+	}
+	public Sucursal getSucursal() {
+		return sucursal;
+	}
+	public void setSucursal(Sucursal sucursal) {
+		this.sucursal = sucursal;
 	}
 	public void setContrasena(String contrasena) {
 		this.contrasena = contrasena;
 	}
-	public void setCodSucursal(int codSucursal) {
-		this.codSucursal = codSucursal;
-	}
+	
 	public String getDni() {
 		return dni;
 	}
@@ -76,12 +78,12 @@ public class Empleado {
 	public void setComision(double comision) {
 		this.comision = comision;
 	}
-	public int getCodDepartamento() {
-		return codDepartamento;
+	public Departamento getDepartamento() {
+		return departamento;
 	}
-	public void setCodDepartamento(int codDepartamento) {
-		this.codDepartamento = codDepartamento;
+	public void setDepartamento(Departamento departamento) {
+		this.departamento = departamento;
 	}
-	
+
 	
 }
