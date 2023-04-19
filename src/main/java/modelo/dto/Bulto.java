@@ -1,6 +1,6 @@
 package modelo.dto;
 
-public class Bulto {
+public class Bulto  {
 
 	private String codBulto;
 	private int codPaquete;
