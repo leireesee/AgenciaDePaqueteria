@@ -5,7 +5,7 @@ import java.util.Date;
 public  class Envio {
 
 	private int codEnvio; //autoincrement en la base de datos
-	private int codSucursal;
+	private Sucursal sucursal;
 	private String idCliente;
 	private Date fechaEntrada;
 	private Date fechaSalida;
@@ -24,11 +24,12 @@ public  class Envio {
 	public void setCodEnvio(int codEnvio) {
 		this.codEnvio = codEnvio;
 	}
-	public int getCodSucursal() {
-		return codSucursal;
+	
+	public Sucursal getSucursal() {
+		return sucursal;
 	}
-	public void setCodSucursal(int codSucursal) {
-		this.codSucursal = codSucursal;
+	public void setSucursal(Sucursal sucursal) {
+		this.sucursal = sucursal;
 	}
 	public String getIdCliente() {
 		return idCliente;

@@ -3,7 +3,7 @@ package modelo.dto;
 public abstract class Cliente {
 
 	private int codCliente;
-	private int codEnvio;
+	private Envio codEnvio;
 	private String nombre;
 	private String direccion;
 	private String formaPago;
@@ -60,12 +60,13 @@ public abstract class Cliente {
 		this.codCliente = codCliente;
 	}
 
-	public int getCodEnvio() {
+	public Envio getCodEnvio() {
 		return codEnvio;
 	}
 
-	public void setCodEnvio(int codEnvio) {
+	public void setCodEnvio(Envio codEnvio) {
 		this.codEnvio = codEnvio;
 	}
+
 
 }

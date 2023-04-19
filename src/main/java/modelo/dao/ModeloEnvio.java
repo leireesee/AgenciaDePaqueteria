@@ -16,7 +16,7 @@ public class ModeloEnvio extends Conector {
 		try {
 			pstInsert = super.conexion.prepareStatement(
 					"INSERT INTO envio (cod_sucursal, id_cliente, fecha_entrada, fecha_salida, fecha_llegada, entregado, direccion_destino, tracking) VALUES (?,?,?,?,?,?,?,?)");
-			pstInsert.setInt(1, envio.getCodSucursal());
+			pstInsert.setInt(1, envio.getSucursal().getCodSucursal());
 			pstInsert.setString(2, envio.getIdCliente());
 			pstInsert.setDate(3, new Date(envio.getFechaEntrada().getTime()));
 			pstInsert.setDate(4, new Date(envio.getFechaSalida().getTime()));
@@ -50,7 +50,7 @@ public class ModeloEnvio extends Conector {
 		try {
 			pstUpdate = super.conexion.prepareStatement(
 					"UPDATE envio SET cod_sucursal=? ,id_cliente=?, fecha_entrada=?, fecha_salida=?, fecha_llegada=?, entregado=?, direccion_destino=?, tracking=? WHERE cod_envio=?");
-			pstUpdate.setInt(1, envio.getCodSucursal());
+			pstUpdate.setInt(1, envio.getSucursal().getCodSucursal());
 			pstUpdate.setString(2, envio.getIdCliente());
 			pstUpdate.setDate(3, new Date(envio.getFechaEntrada().getTime()));
 			pstUpdate.setDate(4, new Date(envio.getFechaSalida().getTime()));
@@ -64,10 +64,9 @@ public class ModeloEnvio extends Conector {
 			e.printStackTrace();
 		}
 
-	}//fin clase modificar
+	}// fin clase modificar
 
 	public ArrayList<Envio> verEnvios() {
-
 
 		String senteciaSelect = "SELECT * FROM envio";
 		java.sql.Statement st = null;
@@ -84,8 +83,10 @@ public class ModeloEnvio extends Conector {
 			while (resultado.next()) {
 
 				Envio envio = new Envio();
+				ModeloSucursal modeloSucursal = new ModeloSucursal();
+
 				envio.setCodEnvio(resultado.getInt("cod_envio"));
-				envio.setCodSucursal(resultado.getInt("cod_sucursal"));
+				envio.setSucursal(modeloSucursal.verSucursal(resultado.getInt("cod_sucursal")));
 				envio.setIdCliente(resultado.getString("id_cliente"));
 				envio.setFechaEntrada(resultado.getDate("fecha_entrada"));
 				envio.setFechaSalida(resultado.getDate("fecha_salida"));
@@ -94,31 +95,31 @@ public class ModeloEnvio extends Conector {
 				envio.setDireccionDestino(resultado.getString("direccion_destino"));
 				envio.setTracking(resultado.getString("tracking"));
 				envios.add(envio);
-				
+
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
 		return envios;
-	}//fin clase verEnvios
+	}// fin clase verEnvios
 
-
-	public Envio verEnvio(int codEnvio ) {
+	public Envio verEnvio(int codEnvio) {
 
 		String senteciaSelect = "SELECT * FROM envio WHERE cod_envio=?";
 
 		try {
-			PreparedStatement pstSelect=super.conexion.prepareStatement(senteciaSelect);
+			PreparedStatement pstSelect = super.conexion.prepareStatement(senteciaSelect);
 			pstSelect.setInt(1, codEnvio);
-			
-			ResultSet resultado= pstSelect.executeQuery();
+
+			ResultSet resultado = pstSelect.executeQuery();
 			resultado.next();
-			
+
 			Envio envio = new Envio();
-			
+			ModeloSucursal modeloSucursal = new ModeloSucursal();
+
 			envio.setCodEnvio(resultado.getInt("cod_envio"));
-			envio.setCodSucursal(resultado.getInt("cod_sucursal"));
+			envio.setSucursal(modeloSucursal.verSucursal(resultado.getInt("cod_sucursal")));
 			envio.setIdCliente(resultado.getString("id_cliente"));
 			envio.setFechaEntrada(resultado.getDate("fecha_entrada"));
 			envio.setFechaSalida(resultado.getDate("fecha_salida"));
@@ -127,13 +128,11 @@ public class ModeloEnvio extends Conector {
 			envio.setDireccionDestino(resultado.getString("direccion_destino"));
 			envio.setTracking(resultado.getString("tracking"));
 			return envio;
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
-		
-	
 		return null;
 	}
 
