@@ -5,32 +5,35 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Conector {
-    protected Connection conexion;
 
-    /**
-     */
-    public Conector() {
-            try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                this.conexion = DriverManager.getConnection("jdbc:mysql://" + Config.HOST + "/" + Config.BBDD, Config.USERNAME, Config.PASSWORD);
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            
-    }
+	protected Connection conexion;
 
-    public Connection getConexion() {
-        return conexion;
-    }
+	/**
+	 */
+	public Conector() {
+			try {
+				Class.forName("com.mysql.cj.jdbc.Driver");
+				this.conexion = DriverManager.getConnection("jdbc:mysql://" + Config.HOST + "/" + Config.BBDD, Config.USERNAME, Config.PASSWORD);
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+	}
 
-    public void setConexion(Connection conexion) {
-        this.conexion = conexion;
-    }
-    
-    public void cerrarConexion() throws SQLException {
-        conexion.close();
-        
-    }
+	public Connection getConexion() {
+		return conexion;
+	}
+
+	public void setConexion(Connection conexion) {
+		this.conexion = conexion;
+	}
+	
+	public void cerrarConexion() throws SQLException {
+		conexion.close();
+		
+	}
+	
+	
 }
