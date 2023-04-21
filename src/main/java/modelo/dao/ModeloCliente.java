@@ -29,8 +29,16 @@ public class ModeloCliente extends Conector{
 		}
 	}
 	
-	public void eliminarCliente() {
-		
+	public void eliminarCliente(int codCliente) {
+		PreparedStatement pstDelete;
+		try {
+			pstDelete = super.conexion.prepareStatement("DELETE FROM cliente WHERE cod_cliente=?");
+			pstDelete.setInt(1, codCliente);
+			pstDelete.execute();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void modificarCliente() {
