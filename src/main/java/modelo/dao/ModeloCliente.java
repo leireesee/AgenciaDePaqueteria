@@ -2,14 +2,15 @@ package modelo.dao;
 
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import modelo.dto.Cliente;
+import modelo.dto.Envio;
 
-public class ModeloCliente extends Conector{
+public class ModeloCliente extends Conector {
 
-	
 	public void insertarCliente(Cliente cliente) {
 		PreparedStatement pstInsert;
 		try {
@@ -27,7 +28,7 @@ public class ModeloCliente extends Conector{
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void eliminarCliente(int codCliente) {
 		PreparedStatement pstDelete;
 		try {
@@ -39,7 +40,7 @@ public class ModeloCliente extends Conector{
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void modificarCliente(Cliente cliente) {
 		PreparedStatement pstUpdate;
 
@@ -58,18 +59,66 @@ public class ModeloCliente extends Conector{
 			e.printStackTrace();
 		}
 	}
-	
-	public  ArrayList<Cliente> verClientes(){
-		
+
+	public ArrayList<Cliente> verClientes() {
+		String senteciaSelect = "SELECT * FROM cliente";
+		java.sql.Statement st = null;
+		try {
+			st = super.conexion.createStatement();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+
+		ResultSet resultado;
+		try {
+			resultado = st.executeQuery(senteciaSelect);
+			while (resultado.next()) {
+
+				Cliente cliente = new Cliente();
+				ModeloEnvio modeloEnvio = new ModeloEnvio();
+
+				cliente.setEnvio(modeloEnvio.verEnvio(resultado.getInt("cod_envio")));
+				cliente.setNombre(resultado.getString("nombre"));
+				cliente.setDireccion(resultado.getString("direccion"));
+				cliente.setFormaPago(resultado.getString("forma_pago"));
+				cliente.setTelefono(resultado.getString("telefono"));
+				cliente.setContrasena(resultado.getString("contrasena"));
+				clientes.add(cliente);
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return clientes;
+	}
+
+	public Cliente verCliente(int codCliente) {
+		String senteciaSelect = "SELECT * FROM cliente WHERE cod_cliente=?";
+
+		try {
+			PreparedStatement pstSelect = super.conexion.prepareStatement(senteciaSelect);
+			pstSelect.setInt(1, codCliente);
+
+			ResultSet resultado = pstSelect.executeQuery();
+			resultado.next();
+
+			Cliente cliente = new Cliente();
+			ModeloEnvio modeloEnvio = new ModeloEnvio();
+
+			cliente.setEnvio(modeloEnvio.verEnvio(resultado.getInt("cod_envio")));
+			cliente.setNombre(resultado.getString("nombre"));
+			cliente.setDireccion(resultado.getString("direccion"));
+			cliente.setFormaPago(resultado.getString("forma_pago"));
+			cliente.setTelefono(resultado.getString("telefono"));
+			cliente.setContrasena(resultado.getString("contrasena"));
+			return cliente;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
-	
-	public Cliente verCliente() {
-		
-		return null;
-	}
-	
-	
 
-}//fin clase modeloCliente
-
+}// fin clase modeloCliente
