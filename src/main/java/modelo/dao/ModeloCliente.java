@@ -14,8 +14,7 @@ public class ModeloCliente extends Conector{
 		PreparedStatement pstInsert;
 		try {
 			pstInsert = super.conexion.prepareStatement(
-					"INSERT INTO cliente (cod_cliente, cod_envio, nombre, direccion, forma_pago, telefono, contrasena) VALUES (?,?,?,?,?,?,?)");
-			pstInsert.setInt(1, cliente.getCodCliente());
+					"INSERT INTO cliente ( cod_envio, nombre, direccion, forma_pago, telefono, contrasena) VALUES (?,?,?,?,?,?)");
 			pstInsert.setInt(2, cliente.getEnvio().getCodEnvio());
 			pstInsert.setString(3, cliente.getNombre());
 			pstInsert.setString(4, cliente.getDireccion());
@@ -41,8 +40,23 @@ public class ModeloCliente extends Conector{
 		}
 	}
 	
-	public void modificarCliente() {
-		
+	public void modificarCliente(Cliente cliente) {
+		PreparedStatement pstUpdate;
+
+		try {
+			pstUpdate = super.conexion.prepareStatement(
+					"UPDATE cliente SET , cod_envio=?, nombre=?, direccion=?, forma_pago=?, telefono=?, contrasena=? WHERE cod_cliente=?");
+			pstUpdate.setInt(1, cliente.getEnvio().getCodEnvio());
+			pstUpdate.setString(2, cliente.getNombre());
+			pstUpdate.setString(3, cliente.getDireccion());
+			pstUpdate.setString(4, cliente.getFormaPago());
+			pstUpdate.setString(5, cliente.getTelefono());
+			pstUpdate.setString(6, cliente.getContrasena());
+			pstUpdate.setInt(7, cliente.getCodCliente());
+			pstUpdate.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public  ArrayList<Cliente> verClientes(){
