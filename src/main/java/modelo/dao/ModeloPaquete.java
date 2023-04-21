@@ -1,9 +1,11 @@
 package modelo.dao;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import modelo.dto.Carta;
+import modelo.dto.Envio;
 import modelo.dto.Paquete;
 
 public class ModeloPaquete extends Conector {
@@ -51,6 +53,33 @@ public class ModeloPaquete extends Conector {
 		}
 
 	}
+	
+	
+	public Paquete verPaquete(int codEnvio) {
+		String senteciaSelect = "SELECT * FROM paquete WHERE cod_envio=?";
+		
+		try {
+			PreparedStatement pstSelect = super.conexion.prepareStatement(senteciaSelect);
+			pstSelect.setInt(1, codEnvio);
+
+			ResultSet resultado = pstSelect.executeQuery();
+			resultado.next();
+
+			Paquete paquete = new Paquete();
+			
+
+			paquete.setCodPaquete(resultado.getInt("cod_paquete"));
+			paquete.setCantidadBultos(resultado.getInt("cantidad_bultos"));
+			paquete.setCodEnvio(resultado.getInt("cod_envio"));
+			return paquete;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+	
 	
 	
 
