@@ -50,5 +50,7 @@ public class ModeloCarta extends Conector {
 		}
 
 	}
+	
+	
 }
 // fin clase modeloCarta
