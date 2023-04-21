@@ -15,9 +15,8 @@ public class ModeloEnvio extends Conector {
 		PreparedStatement pstInsert;
 		try {
 			pstInsert = super.conexion.prepareStatement(
-					"INSERT INTO envio (cod_sucursal, id_cliente, fecha_entrada, fecha_salida, fecha_llegada, entregado, direccion_destino, tracking) VALUES (?,?,?,?,?,?,?,?)");
+					"INSERT INTO envio (cod_sucursal, fecha_entrada, fecha_salida, fecha_llegada, entregado, direccion_destino, tracking) VALUES (?,?,?,?,?,?,?)");
 			pstInsert.setInt(1, envio.getSucursal().getCodSucursal());
-			pstInsert.setString(2, envio.getIdCliente());
 			pstInsert.setDate(3, new Date(envio.getFechaEntrada().getTime()));
 			pstInsert.setDate(4, new Date(envio.getFechaSalida().getTime()));
 			pstInsert.setDate(5, new Date(envio.getFechaLlegada().getTime()));
@@ -49,9 +48,8 @@ public class ModeloEnvio extends Conector {
 
 		try {
 			pstUpdate = super.conexion.prepareStatement(
-					"UPDATE envio SET cod_sucursal=? ,id_cliente=?, fecha_entrada=?, fecha_salida=?, fecha_llegada=?, entregado=?, direccion_destino=?, tracking=? WHERE cod_envio=?");
+					"UPDATE envio SET cod_sucursal=? , fecha_entrada=?, fecha_salida=?, fecha_llegada=?, entregado=?, direccion_destino=?, tracking=? WHERE cod_envio=?");
 			pstUpdate.setInt(1, envio.getSucursal().getCodSucursal());
-			pstUpdate.setString(2, envio.getIdCliente());
 			pstUpdate.setDate(3, new Date(envio.getFechaEntrada().getTime()));
 			pstUpdate.setDate(4, new Date(envio.getFechaSalida().getTime()));
 			pstUpdate.setDate(5, new Date(envio.getFechaLlegada().getTime()));
@@ -87,7 +85,6 @@ public class ModeloEnvio extends Conector {
 
 				envio.setCodEnvio(resultado.getInt("cod_envio"));
 				envio.setSucursal(modeloSucursal.verSucursal(resultado.getInt("cod_sucursal")));
-				envio.setIdCliente(resultado.getString("id_cliente"));
 				envio.setFechaEntrada(resultado.getDate("fecha_entrada"));
 				envio.setFechaSalida(resultado.getDate("fecha_salida"));
 				envio.setFechaLlegada(resultado.getDate("fecha_llegada"));
@@ -120,7 +117,6 @@ public class ModeloEnvio extends Conector {
 
 			envio.setCodEnvio(resultado.getInt("cod_envio"));
 			envio.setSucursal(modeloSucursal.verSucursal(resultado.getInt("cod_sucursal")));
-			envio.setIdCliente(resultado.getString("id_cliente"));
 			envio.setFechaEntrada(resultado.getDate("fecha_entrada"));
 			envio.setFechaSalida(resultado.getDate("fecha_salida"));
 			envio.setFechaLlegada(resultado.getDate("fecha_llegada"));

@@ -6,7 +6,6 @@ public  class Envio {
 
 	private int codEnvio; //autoincrement en la base de datos
 	private Sucursal sucursal;
-	private String idCliente;
 	private Date fechaEntrada;
 	private Date fechaSalida;
 	private Date fechaLlegada;
@@ -31,12 +30,7 @@ public  class Envio {
 	public void setSucursal(Sucursal sucursal) {
 		this.sucursal = sucursal;
 	}
-	public String getIdCliente() {
-		return idCliente;
-	}
-	public void setIdCliente(String idCliente) {
-		this.idCliente = idCliente;
-	}
+
 	public Date getFechaEntrada() {
 		return fechaEntrada;
 	}
