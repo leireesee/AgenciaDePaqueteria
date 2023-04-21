@@ -2,6 +2,7 @@ package modelo.dao;
 
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -71,8 +72,45 @@ public class ModeloEmpleado extends Conector {
 	}
 
 	public ArrayList<Empleado> verEmpleados() {
+		String sentenciaSelect = "SELECT * FROM empleados";
+		java.sql.Statement st = null;
+		try {
+			st = super.conexion.createStatement();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		ArrayList<Empleado> empleados = new ArrayList<Empleado>();
+		ResultSet resultado;
+		try {
+			resultado = st.executeQuery(sentenciaSelect);
+			while (resultado.next()) {
+				Empleado empleado = new Empleado();
+				ModeloSucursal modeloSucursal = new ModeloSucursal();
+				ModeloDepartamento modeloDepartamento = new ModeloDepartamento();
+
+				empleado.setSucursal(modeloSucursal.verSucursal(resultado.getInt("cod_sucursal")));
+				empleado.setDni(resultado.getString("dni"));
+				empleado.setNombre(resultado.getString("nombre"));
+				empleado.setDireccion(resultado.getString("direccion"));
+				empleado.setTelefono(resultado.getString("telefono"));
+				empleado.setNumSeguridadS(resultado.getString("num_seguridad_social"));
+				empleado.setCategoria(resultado.getString("categoria"));
+				empleado.setNomina(resultado.getDouble("nomina"));
+				empleado.setComision(resultado.getDouble("comision"));
+				empleado.setDepartamento(modeloDepartamento.verDepartamento(resultado.getInt("cod_departamento")));
+				empleado.setContrasena(resultado.getString("contrasena"));
+				empleados.add(empleado);
+
+				return empleados;
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 
 		return null;
+
 	}
 
 	public Empleado verEmpleado() {
