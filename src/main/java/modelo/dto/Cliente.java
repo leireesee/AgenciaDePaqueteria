@@ -1,6 +1,6 @@
 package modelo.dto;
 
-public abstract class Cliente {
+public class Cliente {
 
 	private int codCliente;
 	private Envio envio;
