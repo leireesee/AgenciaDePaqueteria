@@ -38,7 +38,7 @@ public class ModeloEmpleado extends Conector {
 		PreparedStatement pstDelete;
 		try {
 			pstDelete = super.conexion.prepareStatement("DELETE FROM empleados WHERE dni=?");
-			pstDelete.setString (1, dni);
+			pstDelete.setString(1, dni);
 			pstDelete.execute();
 
 		} catch (SQLException e) {
@@ -46,7 +46,27 @@ public class ModeloEmpleado extends Conector {
 		}
 	}
 
-	public void modificarEmpleado() {
+	public void modificarEmpleado(Empleado empleado) {
+		PreparedStatement pstUpdate;
+
+		try {
+			pstUpdate = super.conexion.prepareStatement(
+					"UPDATE empleados SET cod_sucursal=? , dni=?, nombre=?, direccion=?, telefono=?, num_seguridad_social=?, categoria=?, nomina=?, comision=?, cod_departamento=?, contrasena=? WHERE dni=?");
+			pstUpdate.setInt(1, empleado.getSucursal().getCodSucursal());
+			pstUpdate.setString(2, empleado.getDni());
+			pstUpdate.setString(3, empleado.getNombre());
+			pstUpdate.setString(4, empleado.getDireccion());
+			pstUpdate.setString(5, empleado.getTelefono());
+			pstUpdate.setString(6, empleado.getNumSeguridadS());
+			pstUpdate.setString(7, empleado.getCategoria());
+			pstUpdate.setDouble(8, empleado.getNomina());
+			pstUpdate.setDouble(9, empleado.getComision());
+			pstUpdate.setInt(10, empleado.getDepartamento().getCodDepartamento());
+			pstUpdate.setString(11, empleado.getContrasena());
+			pstUpdate.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 
 	}
 
