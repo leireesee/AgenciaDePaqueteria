@@ -17,12 +17,12 @@ public class ModeloEnvio extends Conector {
 			pstInsert = super.conexion.prepareStatement(
 					"INSERT INTO envio (cod_sucursal, fecha_entrada, fecha_salida, fecha_llegada, entregado, direccion_destino, tracking) VALUES (?,?,?,?,?,?,?)");
 			pstInsert.setInt(1, envio.getSucursal().getCodSucursal());
-			pstInsert.setDate(3, new Date(envio.getFechaEntrada().getTime()));
-			pstInsert.setDate(4, new Date(envio.getFechaSalida().getTime()));
-			pstInsert.setDate(5, new Date(envio.getFechaLlegada().getTime()));
-			pstInsert.setBoolean(6, envio.isEntregado());
-			pstInsert.setString(7, envio.getDireccionDestino());
-			pstInsert.setString(8, envio.getTracking());
+			pstInsert.setDate(2, new Date(envio.getFechaEntrada().getTime()));
+			pstInsert.setDate(3, new Date(envio.getFechaSalida().getTime()));
+			pstInsert.setDate(4, new Date(envio.getFechaLlegada().getTime()));
+			pstInsert.setBoolean(5, envio.isEntregado());
+			pstInsert.setString(6, envio.getDireccionDestino());
+			pstInsert.setString(7, envio.getTracking());
 			pstInsert.execute();
 
 		} catch (SQLException e) {
