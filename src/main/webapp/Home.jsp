@@ -77,7 +77,7 @@
                         </li>
                         <li style="margin-left: 10px;">
                             <div style="background-color: #004E86; padding: 7px; border-radius: 5px; color: white;">
-                            	<a href="">
+                            	<a href="ControladorRegistrarse">
                                 	<i class="fa-solid fa-user-plus" style="color: #FFFFFF;"></i>   Registrarse </li>
                             	</a>
                             </div>

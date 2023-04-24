@@ -80,11 +80,11 @@
         </nav>
     </section>
 
-    <section style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; width: 100%; height: 80vh;">
+    <section style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; width: 100%; height: 100vh;">
         <div style="box-shadow: 0px 0px 10px rgb(127, 140, 255); padding: 30px;">
             <h2>Registrarme</h2>
             <br>
-            <form action="#" class="signin-form" style="width: 400px;">
+            <form method="post" action = "ControladorRegistrarse" class="signin-form" style="width: 400px;">
                 
                 <div class="form-group mb-3">
                     <label class="label" for="name">DNI / CIF</label>
@@ -92,7 +92,7 @@
                 </div>
 
                 <div class="form-group mb-3">
-                    <label class="label" for="name">Nombre</label>
+                    <label class="label" for="name" >Nombre</label>
                     <input type="name" class="form-control" placeholder="Nombre" required="" name="nombre">
                 </div>
 
@@ -118,7 +118,7 @@
                 <br>
             </form>
             <br>
-            <p class="text-center">Ya tienes una cuenta? <a data-toggle="tab" href="#">Iniciar Sesión</a></p>
+            <p class="text-center">Ya tienes una cuenta? <a data-toggle="tab" href="ControladorLoginInicioS">Iniciar Sesión</a></p>
         </div>
     </section>
 

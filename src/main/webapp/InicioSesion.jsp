@@ -105,7 +105,7 @@
                 
             </form>
             <br>
-            <p class="text-center">No tienes una cuenta? <a data-toggle="tab" href="#">Registrate</a></p>
+            <p class="text-center">No tienes una cuenta? <a data-toggle="tab" href="ControladorRegistrarse">Registrate</a></p>
         </div>
     </section>
 

@@ -15,12 +15,13 @@ public class ModeloCliente extends Conector {
 		PreparedStatement pstInsert;
 		try {
 			pstInsert = super.conexion.prepareStatement(
-					"INSERT INTO cliente ( DniCif, nombre, direccion, forma_pago, telefono, contrasena) VALUES (?,?,?,?,?)");
-			pstInsert.setString(1, cliente.getNombre());
-			pstInsert.setString(2, cliente.getDireccion());
-			pstInsert.setString(3, cliente.getFormaPago());
-			pstInsert.setString(4, cliente.getTelefono());
-			pstInsert.setString(5, cliente.getContrasena());
+					"INSERT INTO cliente ( Dni_Cif, nombre, direccion, forma_pago, telefono, contrasena) VALUES (?,?,?,?,?,?)");
+			pstInsert.setString(1, cliente.getDniCif());
+			pstInsert.setString(2, cliente.getNombre());
+			pstInsert.setString(3, cliente.getDireccion());
+			pstInsert.setString(4, cliente.getFormaPago());
+			pstInsert.setString(5, cliente.getTelefono());
+			pstInsert.setString(6, cliente.getContrasena());
 			pstInsert.execute();
 
 		} catch (SQLException e) {
@@ -45,7 +46,8 @@ public class ModeloCliente extends Conector {
 
 		try {
 			pstUpdate = super.conexion.prepareStatement(
-					"UPDATE cliente SET DniCif=?,  nombre=?, direccion=?, forma_pago=?, telefono=?, contrasena=? WHERE cod_cliente=?");
+					"UPDATE cliente SET Dni_Cif=?,  nombre=?, direccion=?, forma_pago=?, telefono=?, contrasena=? WHERE cod_cliente=?");
+			pstUpdate.setString(1, cliente.getDniCif());
 			pstUpdate.setString(2, cliente.getNombre());
 			pstUpdate.setString(3, cliente.getDireccion());
 			pstUpdate.setString(4, cliente.getFormaPago());
@@ -105,6 +107,7 @@ public class ModeloCliente extends Conector {
 			Cliente cliente = new Cliente();
 			ModeloEnvio modeloEnvio = new ModeloEnvio();
 			
+			cliente.setCodCliente(resultado.getInt("cod_cliente"));
 			cliente.setDniCif(resultado.getString("Dni_Cif"));
 			cliente.setNombre(resultado.getString("nombre"));
 			cliente.setDireccion(resultado.getString("direccion"));
