@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class LoginInicioS
+ * Servlet implementation class ControladorHome
  */
-@WebServlet("/LoginInicioS")
-public class LoginInicioS extends HttpServlet {
+@WebServlet("/ControladorHome")
+public class ControladorHome extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginInicioS() {
+    public ControladorHome() {
         super();
     }
 
@@ -26,6 +26,8 @@ public class LoginInicioS extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.getRequestDispatcher("Home.jsp").forward(request, response);
+
 	}
 
 	/**

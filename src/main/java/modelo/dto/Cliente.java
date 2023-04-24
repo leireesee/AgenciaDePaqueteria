@@ -3,14 +3,22 @@ package modelo.dto;
 public class Cliente {
 
 	private int codCliente;
+	private String dniCif;
 	private String nombre;
 	private String direccion;
 	private String formaPago;
 	private String telefono;
 	private String contrasena;
 
-
 	// setter and getters
+	public String getDniCif() {
+		return dniCif;
+	}
+
+	public void setDniCif(String dniCif) {
+		this.dniCif = dniCif;
+	}
+
 	public String getNombre() {
 		return nombre;
 	}
@@ -58,9 +66,5 @@ public class Cliente {
 	public void setCodCliente(int codCliente) {
 		this.codCliente = codCliente;
 	}
-
-
-
-
 
 }

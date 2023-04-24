@@ -15,7 +15,7 @@ public class ModeloCliente extends Conector {
 		PreparedStatement pstInsert;
 		try {
 			pstInsert = super.conexion.prepareStatement(
-					"INSERT INTO cliente (  nombre, direccion, forma_pago, telefono, contrasena) VALUES (?,?,?,?,?)");
+					"INSERT INTO cliente ( DniCif, nombre, direccion, forma_pago, telefono, contrasena) VALUES (?,?,?,?,?)");
 			pstInsert.setString(1, cliente.getNombre());
 			pstInsert.setString(2, cliente.getDireccion());
 			pstInsert.setString(3, cliente.getFormaPago());
@@ -45,7 +45,7 @@ public class ModeloCliente extends Conector {
 
 		try {
 			pstUpdate = super.conexion.prepareStatement(
-					"UPDATE cliente SET ,  nombre=?, direccion=?, forma_pago=?, telefono=?, contrasena=? WHERE cod_cliente=?");
+					"UPDATE cliente SET DniCif=?,  nombre=?, direccion=?, forma_pago=?, telefono=?, contrasena=? WHERE cod_cliente=?");
 			pstUpdate.setString(2, cliente.getNombre());
 			pstUpdate.setString(3, cliente.getDireccion());
 			pstUpdate.setString(4, cliente.getFormaPago());
@@ -75,7 +75,8 @@ public class ModeloCliente extends Conector {
 
 				Cliente cliente = new Cliente();
 				ModeloEnvio modeloEnvio = new ModeloEnvio();
-
+				cliente.setCodCliente(resultado.getInt("cod_cliente"));
+				cliente.setDniCif(resultado.getString("Dni_Cif"));
 				cliente.setNombre(resultado.getString("nombre"));
 				cliente.setDireccion(resultado.getString("direccion"));
 				cliente.setFormaPago(resultado.getString("forma_pago"));
@@ -103,7 +104,8 @@ public class ModeloCliente extends Conector {
 
 			Cliente cliente = new Cliente();
 			ModeloEnvio modeloEnvio = new ModeloEnvio();
-
+			
+			cliente.setDniCif(resultado.getString("Dni_Cif"));
 			cliente.setNombre(resultado.getString("nombre"));
 			cliente.setDireccion(resultado.getString("direccion"));
 			cliente.setFormaPago(resultado.getString("forma_pago"));
@@ -115,6 +117,30 @@ public class ModeloCliente extends Conector {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	public boolean verificar(String codCliente, String contrasena) {
+		String senteciaSelect = "SELECT * FROM cliente WHERE Dni_Cif=? AND contrasena =?";
+		boolean verificar = false;
+		
+		try {
+			PreparedStatement pstSelect = super.conexion.prepareStatement(senteciaSelect);
+			pstSelect.setString(1, codCliente);
+			pstSelect.setString(2, contrasena);
+
+			ResultSet resultado = pstSelect.executeQuery();
+			
+			if(resultado.next()) {
+				verificar = true;
+			} else {
+				verificar = false;
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return verificar;
 	}
 
 }// fin clase modeloCliente
