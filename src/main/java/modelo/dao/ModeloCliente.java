@@ -15,13 +15,12 @@ public class ModeloCliente extends Conector {
 		PreparedStatement pstInsert;
 		try {
 			pstInsert = super.conexion.prepareStatement(
-					"INSERT INTO cliente ( cod_envio, nombre, direccion, forma_pago, telefono, contrasena) VALUES (?,?,?,?,?,?)");
-			pstInsert.setInt(2, cliente.getEnvio().getCodEnvio());
-			pstInsert.setString(3, cliente.getNombre());
-			pstInsert.setString(4, cliente.getDireccion());
-			pstInsert.setString(5, cliente.getFormaPago());
-			pstInsert.setString(6, cliente.getTelefono());
-			pstInsert.setString(7, cliente.getContrasena());
+					"INSERT INTO cliente (  nombre, direccion, forma_pago, telefono, contrasena) VALUES (?,?,?,?,?)");
+			pstInsert.setString(1, cliente.getNombre());
+			pstInsert.setString(2, cliente.getDireccion());
+			pstInsert.setString(3, cliente.getFormaPago());
+			pstInsert.setString(4, cliente.getTelefono());
+			pstInsert.setString(5, cliente.getContrasena());
 			pstInsert.execute();
 
 		} catch (SQLException e) {
@@ -46,8 +45,7 @@ public class ModeloCliente extends Conector {
 
 		try {
 			pstUpdate = super.conexion.prepareStatement(
-					"UPDATE cliente SET , cod_envio=?, nombre=?, direccion=?, forma_pago=?, telefono=?, contrasena=? WHERE cod_cliente=?");
-			pstUpdate.setInt(1, cliente.getEnvio().getCodEnvio());
+					"UPDATE cliente SET ,  nombre=?, direccion=?, forma_pago=?, telefono=?, contrasena=? WHERE cod_cliente=?");
 			pstUpdate.setString(2, cliente.getNombre());
 			pstUpdate.setString(3, cliente.getDireccion());
 			pstUpdate.setString(4, cliente.getFormaPago());
@@ -78,7 +76,6 @@ public class ModeloCliente extends Conector {
 				Cliente cliente = new Cliente();
 				ModeloEnvio modeloEnvio = new ModeloEnvio();
 
-				cliente.setEnvio(modeloEnvio.verEnvio(resultado.getInt("cod_envio")));
 				cliente.setNombre(resultado.getString("nombre"));
 				cliente.setDireccion(resultado.getString("direccion"));
 				cliente.setFormaPago(resultado.getString("forma_pago"));
@@ -107,7 +104,6 @@ public class ModeloCliente extends Conector {
 			Cliente cliente = new Cliente();
 			ModeloEnvio modeloEnvio = new ModeloEnvio();
 
-			cliente.setEnvio(modeloEnvio.verEnvio(resultado.getInt("cod_envio")));
 			cliente.setNombre(resultado.getString("nombre"));
 			cliente.setDireccion(resultado.getString("direccion"));
 			cliente.setFormaPago(resultado.getString("forma_pago"));

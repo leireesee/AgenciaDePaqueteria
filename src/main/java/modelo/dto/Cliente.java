@@ -3,7 +3,6 @@ package modelo.dto;
 public class Cliente {
 
 	private int codCliente;
-	private Envio envio;
 	private String nombre;
 	private String direccion;
 	private String formaPago;
@@ -60,13 +59,6 @@ public class Cliente {
 		this.codCliente = codCliente;
 	}
 
-	public Envio getEnvio() {
-		return envio;
-	}
-
-	public void setEnvio(Envio envio) {
-		this.envio = envio;
-	}
 
 
 
