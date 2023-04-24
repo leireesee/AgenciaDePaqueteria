@@ -122,28 +122,34 @@ public class ModeloCliente extends Conector {
 		return null;
 	}
 
-	public boolean verificar(String codCliente, String contrasena) {
+	public Cliente verificar(String dniCif, String contrasena) {
 		String senteciaSelect = "SELECT * FROM cliente WHERE Dni_Cif=? AND contrasena =?";
-		boolean verificar = false;
+		Cliente cliente= new Cliente();
+		
+		cliente.setCodCliente(404);
 		
 		try {
 			PreparedStatement pstSelect = super.conexion.prepareStatement(senteciaSelect);
-			pstSelect.setString(1, codCliente);
+			pstSelect.setString(1, dniCif);
 			pstSelect.setString(2, contrasena);
 
 			ResultSet resultado = pstSelect.executeQuery();
 			
-			if(resultado.next()) {
-				verificar = true;
-			} else {
-				verificar = false;
+			while (resultado.next()) {
+				cliente.setCodCliente(resultado.getInt(1));
+				cliente.setDniCif(resultado.getString(2));
+				cliente.setNombre(resultado.getString(3));
+				cliente.setDireccion(resultado.getString(4));
+				cliente.setFormaPago(resultado.getString(5));
+				cliente.setTelefono(resultado.getString(6));
+				cliente.setContrasena(resultado.getString(7));
 			}
-
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
-		return verificar;
+		return cliente;
 	}
 
 }// fin clase modeloCliente

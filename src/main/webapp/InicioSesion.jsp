@@ -88,7 +88,7 @@
                 
                 <div class="form-group mb-3">
                     <label class="label" for="name">DNI / CIF</label>
-                    <input type="text" class="form-control" placeholder="DNI / CIF" required="" name="codCliente">
+                    <input type="text" class="form-control" placeholder="DNI / CIF" required="" name="dniCif">
                 </div>
                 <div class="form-group mb-3">
                     <label class="label" for="password">CONTRASEÑA</label>

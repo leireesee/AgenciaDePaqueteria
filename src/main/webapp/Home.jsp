@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,22 +68,32 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contacta</a>
                         </li>
-                        <li style="margin-left: 100px;">
-                            <div style="background-color: #dfa800; padding: 7px; border-radius: 5px; color: white;">
-                            	<a href='ControladorLoginInicioS'>
-                                	<i class="fa-solid fa-user" style="color: #FFFFFF"></i>
-                                	Iniciar Sesión
-                                </a>
-                            </div>
-                        </li>
-                        <li style="margin-left: 10px;">
-                            <div style="background-color: #004E86; padding: 7px; border-radius: 5px; color: white;">
-                            	<a href="ControladorRegistrarse">
-                                	<i class="fa-solid fa-user-plus" style="color: #FFFFFF;"></i>   Registrarse </li>
-                            	</a>
-                            </div>
-                        </li>
-
+                        
+                        <c:if test="${sessionScope.cliente.codCliente!=404}">
+                        	 <li style="margin-left: 100px;">
+	                            <div style="background-color: #dfa800; padding: 7px; border-radius: 5px; color: white;">
+	                            	Bienvenid@, ${sessionScope.cliente.nombre}
+	                            </div>
+	                        </li>
+                        </c:if>
+                        
+                        <c:if test="${sessionScope.cliente.codCliente==404}">
+	                        <li style="margin-left: 100px;">
+	                            <div style="background-color: #dfa800; padding: 7px; border-radius: 5px; color: white;">
+	                            	<a href='ControladorLoginInicioS'>
+	                                	<i class="fa-solid fa-user" style="color: #FFFFFF"></i>
+	                                	Iniciar Sesión
+	                                </a>
+	                            </div>
+	                        </li>
+	                        <li style="margin-left: 10px;">
+	                            <div style="background-color: #004E86; padding: 7px; border-radius: 5px; color: white;">
+	                            	<a href="ControladorRegistrarse">
+	                                	<i class="fa-solid fa-user-plus" style="color: #FFFFFF;"></i>   Registrarse
+	                            	</a>
+	                            </div>
+	                        </li>
+                        </c:if>
                     </ul>
                 </div>
             </div>

@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import modelo.dto.Cliente;
 import modelo.dao.ModeloCliente;
@@ -32,7 +33,6 @@ public class ControladorLoginInicioS extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 
 		request.getRequestDispatcher("InicioSesion.jsp").forward(request, response);
 
@@ -47,10 +47,14 @@ public class ControladorLoginInicioS extends HttpServlet {
 		ModeloCliente modeloCliente = new ModeloCliente();
 
 
-		String codCliente = request.getParameter("codCliente");
+		String dniCif = request.getParameter("dniCif");
 		String contrasena = request.getParameter("contrasena");
 
-		if (modeloCliente.verificar(codCliente,contrasena)) {
+		Cliente cliente = modeloCliente.verificar(dniCif,contrasena);
+		
+		if (cliente != null) {
+			HttpSession sesion = request.getSession();
+			sesion.setAttribute("cliente", cliente);
 			request.getRequestDispatcher("ControladorHome").forward(request, response);
 		}else {
 			doGet(request, response);
