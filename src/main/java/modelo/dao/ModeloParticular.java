@@ -40,17 +40,17 @@ public class ModeloParticular extends Conector {
 
 		try {
 			pstUpdate = super.conexion
-					.prepareStatement("UPDATE particular SET , cod_cliente =?, dni=?WHERE cod_cliente=?");
+					.prepareStatement("UPDATE particular SET  cod_cliente =?, dni=?WHERE cod_cliente=?");
 			pstUpdate.setInt(1, particular.getCodCliente());
 			pstUpdate.setString(2, particular.getDni());
-			pstUpdate.setInt(7, particular.getCodCliente());
+			pstUpdate.setInt(3, particular.getCodCliente());
 			pstUpdate.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 
-	public ArrayList<Particular> verParticular() {
+	public ArrayList<Particular> verParticulares() {
 		String senteciaSelect = "SELECT * FROM particular";
 		java.sql.Statement st = null;
 		try {
@@ -79,7 +79,7 @@ public class ModeloParticular extends Conector {
 		return particulares;
 	}
 
-	public Cliente verCliente(int codCliente) {
+	public Particular verParticular(int codCliente) {
 		String senteciaSelect = "SELECT * FROM particular WHERE cod_cliente=?";
 
 		try {
