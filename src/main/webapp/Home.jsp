@@ -69,7 +69,7 @@
                             <a class="nav-link" href="#">Contacta</a>
                         </li>
                         
-                        <c:if test="${sessionScope.cliente.codCliente!=404}">
+                        <c:if test="${sessionScope.cliente.codCliente!=null}">
                         	 <li style="margin-left: 100px;">
 	                            <div style="background-color: #dfa800; padding: 7px; border-radius: 5px; color: white;">
 	                            	Bienvenid@, ${sessionScope.cliente.nombre}
@@ -77,7 +77,7 @@
 	                        </li>
                         </c:if>
                         
-                        <c:if test="${sessionScope.cliente.codCliente==404}">
+                        <c:if test="${sessionScope.cliente.codCliente==null}">
 	                        <li style="margin-left: 100px;">
 	                            <div style="background-color: #dfa800; padding: 7px; border-radius: 5px; color: white;">
 	                            	<a href='ControladorLoginInicioS'>

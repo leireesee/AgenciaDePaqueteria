@@ -138,4 +138,24 @@ public class ModeloEnvio extends Conector {
 		return null;
 	}
 
+	public int recibirUltimoCodigo() {
+
+		String senteciaSelect = "SELECT MAX(COD_ENVIO) FROM ENVIO ";
+
+		try {
+			PreparedStatement pstSelect = super.conexion.prepareStatement(senteciaSelect);
+
+			ResultSet resultado = pstSelect.executeQuery();
+			resultado.next();
+
+			int codigoEnvio = resultado.getInt("cod_envio");
+
+			return codigoEnvio;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return -1;
+	}
+
 }// fin clase

@@ -11,10 +11,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelo.dao.ModeloCarta;
 import modelo.dao.ModeloCliente;
 import modelo.dao.ModeloEnvio;
 import modelo.dao.ModeloSucursal;
 import modelo.dto.Envio;
+import modelo.dto.Carta;
 
 /**
  * Servlet implementation class ControladorEnvioInsertar
@@ -79,6 +81,16 @@ public class ControladorEnvioInsertar extends HttpServlet {
 			e.printStackTrace();
 		}
 		// parte carta
+		
+		ModeloCarta modeloCarta = new ModeloCarta();
+		Carta carta = (Carta)modeloEnvio.verEnvio(modeloEnvio.recibirUltimoCodigo());
+		boolean mensual = Boolean.parseBoolean(request.getParameter("mensual"));
+		
+		carta.setMensual(mensual);
+		
+		modeloCarta.insertarCarta(carta);
+		
+		//parte paquete 
 
 		doGet(request, response);
 	}
