@@ -14,8 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 import modelo.dao.ModeloCarta;
 import modelo.dao.ModeloCliente;
 import modelo.dao.ModeloEnvio;
+import modelo.dao.ModeloPaquete;
 import modelo.dao.ModeloSucursal;
 import modelo.dto.Envio;
+import modelo.dto.Paquete;
 import modelo.dto.Carta;
 
 /**
@@ -38,7 +40,7 @@ public class ControladorEnvioInsertar extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
 	}
 
 	/**
@@ -63,7 +65,7 @@ public class ControladorEnvioInsertar extends HttpServlet {
 			Date fechaSalida = new SimpleDateFormat("dd/MM/yyyy").parse(request.getParameter("fecha_salida"));
 			Date fechaLlegada = new SimpleDateFormat("dd/MM/yyyy").parse(request.getParameter("fecha_llegada"));
 
-			boolean entregado = Boolean.parseBoolean(request.getParameter("entregado"));
+			boolean entregado =false;
 			String direccionDestino = request.getParameter("direccion_destino");
 			String tracking = request.getParameter("tracking");
 
@@ -80,18 +82,37 @@ public class ControladorEnvioInsertar extends HttpServlet {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		// parte carta
-		
-		ModeloCarta modeloCarta = new ModeloCarta();
-		Carta carta = (Carta)modeloEnvio.verEnvio(modeloEnvio.recibirUltimoCodigo());
-		boolean mensual = Boolean.parseBoolean(request.getParameter("mensual"));
-		
-		carta.setMensual(mensual);
-		
-		modeloCarta.insertarCarta(carta);
-		
-		//parte paquete 
 
+		String tipoEnvio = request.getParameter("tipoEnvio");
+
+		// parte carta
+		if(tipoEnvio == "Carta") {
+		ModeloCarta modeloCarta = new ModeloCarta();
+		Carta carta = (Carta) modeloEnvio.verEnvio(modeloEnvio.recibirUltimoCodigo());
+		boolean mensual = Boolean.parseBoolean(request.getParameter("mensual"));
+
+		carta.setMensual(mensual);
+
+		modeloCarta.insertarCarta(carta);
+			
+		}
+		
+		if(tipoEnvio =="Paquete") {
+		
+			request.getRequestDispatcher("ControladorBulto").forward(request, response);
+
+			
+		
+		}
+		
+		ModeloPaquete modeloPaquete = new ModeloPaquete();
+
+//		int cantidadBueltas = Integer.parseInt(request.getParameter("cantidad_bultos"));
+//		Paquete paquete = (Paquete) modeloEnvio.verEnvio(modeloEnvio.recibirUltimoCodigo());
+//
+//		paquete.setCantidadBultos(cantidadBueltas);
+//		modeloPaquete.insertarPaqute(paquete);
+//		
 		doGet(request, response);
 	}
 

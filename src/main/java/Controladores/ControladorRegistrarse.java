@@ -57,7 +57,7 @@ public class ControladorRegistrarse extends HttpServlet {
 		cliente.setContrasena(contrasena);
 		
 		modeloCliente.insertarCliente(cliente);
-		
+		   
 		
 		//hay que poner se ha realizado con exito
 		doGet(request, response);
