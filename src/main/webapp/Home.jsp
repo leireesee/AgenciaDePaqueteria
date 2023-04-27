@@ -72,7 +72,7 @@
                         <c:if test="${sessionScope.cliente.codCliente!=null}">
                         	 <li style="margin-left: 100px;">
 	                            <div style="background-color: #dfa800; padding: 7px; border-radius: 5px; color: white;">
-	                            	Bienvenid@, ${sessionScope.cliente.nombre}
+	                            	Bienvenid@, ${sessionScope.cliente.nombre}!
 	                            </div>
 	                        </li>
                         </c:if>

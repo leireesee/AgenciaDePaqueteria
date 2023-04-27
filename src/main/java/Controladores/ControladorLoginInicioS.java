@@ -46,17 +46,16 @@ public class ControladorLoginInicioS extends HttpServlet {
 			throws ServletException, IOException {
 		ModeloCliente modeloCliente = new ModeloCliente();
 
-
 		String dniCif = request.getParameter("dniCif");
 		String contrasena = request.getParameter("contrasena");
 
-		Cliente cliente = modeloCliente.verificar(dniCif,contrasena);
-		
-		if (cliente != null) {
+		Cliente cliente = modeloCliente.verificar(dniCif, contrasena);
+
+		if (cliente.getDniCif() != null) {
 			HttpSession sesion = request.getSession();
 			sesion.setAttribute("cliente", cliente);
 			request.getRequestDispatcher("ControladorHome").forward(request, response);
-		}else {
+		} else {
 			doGet(request, response);
 
 		}

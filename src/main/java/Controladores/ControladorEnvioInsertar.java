@@ -40,7 +40,8 @@ public class ControladorEnvioInsertar extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+		request.getRequestDispatcher("InsertarEnvio.jsp").forward(request, response);
+
 	}
 
 	/**
@@ -61,9 +62,9 @@ public class ControladorEnvioInsertar extends HttpServlet {
 			int codSucursal = Integer.parseInt(request.getParameter("cod_sucursal"));
 			int codCliente = Integer.parseInt(request.getParameter("cod_cliente"));
 
-			Date fechaEntrada = new SimpleDateFormat("dd/MM/yyyy").parse(request.getParameter("fecha_entrada"));
-			Date fechaSalida = new SimpleDateFormat("dd/MM/yyyy").parse(request.getParameter("fecha_salida"));
-			Date fechaLlegada = new SimpleDateFormat("dd/MM/yyyy").parse(request.getParameter("fecha_llegada"));
+			Date fechaEntrada = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("fecha_entrada"));
+			Date fechaSalida = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("fecha_salida"));
+			Date fechaLlegada = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("fecha_llegada"));
 
 			boolean entregado =false;
 			String direccionDestino = request.getParameter("direccion_destino");
@@ -86,7 +87,7 @@ public class ControladorEnvioInsertar extends HttpServlet {
 		String tipoEnvio = request.getParameter("tipoEnvio");
 
 		// parte carta
-		if(tipoEnvio == "Carta") {
+		if(tipoEnvio.equals("Carta")) {
 		ModeloCarta modeloCarta = new ModeloCarta();
 		Carta carta = (Carta) modeloEnvio.verEnvio(modeloEnvio.recibirUltimoCodigo());
 		boolean mensual = Boolean.parseBoolean(request.getParameter("mensual"));
@@ -97,7 +98,7 @@ public class ControladorEnvioInsertar extends HttpServlet {
 			
 		}
 		
-		if(tipoEnvio =="Paquete") {
+		if(tipoEnvio.equals("Paquete")) {
 		
 			request.getRequestDispatcher("ControladorBulto").forward(request, response);
 
@@ -105,7 +106,7 @@ public class ControladorEnvioInsertar extends HttpServlet {
 		
 		}
 		
-		ModeloPaquete modeloPaquete = new ModeloPaquete();
+//		ModeloPaquete modeloPaquete = new ModeloPaquete();
 
 //		int cantidadBueltas = Integer.parseInt(request.getParameter("cantidad_bultos"));
 //		Paquete paquete = (Paquete) modeloEnvio.verEnvio(modeloEnvio.recibirUltimoCodigo());
@@ -113,7 +114,7 @@ public class ControladorEnvioInsertar extends HttpServlet {
 //		paquete.setCantidadBultos(cantidadBueltas);
 //		modeloPaquete.insertarPaqute(paquete);
 //		
-		doGet(request, response);
+		response.sendRedirect("ControladorBulto");
 	}
 
 }

@@ -125,9 +125,7 @@ public class ModeloCliente extends Conector {
 	public Cliente verificar(String dniCif, String contrasena) {
 		String senteciaSelect = "SELECT * FROM cliente WHERE Dni_Cif=? AND contrasena =?";
 		Cliente cliente= new Cliente();
-		
-		cliente.setCodCliente(404);
-		
+				
 		try {
 			PreparedStatement pstSelect = super.conexion.prepareStatement(senteciaSelect);
 			pstSelect.setString(1, dniCif);
