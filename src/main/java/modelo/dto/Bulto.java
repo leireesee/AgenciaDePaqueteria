@@ -2,24 +2,13 @@ package modelo.dto;
 
 public class Bulto  {
 
-	private String codBulto;
-	private int cod_envio;
-	private int codPaquete;
+	private Bulto bulto;
+	private Envio envio;
+	private Paquete paquete;
 	private double peso;
 	private String tamano;
 	// setter and getters
-	public String getCodBulto() {
-		return codBulto;
-	}
-	public void setCodBulto(String codBulto) {
-		this.codBulto = codBulto;
-	}
-	public int getCodPaquete() {
-		return codPaquete;
-	}
-	public void setCodPaquete(int codPaquete) {
-		this.codPaquete = codPaquete;
-	}
+	
 	public double getPeso() {
 		return peso;
 	}
@@ -32,13 +21,24 @@ public class Bulto  {
 	public void setTamano(String tamano) {
 		this.tamano = tamano;
 	}
-	public int getCod_envio() {
-		return cod_envio;
+	public Bulto getBulto() {
+		return bulto;
 	}
-	public void setCod_envio(int cod_envio) {
-		this.cod_envio = cod_envio;
+	public void setBulto(Bulto bulto) {
+		this.bulto = bulto;
 	}
-	
+	public Envio getEnvio() {
+		return envio;
+	}
+	public void setEnvio(Envio envio) {
+		this.envio = envio;
+	}
+	public Paquete getPaquete() {
+		return paquete;
+	}
+	public void setPaquete(Paquete paquete) {
+		this.paquete = paquete;
+	}
 
 	
 

@@ -15,10 +15,10 @@ public class ModeloBulto extends Conector {
 			pstInsert = super.conexion
 					.prepareStatement("INSERT INTO bulto (cod_envio, tamano, peso, cod_paquete) VALUES (?,?,?,?)");
 
-			pstInsert.setInt(1, bulto.getCod_envio());
+			pstInsert.setInt(1, bulto.getEnvio().getCodEnvio());
 			pstInsert.setString(1, bulto.getTamano());
 			pstInsert.setDouble(2, bulto.getPeso());
-			pstInsert.setInt(3, bulto.getCodPaquete());
+			pstInsert.setInt(3, bulto.getPaquete().getCodPaquete());
 			pstInsert.execute();
 
 		} catch (SQLException e) {
@@ -42,7 +42,8 @@ public class ModeloBulto extends Conector {
 		String sentenciaSelect = "SELECT * FROM bulto WHERE cod_paquete=?";
 
 		ArrayList<Bulto> bultos = new ArrayList<Bulto>();
-
+		ModeloEnvio modeloEnvio = new ModeloEnvio();
+		ModeloPaquete modeloPaquete = new ModeloPaquete ();
 		try {
 			PreparedStatement pstSelect = super.conexion.prepareStatement(sentenciaSelect);
 			pstSelect.setInt(1, cod_paquete);
@@ -51,10 +52,10 @@ public class ModeloBulto extends Conector {
 			while (resultado.next()) {
 				Bulto bulto = new Bulto();
 
-				bulto.setCod_envio(resultado.getInt("cod_envio"));
+				bulto.setEnvio(modeloEnvio.verEnvio(resultado.getInt("cod_envio")));
 				bulto.setTamano(resultado.getString("tamano"));
 				bulto.setPeso(resultado.getDouble("peso"));
-				bulto.setCodPaquete(resultado.getInt("cod_paquete"));
+				bulto.setPaquete(modeloPaquete.verPaquete(resultado.getInt("cod_paquete")));
 				bultos.add(bulto);
 
 			}
