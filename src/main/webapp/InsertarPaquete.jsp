@@ -43,7 +43,7 @@
              
                 
                 
-                <p><a href="ControladorPaquete">Insertar otro Bulto</a></p>
+                <p><a href="ControladorPaquete">Insertar otro Paquete</a></p>
                 <br>
             </form>
         </div>
