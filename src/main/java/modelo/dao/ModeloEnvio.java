@@ -120,15 +120,15 @@ public class ModeloEnvio extends Conector {
 			ModeloSucursal modeloSucursal = new ModeloSucursal();
 			ModeloCliente modeloCliente = new ModeloCliente();
 
-			envio.setCodEnvio(resultado.getInt("cod_envio"));
-			envio.setSucursal(modeloSucursal.verSucursal(resultado.getInt("cod_sucursal")));
-			envio.setCliente(modeloCliente.verCliente(resultado.getInt("cod_cliente")));
-			envio.setFechaEntrada(resultado.getDate("fecha_entrada"));
-			envio.setFechaSalida(resultado.getDate("fecha_salida"));
-			envio.setFechaLlegada(resultado.getDate("fecha_llegada"));
-			envio.setEntregado(resultado.getBoolean("entregado"));
-			envio.setDireccionDestino(resultado.getString("direccion_destino"));
-			envio.setTracking(resultado.getString("tracking"));
+			envio.setCodEnvio(resultado.getInt(1));
+			envio.setSucursal(modeloSucursal.verSucursal(resultado.getInt(2)));
+			envio.setCliente(modeloCliente.verCliente(resultado.getInt(3)));
+			envio.setFechaEntrada(resultado.getDate(4));
+			envio.setFechaSalida(resultado.getDate(5));
+			envio.setFechaLlegada(resultado.getDate(6));
+			envio.setEntregado(resultado.getBoolean(7));
+			envio.setDireccionDestino(resultado.getString(8));
+			envio.setTracking(resultado.getString(9));
 			return envio;
 
 		} catch (SQLException e) {
@@ -140,22 +140,20 @@ public class ModeloEnvio extends Conector {
 
 	public int recibirUltimoCodigo() {
 
-		String senteciaSelect = "SELECT MAX(COD_ENVIO) FROM ENVIO ";
-
+		String senteciaSelect = "SELECT MAX(cod_envio) FROM envio ";
+		int codigoEnvio = 0;
 		try {
 			PreparedStatement pstSelect = super.conexion.prepareStatement(senteciaSelect);
 
 			ResultSet resultado = pstSelect.executeQuery();
-			resultado.next();
 
-			int codigoEnvio = resultado.getInt("cod_envio");
-
-			return codigoEnvio;
-
+			while (resultado.next()) {
+				codigoEnvio = resultado.getInt(1);
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return -1;
+		return codigoEnvio;
 	}
 
 }// fin clase

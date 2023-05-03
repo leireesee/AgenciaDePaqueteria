@@ -66,7 +66,7 @@ public class ControladorEnvioInsertar extends HttpServlet {
 			Date fechaSalida = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("fecha_salida"));
 			Date fechaLlegada = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("fecha_llegada"));
 
-			boolean entregado =false;
+			boolean entregado = false;
 			String direccionDestino = request.getParameter("direccion_destino");
 			String tracking = request.getParameter("tracking");
 
@@ -87,34 +87,31 @@ public class ControladorEnvioInsertar extends HttpServlet {
 		String tipoEnvio = request.getParameter("tipoEnvio");
 
 		// parte carta
-		if(tipoEnvio.equals("Carta")) {
-		ModeloCarta modeloCarta = new ModeloCarta();
-		Carta carta = (Carta) modeloEnvio.verEnvio(modeloEnvio.recibirUltimoCodigo());
-		boolean mensual = Boolean.parseBoolean(request.getParameter("mensual"));
+		if (tipoEnvio.equals("Carta")) {
+			ModeloCarta modeloCarta = new ModeloCarta();
+			Carta carta = (Carta) modeloEnvio.verEnvio(modeloEnvio.recibirUltimoCodigo());
+			boolean mensual = Boolean.parseBoolean(request.getParameter("mensual"));
 
-		carta.setMensual(mensual);
+			carta.setMensual(mensual);
 
-		modeloCarta.insertarCarta(carta);
-			
+			modeloCarta.insertarCarta(carta);
+
 		}
-		
-		if(tipoEnvio.equals("Paquete")) {
-		
-			request.getRequestDispatcher("ControladorBulto").forward(request, response);
 
-			
-		
+		if (tipoEnvio.equals("Paquete")) {
+			// recibe parametros paquete
+			ModeloPaquete modeloPaquete = new ModeloPaquete();
+
+			int cantidadBultos = 0;
+			Paquete paquete = (Paquete) modeloEnvio.verEnvio(modeloEnvio.recibirUltimoCodigo());
+			paquete.setCantidadBultos(cantidadBultos);
+			// insertar un paquete
+			modeloPaquete.insertarPaqute(paquete);
+
+			response.sendRedirect("ControladorBulto");
+
 		}
-		
-//		ModeloPaquete modeloPaquete = new ModeloPaquete();
 
-//		int cantidadBueltas = Integer.parseInt(request.getParameter("cantidad_bultos"));
-//		Paquete paquete = (Paquete) modeloEnvio.verEnvio(modeloEnvio.recibirUltimoCodigo());
-//
-//		paquete.setCantidadBultos(cantidadBueltas);
-//		modeloPaquete.insertarPaqute(paquete);
-//		
-		response.sendRedirect("ControladorBulto");
 	}
 
 }

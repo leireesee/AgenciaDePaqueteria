@@ -18,7 +18,7 @@
         <div style="box-shadow: 0px 0px 10px rgb(127, 140, 255); padding: 30px;">
             <h2>Insertar Bulto</h2>
             <br>
-            <form method="post" action = "ControladorEnvioInsertar"  class="signin-form" style="width: 400px;">
+            <form method="post" action = "ControladorBulto"  class="signin-form" style="width: 400px;">
                 
              
                   <br>
@@ -36,8 +36,10 @@
             
                 <br>
                 <div class="form-group">
-                    <button type="submit" class="form-control btn btn-primary rounded submit px-3">Insertar</button>
+                    <button type="submit" class="form-control btn btn-primary rounded submit px-3">Insertar otro Bulto</button>
+                    
                 </div>
+                <p><a href="ControladorBulto">Finalizar Envio</a></p>
                 <br>
             </form>
         </div>

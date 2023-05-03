@@ -96,12 +96,7 @@
 
                   <br>
                   
-                     <c:if test="${tipoEnvio==Carta}">
-             		   <select class="form-select" aria-label="Default select example" name="mensual">
-                   		 <option value="1">Si</option>
-                   		 <option value="0">No</option>
-                	   </select>
-                      </c:if>
+                    
                 <div class="form-group mb-3">
                     <label class="label" for="name">Sucursal</label>
                     <input type="text" class="form-control" placeholder="Sucursal" required name="cod_sucursal">

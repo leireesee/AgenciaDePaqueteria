@@ -14,10 +14,11 @@ public class ModeloPaquete extends Conector {
 		PreparedStatement pstInsert;
 		try {
 			pstInsert = super.conexion
-					.prepareStatement("INSERT INTO paquete (cantidad_bultos, cod_envio) VALUES (?,?)");
+					.prepareStatement("INSERT INTO paquete (peso,tamano, cod_envio) VALUES (?,?,?)");
 
-			pstInsert.setInt(1, paquete.getCantidadBultos());
-			pstInsert.setInt(2, paquete.getCodEnvio());
+			pstInsert.setDouble(1, paquete.getPeso());
+			pstInsert.setString(2, paquete.getTamano());
+			pstInsert.setInt(3, paquete.getCodEnvio());
 			pstInsert.execute();
 
 		} catch (SQLException e) {
@@ -37,14 +38,15 @@ public class ModeloPaquete extends Conector {
 		}
 	}
 	
-	public void modificarCarta(Paquete paquete) {
+	public void modificarPaquete(Paquete paquete) {
 		PreparedStatement pstUpdate;
 
 		try {
-			pstUpdate = super.conexion.prepareStatement("UPDATE carta SET cantidad_bultos=? WHERE cod_envio=?");
+			pstUpdate = super.conexion.prepareStatement("UPDATE paquete SET peso=?, tamano=? WHERE cod_envio=?");
 			{
-				pstUpdate.setInt(1, paquete.getCantidadBultos());
-				pstUpdate.setInt(2, paquete.getCodEnvio());
+				pstUpdate.setDouble(1, paquete.getPeso());
+				pstUpdate.setString(2, paquete.getTamano());
+				pstUpdate.setInt(3, paquete.getCodEnvio());
 				pstUpdate.execute();
 
 			}
@@ -69,7 +71,8 @@ public class ModeloPaquete extends Conector {
 			
 
 			paquete.setCodPaquete(resultado.getInt("cod_paquete"));
-			paquete.setCantidadBultos(resultado.getInt("cantidad_bultos"));
+			paquete.setPeso(resultado.getDouble("peso"));
+			paquete.setTamano(resultado.getString("tamano"));
 			paquete.setCodEnvio(resultado.getInt("cod_envio"));
 			return paquete;
 
@@ -80,6 +83,46 @@ public class ModeloPaquete extends Conector {
 		return null;
 	}
 	
+	
+	public int recibirUltimoCodigoEnvio() {
+
+		String senteciaSelect = "SELECT MAX(cod_envio) FROM paquete ";
+
+		try {
+			PreparedStatement pstSelect = super.conexion.prepareStatement(senteciaSelect);
+
+			ResultSet resultado = pstSelect.executeQuery();
+			resultado.next();
+
+			int codigoEnvio = resultado.getInt("cod_envio");
+
+			return codigoEnvio;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return -1;
+	}
+	
+	public int recibirUltimoCodigoPaquete() {
+
+		String senteciaSelect = "SELECT MAX(cod_paquete) FROM paquete ";
+
+		try {
+			PreparedStatement pstSelect = super.conexion.prepareStatement(senteciaSelect);
+
+			ResultSet resultado = pstSelect.executeQuery();
+			resultado.next();
+
+			int codigoPaquete = resultado.getInt("cod_paquete");
+
+			return codigoPaquete;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return -1;
+	}
 	
 	
 
