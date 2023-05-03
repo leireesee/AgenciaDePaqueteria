@@ -16,15 +16,15 @@
 
     <section style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; width: 100%; height: 80vh;">
         <div style="box-shadow: 0px 0px 10px rgb(127, 140, 255); padding: 30px;">
-            <h2>Insertar Bulto</h2>
+            <h2>Insertar Paquete</h2>
             <br>
-            <form method="post" action = "ControladorBulto"  class="signin-form" style="width: 400px;">
+            <form method="post" action = "ControladorPaquete"  class="signin-form" style="width: 400px;">
                 
              
                   <br>
                   
                 <div class="form-group mb-3">
-                    <label class="label" for="name">Tamano</label>
+                    <label class="label" for="name">Tamaño</label>
                     <input type="text" class="form-control" placeholder="Tamaño" required name="tamano">
                 </div>
 
@@ -36,16 +36,20 @@
             
                 <br>
                 <div class="form-group">
-                    <button type="submit" class="form-control btn btn-primary rounded submit px-3">Insertar otro Bulto</button>
+                    <button type="submit" class="form-control btn btn-primary rounded submit px-3">Finalizar</button>
                     
                 </div>
-                <p><a href="ControladorBulto">Finalizar Envio</a></p>
+                
+             
+                
+                
+                <p><a href="ControladorPaquete">Insertar otro Bulto</a></p>
                 <br>
             </form>
         </div>
         
         
- <div class="card" style="width: 18rem;">
+ <!-- <div class="card" style="width: 18rem;">
   <div class="card-body">
   <c:forEach items="${bultos}" var="bulto">
     <h5 class="card-title">${bulto.codBulto }</h5>
@@ -58,6 +62,7 @@
 
   </div>
 </div>
+ -->
         
     </section>
 

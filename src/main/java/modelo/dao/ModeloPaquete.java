@@ -10,7 +10,7 @@ import modelo.dto.Paquete;
 
 public class ModeloPaquete extends Conector {
 
-	public void insertarPaqute(Paquete paquete) {
+	public void insertarPaquete(Paquete paquete) {
 		PreparedStatement pstInsert;
 		try {
 			pstInsert = super.conexion

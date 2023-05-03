@@ -15,72 +15,7 @@
 </head>
 <body>
     
-    <section id="menu">
-        <nav class="navbar navbar-expand-lg shadow p-3 mb-5">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img
-                        src=""
-                        alt="" width="220px"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
-                    aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarScroll">
-                    <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Recibir
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Localiza tu envío</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Nuestras sucursales</a></li>
-                                <li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Enviar
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Envíos locales</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Envíos al extrangero</a></li>
-                                <li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Empresa</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Ayuda</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contacta</a>
-                        </li>
-                        <li style="margin-left: 100px;">
-                            <div style="background-color: #dfa800; padding: 7px; border-radius: 5px; color: white;">
-                                <i class="fa-solid fa-user" style="color: #FFFFFF"></i>
-                                Iniciar Sesión
-                            </div>
-                        </li>
-                        <li style="margin-left: 10px;">
-                            <div style="background-color: #004E86; padding: 7px; border-radius: 5px; color: white;">
-                                <i class="fa-solid fa-user-plus" style="color: #FFFFFF;"></i>   Registrarse </li>
-                            </div>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </section>
+   
 
     <section style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; width: 100%; height: 80vh;">
         <div style="box-shadow: 0px 0px 10px rgb(127, 140, 255); padding: 30px;">

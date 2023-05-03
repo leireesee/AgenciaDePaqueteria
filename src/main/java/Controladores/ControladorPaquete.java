@@ -9,24 +9,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.dao.ModeloBulto;
 import modelo.dao.ModeloEnvio;
 import modelo.dao.ModeloPaquete;
-import modelo.dto.Bulto;
 import modelo.dto.Carta;
 import modelo.dto.Paquete;
 
 /**
  * Servlet implementation class ControladorBulto
  */
-@WebServlet("/ControladorBulto")
-public class ControladorBulto extends HttpServlet {
+@WebServlet("/ControladorPaquete")
+public class ControladorPaquete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public ControladorBulto() {
+	public ControladorPaquete() {
 		super();
 	}
 
@@ -41,7 +39,7 @@ public class ControladorBulto extends HttpServlet {
 //		ArrayList<Bulto> bultos = modeloBulto.verBultos(modeloPaquete.verPaquete(request.getParameter("cod_paquete")));
 //		request.setAttribute("bultos", bultos);
 //		
-		request.getRequestDispatcher("InsertarBulto.jsp").forward(request, response);
+		request.getRequestDispatcher("InsertarPaquete.jsp").forward(request, response);
 	}
 
 	/**
@@ -53,59 +51,27 @@ public class ControladorBulto extends HttpServlet {
 		
 		//añadir bulto a paquete
 		ModeloEnvio modeloEnvio = new ModeloEnvio();
-		ModeloBulto modeloBulto = new ModeloBulto();
 		ModeloPaquete modeloPaquete = new ModeloPaquete();
+		 
+
+		Paquete paquete = new Paquete();
 		
-		//que haria oier
-		Paquete paquete2 = modeloPaquete.verPaquete(modeloPaquete.recibirUltimoCodigoPaquete());
-		
-		paquete2.setCantidadBultos(paquete2.getCantidadBultos() + 1);
-		
-		modeloPaquete.modificarPaquete(paquete2);
-		
-		//no mas paquete2
-		
-		//hacer bulto
-		
+			
 		String tamano = request.getParameter("tamano");
-		int peso = Integer.parseInt(request.getParameter("peso"));
+		double peso = Integer.parseInt(request.getParameter("peso"));
 		
-		Bulto bulto2 = new Bulto();
+		paquete.setCodEnvio(modeloEnvio.recibirUltimoCodigo());
+		paquete.setPeso(peso);
+		paquete.setTamano(tamano);
 		
-		bulto2.setEnvio(paquete2);
-		bulto2.setPaquete(paquete2);
-		bulto2.setPeso(peso);
-		bulto2.setTamano(tamano);
-		
-		modeloBulto.insertarBulto(bulto2);
-		
-		//fin bulto oier
-		
-		
-//		Paquete paquete = (Paquete) modeloEnvio.verEnvio(modeloEnvio.recibirUltimoCodigo());
-//
-//		paquete.setCantidadBultos(cantidadBultos);
-//		
-//		modeloPaquete.modificarCarta(paquete);
 	
 		
+		modeloPaquete.insertarPaquete(paquete);
 		
 		
-		// recibe parametros bultos
 		
-//		Bulto bulto = new Bulto();
-//		bulto.setEnvio(modeloPaquete.verPaquete(modeloPaquete.recibirUltimoCodigoEnvio()));
-//		String tamano = request.getParameter("tamano");
-//		int peso = Integer.parseInt(request.getParameter("peso"));
-//
-//		bulto.setTamano(tamano);
-//		bulto.setPeso(peso);
-//		
-//		bulto.setPaquete(modeloPaquete.verPaquete(modeloPaquete.recibirUltimoCodigoPaquete()));
-//
-//		// inserta bulto
-//		
-//		modeloBulto.insertarBulto(bulto);
+		response.sendRedirect("ControladorHome");
+
 
 
 	}

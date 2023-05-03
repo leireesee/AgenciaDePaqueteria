@@ -88,27 +88,20 @@ public class ControladorEnvioInsertar extends HttpServlet {
 
 		// parte carta
 		if (tipoEnvio.equals("Carta")) {
-			ModeloCarta modeloCarta = new ModeloCarta();
-			Carta carta = (Carta) modeloEnvio.verEnvio(modeloEnvio.recibirUltimoCodigo());
-			boolean mensual = Boolean.parseBoolean(request.getParameter("mensual"));
-
-			carta.setMensual(mensual);
-
-			modeloCarta.insertarCarta(carta);
+//			ModeloCarta modeloCarta = new ModeloCarta();
+//			Carta carta = (Carta) modeloEnvio.verEnvio(modeloEnvio.recibirUltimoCodigo());
+//			boolean mensual = Boolean.parseBoolean(request.getParameter("mensual"));
+//
+//			carta.setMensual(mensual);
+//
+//			modeloCarta.insertarCarta(carta);
+			request.getRequestDispatcher("Home.jsp").forward(request, response);
 
 		}
 
 		if (tipoEnvio.equals("Paquete")) {
-			// recibe parametros paquete
-			ModeloPaquete modeloPaquete = new ModeloPaquete();
-
-			int cantidadBultos = 0;
-			Paquete paquete = (Paquete) modeloEnvio.verEnvio(modeloEnvio.recibirUltimoCodigo());
-			paquete.setCantidadBultos(cantidadBultos);
-			// insertar un paquete
-			modeloPaquete.insertarPaqute(paquete);
-
-			response.sendRedirect("ControladorBulto");
+			
+			response.sendRedirect("ControladorPaquete");
 
 		}
 
