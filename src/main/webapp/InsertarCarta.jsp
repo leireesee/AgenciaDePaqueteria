@@ -16,7 +16,7 @@
         <div style="box-shadow: 0px 0px 10px rgb(127, 140, 255); padding: 30px;">
             <h2>Insertar Carta</h2>
             <br>
-            <form method="post" action = "ControladorPaquete"  class="signin-form" style="width: 400px;">
+            <form method="post" action = "ControladorCarta"  class="signin-form" style="width: 400px;">
                 
              
                   
@@ -25,8 +25,8 @@
               <br>
               <br>
                 <select class="form-select" aria-label="Default select example" name="mensual">
-                    <option value="1">Si</option>
-                    <option value="0">No</option>
+                    <option value="Si">Si</option>
+                    <option value="No">No</option>
                   </select>
             
                 <br>

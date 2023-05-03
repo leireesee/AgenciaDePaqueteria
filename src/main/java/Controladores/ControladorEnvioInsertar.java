@@ -95,7 +95,7 @@ public class ControladorEnvioInsertar extends HttpServlet {
 //			carta.setMensual(mensual);
 //
 //			modeloCarta.insertarCarta(carta);
-			request.getRequestDispatcher("Home.jsp").forward(request, response);
+			response.sendRedirect("ControladorCarta");
 
 		}
 

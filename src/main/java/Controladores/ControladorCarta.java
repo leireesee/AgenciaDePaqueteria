@@ -7,6 +7,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelo.dao.ModeloCarta;
+import modelo.dao.ModeloEnvio;
+import modelo.dto.Carta;
+
 /**
  * Servlet implementation class ControladorCarta
  */
@@ -19,23 +23,47 @@ public class ControladorCarta extends HttpServlet {
      */
     public ControladorCarta() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.getRequestDispatcher("InsertarCarta.jsp").forward(request, response);
+
+	
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String mensual = request.getParameter("mensual");
+		
+		Carta carta = new Carta();
+		ModeloEnvio modeloEnvio = new ModeloEnvio();
+		ModeloCarta modeloCarta = new ModeloCarta();
+		
+		
+		if(mensual.equals("Si")) {
+			carta.setMensual(true);
+		}
+		
+		if(mensual.equals("No")) {
+			carta.setMensual(false);
+		}
+		
+		
+		
+		carta.setCodEnvio(modeloEnvio.recibirUltimoCodigo());
+		
+		
+		modeloCarta.insertarCarta(carta);
+		
+		response.sendRedirect("ControladorHome");
+
+		
 	}
+	
 
 }

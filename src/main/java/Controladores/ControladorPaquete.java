@@ -58,7 +58,7 @@ public class ControladorPaquete extends HttpServlet {
 		
 			
 		String tamano = request.getParameter("tamano");
-		double peso = Integer.parseInt(request.getParameter("peso"));
+		double peso = Double.parseDouble(request.getParameter("peso"));
 		
 		paquete.setCodEnvio(modeloEnvio.recibirUltimoCodigo());
 		paquete.setPeso(peso);

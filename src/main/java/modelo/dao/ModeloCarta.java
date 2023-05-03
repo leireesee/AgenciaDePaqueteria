@@ -2,6 +2,7 @@ package modelo.dao;
 
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import modelo.dto.Carta;
@@ -49,6 +50,26 @@ public class ModeloCarta extends Conector {
 			e.printStackTrace();
 		}
 
+	}
+	
+	public int recibirUltimoCodigoEnvio() {
+
+		String senteciaSelect = "SELECT MAX(cod_envio) FROM paquete ";
+
+		try {
+			PreparedStatement pstSelect = super.conexion.prepareStatement(senteciaSelect);
+
+			ResultSet resultado = pstSelect.executeQuery();
+			resultado.next();
+
+			int codigoEnvio = resultado.getInt("cod_envio");
+
+			return codigoEnvio;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return -1;
 	}
 	
 	
