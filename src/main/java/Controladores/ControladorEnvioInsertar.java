@@ -88,19 +88,13 @@ public class ControladorEnvioInsertar extends HttpServlet {
 
 		// parte carta
 		if (tipoEnvio.equals("Carta")) {
-//			ModeloCarta modeloCarta = new ModeloCarta();
-//			Carta carta = (Carta) modeloEnvio.verEnvio(modeloEnvio.recibirUltimoCodigo());
-//			boolean mensual = Boolean.parseBoolean(request.getParameter("mensual"));
-//
-//			carta.setMensual(mensual);
-//
-//			modeloCarta.insertarCarta(carta);
+//	s
 			response.sendRedirect("ControladorCarta");
 
 		}
 
 		if (tipoEnvio.equals("Paquete")) {
-			
+
 			response.sendRedirect("ControladorPaquete");
 
 		}

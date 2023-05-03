@@ -43,27 +43,11 @@
              
                 
                 
-                <p><a href="ControladorPaquete">Insertar otro Paquete</a></p>
                 <br>
             </form>
         </div>
         
-        
- <!-- <div class="card" style="width: 18rem;">
-  <div class="card-body">
-  <c:forEach items="${bultos}" var="bulto">
-    <h5 class="card-title">${bulto.codBulto }</h5>
-  	<li>${bulto.cod_envio } </li>
-  	<li>${bulto.codPaquete} </li>
-  	<li>${bulto.codPeso} </li>
-  	<li>${bulto.tamano} </li>
-  	
-</c:forEach>
-
-  </div>
-</div>
- -->
-        
+          
     </section>
 
 </body>

@@ -40,28 +40,27 @@ public class ControladorRegistrarse extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		Cliente cliente = new Cliente();
 		ModeloCliente modeloCliente = new ModeloCliente();
-		
+
 		String dniCif = request.getParameter("dniCif");
 		String nombre = request.getParameter("nombre");
 		String telefono = request.getParameter("telefono");
 		String direccion = request.getParameter("direccion");
 		String contrasena = request.getParameter("contrasena");
-		
+
 		cliente.setDniCif(dniCif);
 		cliente.setNombre(nombre);
 		cliente.setTelefono(telefono);
 		cliente.setDireccion(direccion);
 		cliente.setContrasena(contrasena);
-		
+
 		modeloCliente.insertarCliente(cliente);
-		   
-		
-		//hay que poner se ha realizado con exito
+
+		// hay que poner se ha realizado con exito
 		doGet(request, response);
-		
+
 	}
 
 }

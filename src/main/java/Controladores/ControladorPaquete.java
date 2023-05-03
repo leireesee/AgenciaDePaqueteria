@@ -48,31 +48,23 @@ public class ControladorPaquete extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		//añadir bulto a paquete
+
+		// añadir bulto a paquete
 		ModeloEnvio modeloEnvio = new ModeloEnvio();
 		ModeloPaquete modeloPaquete = new ModeloPaquete();
-		 
 
 		Paquete paquete = new Paquete();
-		
-			
+
 		String tamano = request.getParameter("tamano");
 		double peso = Double.parseDouble(request.getParameter("peso"));
-		
+
 		paquete.setCodEnvio(modeloEnvio.recibirUltimoCodigo());
 		paquete.setPeso(peso);
 		paquete.setTamano(tamano);
-		
-	
-		
+
 		modeloPaquete.insertarPaquete(paquete);
-		
-		
-		
+
 		response.sendRedirect("ControladorHome");
-
-
 
 	}
 
