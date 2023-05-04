@@ -14,7 +14,7 @@
     <script src="https://kit.fontawesome.com/1257316c57.js" crossorigin="anonymous"></script>
     <!---AÑADIR UN FAVICON--->
 
-    <title>SanchezExpress | Home</title>
+    <title>Home  - SanchezExpress</title>
 </head>
 
 <body>
