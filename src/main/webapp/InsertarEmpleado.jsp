@@ -23,7 +23,10 @@
 
                   
                   
-                    
+                 <div class="form-group mb-3">
+                    <label class="label" for="name">Codigo Sucursal</label>
+                    <input type="text" class="form-control" placeholder="Codigo Sucursal" required name="cod_sucursal">
+                </div>   
                 <div class="form-group mb-3">
                     <label class="label" for="name">DNI</label>
                     <input type="text" class="form-control" placeholder="DNI" required name="dni">
@@ -41,7 +44,7 @@
                 
                 <div class="form-group mb-3">
                     <label class="label" for="name">Telefono</label>
-                    <input type="text" class="form-control" placeholder="Telefono" required name="fecha_entrada">
+                    <input type="text" class="form-control" placeholder="Telefono" required name="telefono">
                 </div>
                 
                 <div class="form-group mb-3">
@@ -62,6 +65,11 @@
                 <div class="form-group mb-3">
                     <label class="label" for="name">Comision</label>
                     <input type="number" class="form-control" placeholder="Comision" required name="comision">
+                </div>
+                
+                 <div class="form-group mb-3">
+                    <label class="label" for="name">Codigo departamento</label>
+                    <input type="number" class="form-control" placeholder="Codigo Departamento" required name="cod_departamento">
                 </div>
                 
                 <div class="form-group mb-3">

@@ -73,13 +73,32 @@ public class ModeloDepartamento extends Conector {
 			
 			Departamento departamento = new Departamento();
 			
-			departamento.setCodDepartamento(resultado.getInt("cod_departamento"));
-			departamento.setNombre(resultado.getString("nombre"));
+			departamento.setCodDepartamento(resultado.getInt(1));
+			departamento.setNombre(resultado.getString(2));
 			return departamento;
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	
+	public int recibirUltimoCodigoDepartamento() {
+
+		String senteciaSelect = "SELECT MAX(cod_departamento) FROM departamento ";
+		int codigoDepartamento = 0;
+		try {
+			PreparedStatement pstSelect = super.conexion.prepareStatement(senteciaSelect);
+
+			ResultSet resultado = pstSelect.executeQuery();
+
+			while (resultado.next()) {
+				codigoDepartamento = resultado.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return codigoDepartamento;
 	}
 
 }// fin clase
