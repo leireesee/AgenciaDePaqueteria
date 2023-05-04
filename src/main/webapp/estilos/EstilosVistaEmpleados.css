@@ -1,0 +1,155 @@
+@charset "ISO-8859-1";
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+
+*{box-sizing: border-box; margin: 0;}
+
+body{
+  padding-top: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+/*TEXTOS*/
+h2{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 27px;
+}
+
+h6{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: white;
+}
+
+/*BIENVENIDO*/
+.bienvenido{
+  width: 100%;
+  height: 25vh;
+  background-image: url(wave_background_bienvenido.jpg);
+  background-size: cover;
+  background-position: bottom;
+  border-radius: 10px;
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+}
+
+
+/*FUNCIONES*/
+#funciones{
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.cuadrado{
+  width: 170px;
+  background-color: #4979ff;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+a .cuadrado h6{
+  text-decoration: none;
+}
+
+.cuadrado:hover{
+  box-shadow: 0px 0px 15px #0044ffcc;
+  transition: 0.3s;
+}
+
+#funciones .grupo-cuadrado{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+
+/*CALENDARIO*/
+ul {list-style-type: none;}
+body {font-family: 'Montserrat', sans-serif;}
+
+.calendario{
+  border-radius: 7px;
+}
+
+/* Month header */
+.month {
+  padding: 10px;
+  width: 100%;
+  background: #4979ff;
+  text-align: center;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+
+/* Month list */
+.month ul {
+  margin: 0;
+  padding: 0;
+}
+
+.month ul li {
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* Previous button inside month header */
+.month .prev {
+  float: left;
+  padding-top: 10px;
+}
+
+/* Next button */
+.month .next {
+  float: right;
+  padding-top: 10px;
+}
+
+/* Weekdays (Mon-Sun) */
+.weekdays {
+  margin: 0;
+  padding: 10px 0;
+  background-color:#ddd;
+}
+
+.weekdays li {
+  display: inline-block;
+  width: 13.6%;
+  color: #666;
+  text-align: center;
+}
+
+/* Days (1-31) */
+.days {
+  padding: 10px 0;
+  background: #eee;
+  margin: 0;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+
+.days li {
+  list-style-type: none;
+  display: inline-block;
+  width: 13.6%;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size:12px;
+  color: #777;
+}
+
+
+/* Highlight the "current" day */
+.days li .active {
+  padding: 5px;
+  background: #4979ff;
+  color: white !important;
+  border-radius: 7px;
+}
