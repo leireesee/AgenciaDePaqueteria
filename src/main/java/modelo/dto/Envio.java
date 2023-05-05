@@ -88,4 +88,11 @@ public class Envio {
 		this.tracking = tracking;
 	}
 
+	@Override
+	public String toString() {
+		return "Envio [codEnvio=" + codEnvio + ", sucursal=" + sucursal + ", cliente=" + cliente + ", fechaEntrada="
+				+ fechaEntrada + ", fechaSalida=" + fechaSalida + ", fechaLlegada=" + fechaLlegada + ", entregado="
+				+ entregado + ", direccionDestino=" + direccionDestino + ", tracking=" + tracking + "]";
+	}
+
 }

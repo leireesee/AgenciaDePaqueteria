@@ -1,11 +1,16 @@
 package Controladores;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import modelo.dao.ModeloEnvio;
+import modelo.dto.Envio;
 
 /**
  * Servlet implementation class ControladorVistaEmpleado
@@ -25,8 +30,16 @@ public class ControladorVistaEmpleado extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		ModeloEnvio modeloEnvio = new ModeloEnvio();
 		
+
+		ArrayList<Envio> envios = null;
+		envios = modeloEnvio.verEnvios();
+		
+		System.out.println(envios);
+		
+		request.setAttribute("envios", envios);
+		request.getRequestDispatcher("VistaEmpleado.jsp").forward(request, response);
 	}
 
 	/**

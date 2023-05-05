@@ -10,6 +10,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/1257316c57.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="estilos/EstilosVistaEmpleados.css">
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    
     <title>Vista Empleado</title>
 </head>
 <body>
@@ -65,6 +67,7 @@
                             <br>
                             <br>
                             <h6>Ver envíos</h6>
+                            
                         </div>
                     </a>
                     
@@ -78,6 +81,49 @@
                 <!--podemos poner para modificar o eliminar botones al lado de los envios-->
                 <h2>Últimos envíos</h2>
                 <!---foreach ver envios-->
+                <table class="table table-striped">
+		
+				<tr>
+					<th>CODIGO ENVIO</th>
+					<th>CODIGO SUCURSAL</th>
+					<th>CODIGO CLIENTE</th>
+					<th>FECHA ENTRADA</th>
+					<th>FECHA SALIDA</th>
+					<th>FECHA LLEGADA</th>
+					<th>ENTREGADO </th>
+					<th>DIRECCION DESTINO </th>
+					<th>TRACKING</th>
+					
+					
+					
+					
+				</tr>
+		
+			<c:forEach items="${envios}" var="envio">
+		
+				<tr>
+					<th scope="row">${envio.codEnvio}</th>
+					<th>${envio.sucursal.codSucursal}</th>
+					<th>${envio.cliente.codCliente}</th>
+					<th>${envio.fechaEntrada}</th>	
+					<th>${envio.fechaSalida}</th>	
+					<th>${envio.fechaLlegada}</th>	
+					<th>${envio.entregado}</th>	
+					<th>${envio.direccionDestino}</th>	
+					<th>${envio.tracking}</th>	
+					
+					
+					<!--				
+					<th><button><a href=ControladorUsuarioEliminar?id=${usuario.id}>ELIMINAR UN USUARIO</a></button></th>
+					<th><button><a href=ControladorModificar?id=${usuario.id}>MODIFICAR UN USUARIO</a></button></th>
+					  -->
+					
+				</tr>
+			
+			
+			</c:forEach>
+		
+		</table>
             </section>
         </div>
     

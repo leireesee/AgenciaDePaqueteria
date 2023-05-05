@@ -68,7 +68,7 @@ public class ModeloEnvio extends Conector {
 
 	public ArrayList<Envio> verEnvios() {
 
-		String senteciaSelect = "SELECT * FROM envio";
+		String senteciaSelect = "SELECT * FROM envio ORDER BY cod_envio DESC";
 		java.sql.Statement st = null;
 		try {
 			st = super.conexion.createStatement();
