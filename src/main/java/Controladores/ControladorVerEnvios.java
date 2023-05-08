@@ -8,22 +8,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import modelo.dto.Cliente;
-import modelo.dao.ModeloCliente;
+import modelo.dao.ModeloEnvio;
+import modelo.dto.Envio;
 
 /**
- * Servlet implementation class LoginInicioS
+ * Servlet implementation class ControladorVerEnvios
  */
-@WebServlet("/ControladorLoginInicioS")
-public class ControladorLoginInicioS extends HttpServlet {
+@WebServlet("/ControladorVerEnvios")
+public class ControladorVerEnvios extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public ControladorLoginInicioS() {
+	public ControladorVerEnvios() {
 		super();
 	}
 
@@ -33,8 +32,13 @@ public class ControladorLoginInicioS extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		ModeloEnvio modeloEnvio = new ModeloEnvio();
 
-		request.getRequestDispatcher("InicioSesion.jsp").forward(request, response);
+		ArrayList<Envio> envios = null;
+		envios = modeloEnvio.verEnvios();
+
+		request.setAttribute("envios", envios);
+		request.getRequestDispatcher("VerEnvios.jsp").forward(request, response);
 
 	}
 
@@ -44,22 +48,7 @@ public class ControladorLoginInicioS extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		ModeloCliente modeloCliente = new ModeloCliente();
-
-		String dniCif = request.getParameter("dniCif");
-		String contrasena = request.getParameter("contrasena");
-
-		Cliente cliente = modeloCliente.verificar(dniCif, contrasena);
-
-		if (cliente.getDniCif() != null) {
-			HttpSession sesion = request.getSession();
-			sesion.setAttribute("cliente", cliente);
-			request.getRequestDispatcher("ControladorCliente").forward(request, response);
-		} else {
-			doGet(request, response);
-
-		}
-
+		doGet(request, response);
 	}
 
 }
