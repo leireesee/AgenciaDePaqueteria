@@ -36,7 +36,6 @@ public class ControladorVistaEmpleado extends HttpServlet {
 		ArrayList<Envio> envios = null;
 		envios = modeloEnvio.verEnvios();
 		
-		System.out.println(envios);
 		
 		request.setAttribute("envios", envios);
 		request.getRequestDispatcher("VistaEmpleado.jsp").forward(request, response);

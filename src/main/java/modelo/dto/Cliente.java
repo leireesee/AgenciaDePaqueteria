@@ -9,6 +9,7 @@ public class Cliente {
 	private String formaPago;
 	private String telefono;
 	private String contrasena;
+	
 
 	// setter and getters
 	public String getDniCif() {
@@ -65,6 +66,13 @@ public class Cliente {
 
 	public void setCodCliente(int codCliente) {
 		this.codCliente = codCliente;
+	}
+
+	@Override
+	public String toString() {
+		return "Cliente [codCliente=" + codCliente + ", dniCif=" + dniCif + ", nombre=" + nombre + ", direccion="
+				+ direccion + ", formaPago=" + formaPago + ", telefono=" + telefono + ", contrasena=" + contrasena
+				+ "]";
 	}
 
 }

@@ -34,7 +34,7 @@
 
                     
 
-                    <a href="#">
+                    <a href="ControladorRegistrarse">
                         <div class="cuadrado col-2 col-md-3">
                             <i class="fa-solid fa-person-circle-plus fa-2xl" style="color: #FFFF;"></i>
                             <br>
@@ -52,7 +52,7 @@
                         </div>
                     </a>
                     
-                    <a href="#">
+                    <a href="ControladorEnvioInsertar">
                         <div class="cuadrado col-2 col-md-3">
                             <i class="fa-solid fa-boxes-packing fa-2xl" style="color: #FFFF;"></i>
                             <br>
