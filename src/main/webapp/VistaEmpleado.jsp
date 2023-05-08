@@ -43,7 +43,7 @@
                         </div>
                     </a>
                     
-                    <a href="#">
+                    <a href="ControladorVerClientes">
                         <div class="cuadrado col-2 col-md-3">
                             <i class="fa-solid fa-user-group fa-2xl" style="color: #ffffff;"></i>
                             <br>
@@ -103,20 +103,14 @@
 		
 				<tr>
 					<th scope="row">${envio.codEnvio}</th>
-					<th>${envio.sucursal.codSucursal}</th>
-					<th>${envio.cliente.codCliente}</th>
-					<th>${envio.fechaEntrada}</th>	
-					<th>${envio.fechaSalida}</th>	
-					<th>${envio.fechaLlegada}</th>	
-					<th>${envio.entregado}</th>	
-					<th>${envio.direccionDestino}</th>	
-					<th>${envio.tracking}</th>	
-					
-					
-					<!--				
-					<th><button><a href=ControladorUsuarioEliminar?id=${usuario.id}>ELIMINAR UN USUARIO</a></button></th>
-					<th><button><a href=ControladorModificar?id=${usuario.id}>MODIFICAR UN USUARIO</a></button></th>
-					  -->
+					<td>${envio.sucursal.codSucursal}</td>
+					<td>${envio.cliente.codCliente}</td>
+					<td>${envio.fechaEntrada}</td>	
+					<td>${envio.fechaSalida}</td>	
+					<td>${envio.fechaLlegada}</td>	
+					<td>${envio.entregado}</td>	
+					<td>${envio.direccionDestino}</td>	
+					<td>${envio.tracking}</td>		
 					
 				</tr>
 			

@@ -72,6 +72,7 @@ public class ControladorInsertarEmpleado extends HttpServlet {
 		
 		
 		//aqui te lleva otra vez a la vista del administrador
+		doGet(request, response);
 	}
 
 }

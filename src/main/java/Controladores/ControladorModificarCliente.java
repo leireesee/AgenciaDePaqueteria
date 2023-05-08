@@ -11,16 +11,16 @@ import modelo.dao.ModeloCliente;
 import modelo.dto.Cliente;
 
 /**
- * Servlet implementation class ControladorRegistrarse
+ * Servlet implementation class ControladorModificarCliente
  */
-@WebServlet("/ControladorRegistrarse")
-public class ControladorRegistrarse extends HttpServlet {
+@WebServlet("/ControladorModificarCliente")
+public class ControladorModificarCliente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public ControladorRegistrarse() {
+	public ControladorModificarCliente() {
 		super();
 	}
 
@@ -30,8 +30,15 @@ public class ControladorRegistrarse extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.getRequestDispatcher("InsertarCliente.jsp").forward(request, response);
 
+		ModeloCliente modeloCliente = new ModeloCliente();
+		Cliente cliente = new Cliente();
+		int codCliente = Integer.parseInt(request.getParameter("codCliente"));
+		
+		cliente = modeloCliente.verCliente(codCliente);
+		
+		request.setAttribute("cliente", cliente);
+		request.getRequestDispatcher("ModificarCliente.jsp").forward(request, response);
 	}
 
 	/**
@@ -40,26 +47,26 @@ public class ControladorRegistrarse extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		Cliente cliente = new Cliente();
 		ModeloCliente modeloCliente = new ModeloCliente();
-
+		
+		int codCliente = Integer.parseInt(request.getParameter("codCliente"));
 		String dniCif = request.getParameter("dniCif");
 		String nombre = request.getParameter("nombre");
 		String telefono = request.getParameter("telefono");
 		String direccion = request.getParameter("direccion");
 		String contrasena = request.getParameter("contrasena");
 
+		cliente.setCodCliente(codCliente);
 		cliente.setDniCif(dniCif);
 		cliente.setNombre(nombre);
 		cliente.setTelefono(telefono);
 		cliente.setDireccion(direccion);
 		cliente.setContrasena(contrasena);
 
-		modeloCliente.insertarCliente(cliente);
+		modeloCliente.modificarCliente(cliente);
 
-		// hay que poner se ha realizado con exito
-		doGet(request, response);
+		response.sendRedirect("ControladorVerClientes");
 	}
 
 }

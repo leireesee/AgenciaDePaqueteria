@@ -47,7 +47,7 @@
 					
 									
 					<th><button><a href=ControladorClienteEliminar?codCliente=${cliente.codCliente}>DAR DE BAJA </a></button></th>
-					<th><button><a href=ControladorModificar?id=${usuario.id}>MODIFICAR UN CLIENTE</a></button></th>
+					<th><button><a href=ControladorModificarCliente?codCliente=${cliente.codCliente}>MODIFICAR </a></button></th>
 					 
 					
 				</tr>
