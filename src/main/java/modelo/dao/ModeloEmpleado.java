@@ -148,4 +148,38 @@ public class ModeloEmpleado extends Conector {
 		return null;
 	}
 
+	public Empleado verificar(String dni, String contrasena) {
+		String senteciaSelect = "SELECT * FROM empleados WHERE Dni=? AND contrasena =?";
+		Empleado empleado = new Empleado();
+		try {
+			PreparedStatement pstSelect = super.conexion.prepareStatement(senteciaSelect);
+			pstSelect.setString(1, dni);
+			pstSelect.setString(2, contrasena);
+
+
+			ModeloSucursal modeloSucursal = new ModeloSucursal();
+			ModeloDepartamento modeloDepartamento = new ModeloDepartamento();
+			ResultSet resultado = pstSelect.executeQuery();
+
+			while(resultado.next()) {
+				empleado.setSucursal(modeloSucursal.verSucursal(resultado.getInt("cod_sucursal")));
+				empleado.setDni(resultado.getString("dni"));
+				empleado.setNombre(resultado.getString("nombre"));
+				empleado.setDireccion(resultado.getString("direccion"));
+				empleado.setTelefono(resultado.getString("telefono"));
+				empleado.setNumSeguridadS(resultado.getString("num_seguridad_social"));
+				empleado.setCategoria(resultado.getString("categoria"));
+				empleado.setNomina(resultado.getDouble("nomina"));
+				empleado.setComision(resultado.getDouble("comision"));
+				empleado.setDepartamento(modeloDepartamento.verDepartamento(resultado.getInt("cod_departamento")));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		
+		return empleado;
+	}
+
 }
