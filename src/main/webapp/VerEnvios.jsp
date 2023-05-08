@@ -16,6 +16,8 @@
             <section id="envios"> <!--ver todos los envios hasta x linea-->
                 <!--podemos poner para modificar o eliminar botones al lado de los envios-->
                 <h2>VER ENVIOS</h2>
+                <button><a href="ControladorVistaEmpleado">VOLVER</a></h1></button>
+                
                 <!---foreach ver envios-->
                 <table class="table table-striped">
 		

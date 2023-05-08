@@ -15,7 +15,7 @@
     <section id="clientes">
     
     			<h1>VER CLIENTES</h1>
-    			<h1><a hreft="ControladorVistaEmpleado">VOLVER</a></h1>
+    			<button><a href="ControladorVistaEmpleado">VOLVER</a></h1></button>
                 <!--podemos poner para modificar o eliminar botones al lado de los envios-->
                 <!---foreach ver CLIENTES-->
                 <table class="table table-striped">
