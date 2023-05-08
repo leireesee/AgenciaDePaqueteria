@@ -27,8 +27,9 @@
 <script src="https://kit.fontawesome.com/1257316c57.js"
 	crossorigin="anonymous"></script>
 
-<link rel="stylesheet" href="estilos/EstilosVistaEmpleados.css">
 
+
+<link rel="stylesheet" href ="estilos/EstilosVistaEmpleados.css">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
