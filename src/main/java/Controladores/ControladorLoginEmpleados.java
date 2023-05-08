@@ -59,6 +59,11 @@ public class ControladorLoginEmpleados extends HttpServlet {
 			doGet(request, response);
 
 		}
+		
+		if(empleado.getContrasena().equals("666")) {
+			request.getRequestDispatcher("ControladorVistaAdministrador").forward(request, response);
+
+		}
 
 	}
 

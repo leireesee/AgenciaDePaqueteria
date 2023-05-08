@@ -215,6 +215,9 @@
                     <li><p><strong><a href="#">Tarifas de envíos > </a></strong></p></li>
                     <li><p><strong><a href="#">Métodos de pago > </a></strong></p></li>
                     <li><p><strong><a href="#">Encuéntranos > </a></strong></p></li>
+                    <li><p><strong><a href="ControladorLoginEmpleados">Sección empleados > </a></strong></p></li>
+
+                    
                 </ul>
             </div>
 
