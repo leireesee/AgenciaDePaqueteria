@@ -37,7 +37,7 @@
                                 Recibir
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Localiza tu envío</a></li>
+                                <li><a class="dropdown-item" href="ControladorLoginInicioS">Localiza tu envío</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -51,11 +51,11 @@
                                 Enviar
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Envíos locales</a></li>
+                                <li><a class="dropdown-item" href="ControladorLoginInicioS">Envíos locales</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#">Envíos al extrangero</a></li>
+                                <li><a class="dropdown-item" href="ControladorLoginInicioS">Envíos al extrangero</a></li>
                                 <li>
                             </ul>
                         </li>
@@ -69,13 +69,32 @@
                             <a class="nav-link" href="#">Contacta</a>
                         </li>
                         
-                        <c:if test="${sessionScope.cliente.codCliente!=null}">
-                        	 <li style="margin-left: 100px;">
-	                            <div style="background-color: #dfa800; padding: 7px; border-radius: 5px; color: white;">
-	                            	Bienvenid@, ${sessionScope.cliente.nombre}!
-	                            </div>
-	                        </li>
-                        </c:if>
+                        <li class="nav-item dropdown">
+
+							
+								<c:if test="${sessionScope.cliente.codCliente!=null}">
+								<button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #dfa800 !important; padding: 7px; border-radius: 5px; color: white;">
+                        			 <li>
+	                            	
+	                            		<!-- style="background-color: #dfa800; padding: 7px; border-radius: 5px; color: white;" -->
+	                            		Bienvenid@, ${sessionScope.cliente.nombre}!
+	                            		
+	                            	
+	                        	</li>
+                       		 </c:if>
+							</button>
+
+							<ul class="dropdown-menu dropdown-menu-light">
+
+								<li><a class="dropdown-item" href="ControladorCerrarSesion">Cerrar Sesión</a></li>
+								<li><a class="dropdown-item" href="#">Ajustes</a></li>
+
+							</ul>
+
+						</li>
+                        
+                        
+                        
                         
                         <c:if test="${sessionScope.cliente.codCliente==null}">
 	                        <li style="margin-left: 100px;">

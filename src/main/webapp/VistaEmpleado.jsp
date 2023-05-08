@@ -139,7 +139,7 @@
 
 						</div>
 
-					</a> <a href="ControladorVerCliente">
+					</a> <a href="ControladorVerClientes">
 
 						<div class="cuadrado col-2 col-md-3">
 
