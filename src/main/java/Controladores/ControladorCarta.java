@@ -45,18 +45,11 @@ public class ControladorCarta extends HttpServlet {
 		ModeloCarta modeloCarta = new ModeloCarta();
 		
 		
-		if(mensual.equals("Si")) {
-			carta.setMensual(true);
-		}
-		
-		if(mensual.equals("No")) {
-			carta.setMensual(false);
-		}
-		
+	
 		
 		
 		carta.setCodEnvio(modeloEnvio.recibirUltimoCodigo());
-		
+		carta.setMensual(mensual);
 		
 		modeloCarta.insertarCarta(carta);
 		

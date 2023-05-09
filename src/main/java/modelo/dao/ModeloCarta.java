@@ -14,7 +14,7 @@ public class ModeloCarta extends Conector {
 		try {
 			pstInsert = super.conexion.prepareStatement("INSERT INTO carta (mensual, cod_envio) VALUES (?,?)");
 
-			pstInsert.setBoolean(1, carta.isMensual());
+			pstInsert.setString(1, carta.getMensual());
 			pstInsert.setInt(2, carta.getCodEnvio());
 			pstInsert.execute();
 
@@ -41,7 +41,7 @@ public class ModeloCarta extends Conector {
 		try {
 			pstUpdate = super.conexion.prepareStatement("UPDATE carta SET mensual=? WHERE cod_envio=?");
 			{
-				pstUpdate.setBoolean(1, carta.isMensual());
+				pstUpdate.setString(1, carta.getMensual());
 				pstUpdate.setInt(2, carta.getCodEnvio());
 				pstUpdate.execute();
 

@@ -2,17 +2,18 @@ package modelo.dto;
 
 public class Carta extends Envio {
 
-	private boolean mensual;
+	private String mensual;
 
-	// setter and getters
-
-	public boolean isMensual() {
+	public String getMensual() {
 		return mensual;
 	}
 
-	public void setMensual(boolean mensual) {
+	public void setMensual(String mensual) {
 		this.mensual = mensual;
 	}
+
+	// setter and getters
+
 
 
 }
