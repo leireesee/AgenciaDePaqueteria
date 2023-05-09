@@ -154,14 +154,17 @@
 
  <c:if test="${sessionScope.cliente.codCliente!=null}">
 
- <li style="margin-left: 100px;">
-
-	<div style="background-color: #dfa800; padding: 7px; border-radius: 5px; color: white;">
-
-	Bienvenid@, ${sessionScope.cliente.nombre}!
-
-	</div>
-
+	 <li style="list-style-type: none">
+	 
+	 <div class="dropdown">
+	 	<button type="button" class="btn btn-outline-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Bienvenid@, ${sessionScope.cliente.nombre}!</button>
+	 	
+	 	<ul class="dropdown-menu">
+	 		<li><a class="dropdown-item" href="ControladorVistaCliente">Ver mis envíos</a></li>
+		    <li><a class="dropdown-item" href="ControladorCerrarSesion">Cerrar Sesión</a></li>
+	  	</ul>
+	 </div>
+	 
 	</li>
 
  </c:if>

@@ -37,13 +37,63 @@
     		<div style="display: flex; justify-content: flex-end; align-items: center; flex-wrap: wrap; gap: 13px">
 
     			<a href="ControladorHome"><button type="button" class="btn btn-outline-primary"><</button></a>
+				
+				
+					<nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-    			 <c:if test="${sessionScope.cliente.dniCif!=null}">
+						<div class="navegador container-fluid">
+
+								 <c:if test="${sessionScope.cliente.dniCif!=null}">
 								<li style="margin-left: 100px;">
 									<div>
 										Bienvenid@, ${sessionScope.cliente.nombre}!</div>
 								</li>
 							</c:if> 
+
+							<button class="navbar-toggler" type="button"
+								data-bs-toggle="collapse"
+								data-bs-target="#navbarNavDarkDropdown"
+								aria-controls="navbarNavDarkDropdown" aria-expanded="false"
+								aria-label="Toggle navigation">
+
+								<span class="navbar-toggler-icon"></span>
+
+							</button>
+
+							<div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+
+								<ul class="navbar-nav">
+
+									<li class="nav-item dropdown">
+
+										<button class="btn btn-light dropdown-toggle"
+											data-bs-toggle="dropdown" aria-expanded="false">
+
+											<i class="fa-solid fa-user" style="color: #4979ff;"></i>
+
+
+
+										</button>
+
+										<ul class="dropdown-menu dropdown-menu-light">
+
+											<li><a class="dropdown-item" href="ControladorCerrarSesion">Cerrar Sesión</a></li>
+
+											<li><a class="dropdown-item" href="#">Ajustes</a></li>
+
+										</ul>
+
+									</li>
+
+								</ul>
+
+							</div>
+
+						</div>
+
+					</nav>
+				
+    		
 
     		</div>
 
