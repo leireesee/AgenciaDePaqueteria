@@ -31,6 +31,7 @@
                     <input type="text" class="form-control" placeholder="DNI / CIF" required="" name="dniCif">
                 </div>
 
+
                 <div class="form-group mb-3">
                     <label class="label" for="name" >Nombre</label>
                     <input type="name" class="form-control" placeholder="Nombre" required="" name="nombre">
