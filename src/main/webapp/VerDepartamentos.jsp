@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Ver Departamentos - SanchezExpress</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/1257316c57.js" crossorigin="anonymous"></script>
@@ -15,43 +15,27 @@
 
             <section id="envios"> <!--ver todos los envios hasta x linea-->
                 <!--podemos poner para modificar o eliminar botones al lado de los envios-->
-                <h2>VER ENVIOS</h2>
-                <button  type="button" class="btn btn-primary"><a href="ControladorVistaEmpleado" style="color: white">VOLVER</a></h1></button>
+                <h2>VER DEPARTAMENTOS</h2>
+                <button  type="button" class="btn btn-primary"><a href="ControladorVistaAdmin" style="color: white">VOLVER</a></h1></button>
                 
                 <!---foreach ver envios-->
                 <table class="table ">
 		
 				<tr>
-					<th>CODIGO ENVIO</th>
-					<th>CODIGO SUCURSAL</th>
-					<th>CODIGO CLIENTE</th>
-					<th>FECHA ENTRADA</th>
-					<th>FECHA SALIDA</th>
-					<th>FECHA LLEGADA</th>
-					<th>ENTREGADO </th>
-					<th>DIRECCION DESTINO </th>
-					<th>TRACKING</th>
+					<th>CODIGO DEPARTAMENTO</th>
+					<th>NOMBRE  </th>
 					
 					
 					
 					
 				</tr>
 		
-			<c:forEach items="${envios}" var="envio">
+			<c:forEach items="${departamentos}" var="departamento">
 		
 				<tr>
-					<th scope="row">${envio.codEnvio}</th>
-					<td>${envio.sucursal.codSucursal}</td>
-					<td>${envio.cliente.codCliente}</td>
-					<td>${envio.fechaEntrada}</td>	
-					<td>${envio.fechaSalida}</td>	
-					<td>${envio.fechaLlegada}</td>	
-					<td>${envio.entregado}</td>	
-					<td>${envio.direccionDestino}</td>	
-					<td>${envio.tracking}</td>		
+					<th scope="row">${departamento.codDepartamento}</th>
+					<td>${departamento.nombre}</td>
 					
-					<th><button type="button" class="btn btn-danger"><a href=ControladorEnvioEliminar?codEnvio=${envio.codEnvio} style="color: white !important">CANCELAR ENVIO </a></button></th>
-					<th><button type="button" class="btn btn-success"><a href=ControladorModificarCliente?codCliente=${cliente.codCliente} style="color: white !important">MODIFICAR </a></button></th>
 				</tr>
 			
 			
