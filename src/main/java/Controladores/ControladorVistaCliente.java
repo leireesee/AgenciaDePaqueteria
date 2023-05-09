@@ -8,8 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import modelo.dao.ModeloEnvio;
+import modelo.dto.Cliente;
 import modelo.dto.Envio;
 
 /**
@@ -30,11 +32,15 @@ public class ControladorVistaCliente extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		HttpSession session = request.getSession();
+		
+		Cliente cliente = (Cliente) session.getAttribute("cliente");
 
 		ModeloEnvio modeloEnvio = new ModeloEnvio();
 
 		ArrayList<Envio> envios = null;
-		envios = modeloEnvio.verEnvios();
+		envios = modeloEnvio.verEnviosPersonal(cliente.getCodCliente());
 		request.setAttribute("envios", envios);
 		request.getRequestDispatcher("VistaCliente.jsp").forward(request, response);
 	

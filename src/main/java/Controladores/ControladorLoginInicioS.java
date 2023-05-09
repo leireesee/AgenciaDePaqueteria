@@ -54,7 +54,7 @@ public class ControladorLoginInicioS extends HttpServlet {
 		if (cliente.getDniCif() != null) {
 			HttpSession sesion = request.getSession();
 			sesion.setAttribute("cliente", cliente);
-			request.getRequestDispatcher("ControladorHome").forward(request, response);
+			request.getRequestDispatcher("ControladorVistaCliente").forward(request, response);
 		} else {
 			doGet(request, response);
 

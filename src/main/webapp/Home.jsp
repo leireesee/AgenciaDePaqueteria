@@ -76,9 +76,15 @@
 
  <ul class="dropdown-menu">
 
- <li><a class="dropdown-item" href="ControladorLoginInicioS">Localiza tu envío</a></li>
 
- <li>
+<c:if test="${sessionScope.cliente.dniCif!=null}">
+<li><a class="dropdown-item" href="ControladorVistaCliente">Localiza tu envío</a></li><li>				
+</c:if> 
+
+<c:if test="${sessionScope.cliente.dniCif==null}">
+<li><a class="dropdown-item" href="ControladorLoginInicioS">Localiza tu envío</a></li><li>				
+</c:if> 
+ 
 
  <hr class="dropdown-divider">
 

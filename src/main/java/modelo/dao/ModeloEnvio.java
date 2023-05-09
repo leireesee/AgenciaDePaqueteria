@@ -109,7 +109,7 @@ public class ModeloEnvio extends Conector {
 	
 	public ArrayList<Envio> verEnviosPersonal(int codCliente) {
 
-		String senteciaSelect = "SELECT * FROM envio ORDER BY cod_envio DESC WHERE cod_cliente=?";
+		String senteciaSelect = "SELECT * FROM envio WHERE cod_cliente=? ORDER BY cod_envio DESC ";
 		PreparedStatement pstSelect;
 		try {
 			pstSelect = super.conexion.prepareStatement(senteciaSelect);
@@ -119,7 +119,7 @@ public class ModeloEnvio extends Conector {
 
 		ResultSet resultado;
 	
-			resultado = pstSelect.executeQuery(senteciaSelect);
+			resultado = pstSelect.executeQuery();
 			while (resultado.next()) {
 
 				Envio envio = new Envio();

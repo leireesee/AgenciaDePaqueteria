@@ -15,6 +15,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <script src="https://kit.fontawesome.com/1257316c57.js" crossorigin="anonymous"></script>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    
 
     <link rel="stylesheet" href="estilos/EstiloVistaEmpleado.css">
 
@@ -34,14 +36,14 @@
 
     		<div style="display: flex; justify-content: flex-end; align-items: center; flex-wrap: wrap; gap: 13px">
 
-    			<button type="button" class="btn btn-outline-primary"><</button>
+    			<a href="ControladorHome"><button type="button" class="btn btn-outline-primary"><</button></a>
 
-    			<c:if test="${sessionScope.empleado.dni!=null}">
+    			 <c:if test="${sessionScope.cliente.dniCif!=null}">
 								<li style="margin-left: 100px;">
 									<div>
-										Bienvenid@, ${sessionScope.empleado.nombre}!</div>
+										Bienvenid@, ${sessionScope.cliente.nombre}!</div>
 								</li>
-							</c:if>
+							</c:if> 
 
     		</div>
 
@@ -78,11 +80,6 @@
             </ul>
 
         </div>
-
-    
-
-        
-
     </section>
 
     
