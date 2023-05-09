@@ -61,5 +61,38 @@ public class ModeloSucursal extends Conector {
 
 		return null;
 	}
+	
+	
+	public ArrayList<Sucursal>  verSucursales() {
+
+		String senteciaSelect = "SELECT * FROM sucursal ";
+
+		try {
+			PreparedStatement pstSelect = super.conexion.prepareStatement(senteciaSelect);
+			ArrayList<Sucursal>sucursales = new ArrayList<Sucursal>();
+			
+			ResultSet resultado = pstSelect.executeQuery();
+			while(resultado.next()) {
+
+			Sucursal sucursal = new Sucursal();
+
+			sucursal.setCodSucursal(resultado.getInt("cod_sucursal"));
+			sucursal.setTelefono(resultado.getString("telefono"));
+			sucursal.setDireccion(resultado.getString("direccion"));
+			sucursales.add(sucursal);
+			}
+			
+			return sucursales;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+	
+	
+	
+	
 
 }// fin clase

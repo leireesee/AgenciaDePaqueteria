@@ -32,7 +32,7 @@
 
                     
 
-                    <a href="#">
+                    <a href="ControladorRegistrarse">
                         <div class="cuadrado col-2 col-md-3">
                             <i class="fa-solid fa-person-circle-plus fa-2xl" style="color: #FFFF;"></i>
                             <br>
@@ -41,7 +41,7 @@
                         </div>
                     </a>
                     
-                    <a href="#">
+                    <a href="ControladorVerClientes">
                         <div class="cuadrado col-2 col-md-3">
                             <i class="fa-solid fa-user-group fa-2xl" style="color: #ffffff;"></i>
                             <br>
@@ -50,7 +50,7 @@
                         </div>
                     </a>
                     
-                    <a href="#">
+                    <a href="ControladorEnvioInsertar">
                         <div class="cuadrado col-2 col-md-3">
                             <i class="fa-solid fa-boxes-packing fa-2xl" style="color: #FFFF;"></i>
                             <br>
@@ -59,7 +59,7 @@
                         </div>
                     </a>
                     
-                    <a href="#">
+                    <a href="ControladorVerEnvios">
                         <div class="cuadrado col-2 col-md-3">
                             <i class="fa-regular fa-eye fa-2xl" style="color: #ffffff;"></i>
                             <br>
@@ -79,16 +79,7 @@
                         </div>
                     </a>
 
-                    <a href="#">
-                        <div class="cuadrado2 col-2 col-md-3">
-                            <i class="fa-solid fa-house-chimney-medical fa-2xl" style="color: #ffffff;"></i>
-                            <br>
-                            <br>
-                            <h6>Insertar sucursal</h6>
-                        </div>
-                    </a>
-
-                    <a href="#">
+                    <a href="ControladorVerSucursales">
                         <div class="cuadrado2 col-2 col-md-3">
                             <i class="fa-regular fa-eye fa-2xl" style="color: #ffffff;"></i>
                             <br>
@@ -97,7 +88,7 @@
                         </div>
                     </a>
 
-                    <a href="#">
+                    <a href="ControladorVerDepartamentos">
                         <div class="cuadrado2 col-2 col-md-3">
                             <i class="fa-solid fa-building-user fa-2xl" style="color: #ffffff;"></i>
                             <br>

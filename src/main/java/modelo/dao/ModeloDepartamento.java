@@ -51,9 +51,11 @@ public class ModeloDepartamento extends Conector {
 			departamento.setCodDepartamento(resultado.getInt("cod_departamento"));
 			departamento.setNombre(resultado.getString("nombre"));
 			departamentos.add(departamento);
-			return departamentos;
 			
 			}
+			
+			return departamentos;
+
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}
