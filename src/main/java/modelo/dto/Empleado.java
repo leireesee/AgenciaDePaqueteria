@@ -2,6 +2,13 @@ package modelo.dto;
 
 public class Empleado {
 
+	@Override
+	public String toString() {
+		return "Empleado [sucursal=" + sucursal + ", dni=" + dni + ", nombre=" + nombre + ", direccion=" + direccion
+				+ ", telefono=" + telefono + ", numSeguridadS=" + numSeguridadS + ", categoria=" + categoria
+				+ ", nomina=" + nomina + ", comision=" + comision + ", departamento=" + departamento + ", contrasena="
+				+ contrasena + "]";
+	}
 	private Sucursal sucursal;
 	private String dni;
 	private String nombre;

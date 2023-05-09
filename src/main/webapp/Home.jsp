@@ -76,7 +76,7 @@
 
  <ul class="dropdown-menu">
 
- <li><a class="dropdown-item" href="#">Localiza tu envío</a></li>
+ <li><a class="dropdown-item" href="ControladorLoginInicioS">Localiza tu envío</a></li>
 
  <li>
 
@@ -274,7 +274,7 @@
 
  <a href="#">
 
- <button type="button" class="btn btn-warning">Localiza tu envío</button>
+ <a  href="ControladorLoginInicioS" ><button type="button" class="btn btn-warning">Localiza tu envío</button></a>
 
  </a>
 
@@ -452,7 +452,7 @@
 
  <li><p><strong><a href="#">Encuéntranos > </a></strong></p></li>
 
- <li><p><strong><a href="${ControladorLoginEmpleados}">Sección empleados > </a></strong></p></li>
+ <li><p><strong><a href="ControladorLoginEmpleados">Sección empleados > </a></strong></p></li>
 
  </ul>
 

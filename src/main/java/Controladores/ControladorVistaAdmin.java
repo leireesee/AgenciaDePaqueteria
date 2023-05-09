@@ -1,11 +1,16 @@
 package Controladores;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import modelo.dao.ModeloEmpleado;
+import modelo.dto.Empleado;
 
 /**
  * Servlet implementation class ControladorVistaAdmin
@@ -25,8 +30,13 @@ public class ControladorVistaAdmin extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	ModeloEmpleado modeloEmpleado = new ModeloEmpleado();
 	
+	ArrayList<Empleado>empleados = null;
+	empleados= modeloEmpleado.verEmpleados();
 	
+	request.setAttribute("empleados", empleados);
+	request.getRequestDispatcher("VistaAdmin.jsp").forward(request, response);
 	
 	}
 
