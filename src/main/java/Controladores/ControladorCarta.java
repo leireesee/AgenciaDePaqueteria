@@ -60,7 +60,7 @@ public class ControladorCarta extends HttpServlet {
 		
 		modeloCarta.insertarCarta(carta);
 		
-		response.sendRedirect("ControladorHome");
+		response.sendRedirect("ControladorVistaEmpleado");
 
 		
 	}

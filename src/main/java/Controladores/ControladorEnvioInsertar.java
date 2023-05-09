@@ -66,7 +66,7 @@ public class ControladorEnvioInsertar extends HttpServlet {
 			Date fechaSalida = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("fecha_salida"));
 			Date fechaLlegada = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("fecha_llegada"));
 
-			boolean entregado = false;
+			String entregado = request.getParameter("entregado");
 			String direccionDestino = request.getParameter("direccion_destino");
 			String tracking = request.getParameter("tracking");
 
@@ -88,7 +88,7 @@ public class ControladorEnvioInsertar extends HttpServlet {
 
 		// parte carta
 		if (tipoEnvio.equals("Carta")) {
-//	s
+
 			response.sendRedirect("ControladorCarta");
 
 		}

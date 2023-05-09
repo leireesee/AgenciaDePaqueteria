@@ -21,7 +21,7 @@ public class ModeloEnvio extends Conector {
 			pstInsert.setDate(3, new Date(envio.getFechaEntrada().getTime()));
 			pstInsert.setDate(4, new Date(envio.getFechaSalida().getTime()));
 			pstInsert.setDate(5, new Date(envio.getFechaLlegada().getTime()));
-			pstInsert.setBoolean(6, envio.isEntregado());
+			pstInsert.setString(6, envio.getEntregado());
 			pstInsert.setString(7, envio.getDireccionDestino());
 			pstInsert.setString(8, envio.getTracking());
 			pstInsert.execute();
@@ -55,7 +55,7 @@ public class ModeloEnvio extends Conector {
 			pstUpdate.setDate(3, new Date(envio.getFechaEntrada().getTime()));
 			pstUpdate.setDate(4, new Date(envio.getFechaSalida().getTime()));
 			pstUpdate.setDate(5, new Date(envio.getFechaLlegada().getTime()));
-			pstUpdate.setBoolean(6, envio.isEntregado());
+			pstUpdate.setString(6, envio.getEntregado());
 			pstUpdate.setString(7, envio.getDireccionDestino());
 			pstUpdate.setString(8, envio.getTracking());
 			pstUpdate.setInt(9, envio.getCodEnvio());
@@ -92,7 +92,7 @@ public class ModeloEnvio extends Conector {
 				envio.setFechaEntrada(resultado.getDate("fecha_entrada"));
 				envio.setFechaSalida(resultado.getDate("fecha_salida"));
 				envio.setFechaLlegada(resultado.getDate("fecha_llegada"));
-				envio.setEntregado(resultado.getBoolean("entregado"));
+				envio.setEntregado(resultado.getString("entregado"));
 				envio.setDireccionDestino(resultado.getString("direccion_destino"));
 				envio.setTracking(resultado.getString("tracking"));
 				envios.add(envio);
@@ -126,7 +126,7 @@ public class ModeloEnvio extends Conector {
 			envio.setFechaEntrada(resultado.getDate(4));
 			envio.setFechaSalida(resultado.getDate(5));
 			envio.setFechaLlegada(resultado.getDate(6));
-			envio.setEntregado(resultado.getBoolean(7));
+			envio.setEntregado(resultado.getString(7));
 			envio.setDireccionDestino(resultado.getString(8));
 			envio.setTracking(resultado.getString(9));
 			return envio;

@@ -11,7 +11,7 @@ public class Envio {
 	private Date fechaEntrada;
 	private Date fechaSalida;
 	private Date fechaLlegada;
-	private boolean entregado;
+	private String entregado;
 	private String direccionDestino;
 	private String tracking;
 
@@ -64,11 +64,13 @@ public class Envio {
 		this.fechaLlegada = fechaLlegada;
 	}
 
-	public boolean isEntregado() {
+
+
+	public String getEntregado() {
 		return entregado;
 	}
 
-	public void setEntregado(boolean entregado) {
+	public void setEntregado(String entregado) {
 		this.entregado = entregado;
 	}
 

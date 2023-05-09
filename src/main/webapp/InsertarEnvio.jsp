@@ -58,6 +58,12 @@
                     <label class="label" for="name">Fecha Llegada</label>
                     <input type="date" class="form-control" placeholder="Fecha Llegada" required="" name="fecha_llegada">
                 </div>
+                
+                 <label class="label" for="password">Entregado</label>
+                <select class="form-select" aria-label="Default select example" name="entregado">
+                    <option value="Si">Si</option>
+                    <option value="No">No</option>
+                  </select>
 				
 				<div class="form-group mb-3">
                     <label class="label" for="name">Direccion Destino</label>

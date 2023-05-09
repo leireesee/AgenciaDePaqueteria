@@ -64,7 +64,7 @@ public class ControladorPaquete extends HttpServlet {
 
 		modeloPaquete.insertarPaquete(paquete);
 
-		response.sendRedirect("ControladorHome");
+		response.sendRedirect("ControladorVistaEmpleado");
 
 	}
 
