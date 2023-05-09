@@ -1,0 +1,116 @@
+@charset "ISO-8859-1";
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+
+
+
+
+
+*{box-sizing: border-box; margin: 0;}
+
+
+
+body{
+
+	background-color: #f0f0f0;
+
+}
+
+
+
+
+
+/*BIENVENIDO*/
+
+.menu-cliente{
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 30px;
+
+}
+
+
+
+.bienvenido-cliente{
+
+	font-family: 'Montserrat', sans-serif;
+
+	font-weight: 700;
+
+	font-size: 26px;
+
+}
+
+
+
+.iconos-menu-cliente ul{
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 25px;
+
+}
+
+
+
+.iconos-menu-cliente ul li{
+
+    list-style-type: none;
+
+}
+
+
+
+/*TABLA*/
+
+.envios-cliente{
+
+	background-color: white;
+
+	border-radius: 15px;
+
+	padding: 20px;
+
+	margin: 20px;
+
+	box-shadow: 0px 0px 15px #4979ff20;
+
+}
+
+
+
+.table .th{
+
+	background-color: #0044ffcc !important;
+
+} 
+
+
+
+.table th{
+
+	font-size: 15px;
+
+}
+
+
+
+.table td:hover{
+
+	background-color: #4979ff60;
+
+}
+

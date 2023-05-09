@@ -18,7 +18,12 @@
         
         <section class="bienvenido row">
                 <div class="col-12">
-                    <h2>Bienvenido, <!--nombre del empleado--></h2>
+                    <c:if test="${sessionScope.empleado.dni!=null}">
+								<li style="margin-left: 100px;">
+									<div>
+										Bienvenid@, ${sessionScope.empleado.nombre}!</div>
+								</li>
+							</c:if>
                 </div>       
             </section>
             <img src="" alt="">

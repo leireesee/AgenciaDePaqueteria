@@ -29,11 +29,9 @@ public class ModeloEmpleado extends Conector {
 			pstInsert.setInt(10, empleado.getDepartamento().getCodDepartamento());
 			pstInsert.setString(11, empleado.getContrasena());
 			pstInsert.execute();
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	public void eliminarEmpleado(String dni) {
@@ -53,18 +51,18 @@ public class ModeloEmpleado extends Conector {
 
 		try {
 			pstUpdate = super.conexion.prepareStatement(
-					"UPDATE empleados SET cod_sucursal=? , dni=?, nombre=?, direccion=?, telefono=?, num_seguridad_social=?, categoria=?, nomina=?, comision=?, cod_departamento=?, contrasena=? WHERE dni=?");
+					"UPDATE empleados SET cod_sucursal=? ,nombre=?, direccion=?, telefono=?, num_seguridad_social=?, categoria=?, nomina=?, comision=?, cod_departamento=?, contrasena=? WHERE dni=?");
 			pstUpdate.setInt(1, empleado.getSucursal().getCodSucursal());
-			pstUpdate.setString(2, empleado.getDni());
-			pstUpdate.setString(3, empleado.getNombre());
-			pstUpdate.setString(4, empleado.getDireccion());
-			pstUpdate.setString(5, empleado.getTelefono());
-			pstUpdate.setString(6, empleado.getNumSeguridadS());
-			pstUpdate.setString(7, empleado.getCategoria());
-			pstUpdate.setDouble(8, empleado.getNomina());
-			pstUpdate.setDouble(9, empleado.getComision());
-			pstUpdate.setInt(10, empleado.getDepartamento().getCodDepartamento());
-			pstUpdate.setString(11, empleado.getContrasena());
+			pstUpdate.setString(2, empleado.getNombre());
+			pstUpdate.setString(3, empleado.getDireccion());
+			pstUpdate.setString(4, empleado.getTelefono());
+			pstUpdate.setString(5, empleado.getNumSeguridadS());
+			pstUpdate.setString(6, empleado.getCategoria());
+			pstUpdate.setDouble(7, empleado.getNomina());
+			pstUpdate.setDouble(8, empleado.getComision());
+			pstUpdate.setInt(9, empleado.getDepartamento().getCodDepartamento());
+			pstUpdate.setString(10, empleado.getContrasena());
+			pstUpdate.setString(11, empleado.getDni());
 			pstUpdate.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -139,7 +137,6 @@ public class ModeloEmpleado extends Conector {
 			empleado.setNomina(resultado.getDouble("nomina"));
 			empleado.setComision(resultado.getDouble("comision"));
 			empleado.setDepartamento(modeloDepartamento.verDepartamento(resultado.getInt("cod_departamento")));
-			
 			empleado.setContrasena(resultado.getString("contrasena"));
 			return empleado;
 		} catch (SQLException e) {
@@ -181,6 +178,43 @@ public class ModeloEmpleado extends Conector {
 
 		
 		return empleado;
+	}
+
+	public Empleado verificarAdmin(String categoria) {
+
+		String senteciaSelect = "SELECT * FROM empleados WHERE categoria=?";
+		Empleado empleado = new Empleado();
+		try {
+			PreparedStatement pstSelect = super.conexion.prepareStatement(senteciaSelect);
+			pstSelect.setString(1, categoria);
+
+
+			ModeloSucursal modeloSucursal = new ModeloSucursal();
+			ModeloDepartamento modeloDepartamento = new ModeloDepartamento();
+			ResultSet resultado = pstSelect.executeQuery();
+
+			while(resultado.next()) {
+				empleado.setSucursal(modeloSucursal.verSucursal(resultado.getInt("cod_sucursal")));
+				empleado.setDni(resultado.getString("dni"));
+				empleado.setNombre(resultado.getString("nombre"));
+				empleado.setDireccion(resultado.getString("direccion"));
+				empleado.setTelefono(resultado.getString("telefono"));
+				empleado.setNumSeguridadS(resultado.getString("num_seguridad_social"));
+				empleado.setCategoria(resultado.getString("categoria"));
+				empleado.setNomina(resultado.getDouble("nomina"));
+				empleado.setComision(resultado.getDouble("comision"));
+				empleado.setDepartamento(modeloDepartamento.verDepartamento(resultado.getInt("cod_departamento")));
+			}
+			
+			return empleado;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		
+		return null;
+		
 	}
 
 }

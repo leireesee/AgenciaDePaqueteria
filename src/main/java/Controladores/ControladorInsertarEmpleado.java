@@ -38,39 +38,46 @@ public class ControladorInsertarEmpleado extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		 
+		try {
+			Empleado empleado = new Empleado ();
+			ModeloDepartamento modeloDepartamento = new ModeloDepartamento();
+			ModeloEmpleado modeloEmpleado = new ModeloEmpleado();
+			ModeloSucursal modeloSucursal = new ModeloSucursal();
+			
+			int codSucursal = Integer.parseInt(request.getParameter("cod_sucursal"));
+			String dni = request.getParameter("dni");
+			String nombre= request.getParameter("nombre");
+			String direccion =request.getParameter("direccion");
+			String telefono = request.getParameter("telefono");
+			String nss = request.getParameter("nss");
+			String categoria = request.getParameter("categoria");
+			double nomina = Double.parseDouble(request.getParameter("nomina"));
+			double comision = Double.parseDouble(request.getParameter("comision"));
+			int codDepartamento = Integer.parseInt(request.getParameter("cod_departamento"));
+			String contrasena = request.getParameter("contrasena");
 		
-		Empleado empleado = new Empleado ();
-		ModeloDepartamento modeloDepartamento = new ModeloDepartamento();
-		ModeloEmpleado modeloEmpleado = new ModeloEmpleado();
-		ModeloSucursal modeloSucursal = new ModeloSucursal();
+			empleado.setSucursal(modeloSucursal.verSucursal(codSucursal));
+			empleado.setDni(dni);
+			empleado.setNombre(nombre);
+			empleado.setDireccion(direccion);
+			empleado.setTelefono(telefono);
+			empleado.setNumSeguridadS(nss);
+			empleado.setCategoria(categoria);
+			empleado.setNomina(nomina);
+			empleado.setComision(comision);
+			empleado.setDepartamento(modeloDepartamento.verDepartamento(codDepartamento));
+			empleado.setContrasena(contrasena);
+			
+			modeloEmpleado.insertarEmpleado(empleado);
+			
+			response.sendRedirect("ControladorVistaAdmin");
+		} catch (Exception e) {
+			request.setAttribute("MensajeError", "!ERROR!");
+			request.getRequestDispatcher("InsertarEmpleado.jsp").forward(request, response);
+		}
 		
-		int codSucursal = Integer.parseInt(request.getParameter("cod_sucursal"));
-		String dni = request.getParameter("dni");
-		String nombre= request.getParameter("nombre");
-		String direccion =request.getParameter("direccion");
-		String telefono = request.getParameter("telefono");
-		String nss = request.getParameter("nss");
-		String categoria = request.getParameter("categoria");
-		double nomina = Double.parseDouble(request.getParameter("nomina"));
-		double comision = Double.parseDouble(request.getParameter("comision"));
-		int codDepartamento = Integer.parseInt(request.getParameter("cod_departamento"));
-		String contrasena = request.getParameter("contrasena");
-	
-		empleado.setSucursal(modeloSucursal.verSucursal(codSucursal));
-		empleado.setDni(dni);
-		empleado.setNombre(nombre);
-		empleado.setDireccion(direccion);
-		empleado.setTelefono(telefono);
-		empleado.setNumSeguridadS(nss);
-		empleado.setCategoria(categoria);
-		empleado.setNomina(nomina);
-		empleado.setComision(comision);
-		empleado.setDepartamento(modeloDepartamento.verDepartamento(codDepartamento));
-		empleado.setContrasena(contrasena);
 		
-		modeloEmpleado.insertarEmpleado(empleado);
-		
-		response.sendRedirect("ControladorVistaAdmin");
 
 	}
 

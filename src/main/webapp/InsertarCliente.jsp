@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +14,11 @@
 </head>
 <body>
     
-   
+   <c:if test="${ !requestScope.comprobar }">
+   	<div class="alert alert-warning" role="alert">
+  		A simple warning alertâ€”check it out!
+	</div>
+   </c:if>
 
     <section style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; width: 100%; height: 100vh;">
         <div style="box-shadow: 0px 0px 10px rgb(127, 140, 255); padding: 30px;">
@@ -33,7 +38,7 @@
 
                 <div class="form-group mb-3">
                     <label class="label" for="name">Telefono</label>
-                    <input type="text" class="form-control" placeholder="Teléfono" required="" name="telefono">
+                    <input type="text" class="form-control" placeholder="TelÃ©fono" required="" name="telefono">
                 </div>
 
                 <div class="form-group mb-3">
@@ -42,8 +47,8 @@
                 </div>
 
                 <div class="form-group mb-3">
-                    <label class="label" for="password">Contraseña</label>
-                    <input type="password" class="form-control" placeholder="Contraseña" required="" name="contrasena">
+                    <label class="label" for="password">ContraseÃ±a</label>
+                    <input type="password" class="form-control" placeholder="ContraseÃ±a" required="" name="contrasena">
                 </div>
 
 
@@ -53,7 +58,7 @@
                 <br>
             </form>
             <br>
-            <p class="text-center">Ya tienes una cuenta? <a data-toggle="tab" href="ControladorLoginInicioS">Iniciar Sesión</a></p>
+            <p class="text-center">Ya tienes una cuenta? <a data-toggle="tab" href="ControladorLoginInicioS">Iniciar SesiÃ³n</a></p>
         </div>
     </section>
 
