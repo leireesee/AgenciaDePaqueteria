@@ -103,9 +103,10 @@ public class ModeloEmpleado extends Conector {
 				empleado.setContrasena(resultado.getString("contrasena"));
 				empleados.add(empleado);
 
-				return empleados;
+				
 
 			}
+			return empleados;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

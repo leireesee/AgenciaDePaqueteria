@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/1257316c57.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="estilos/EstilosVistaEmpleado.css">
+    <link rel="stylesheet" href="estilos/EstiloVistaEmpleado.css">
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     
     <title>Vista Administrador</title>
@@ -70,7 +70,7 @@
                 </div>
                 <div class="grupo-cuadrado">
 
-                    <a href="#">
+                    <a href="ControladorInsertarEmpleado">
                         <div class="cuadrado2 col-2 col-md-3">
                             <i class="fa-solid fa-address-card fa-xl" style="color: #ffffff;"></i>
                             <br>
@@ -163,12 +163,12 @@
 								
 						
 						
-					<th><button type="button" class="btn btn-danger"><a href=ControladorEnvioEliminar?codEnvio=${envio.codEnvio} style="color: white !important">CANCELAR ENVIO </a></button></th>
-					<th><button type="button" class="btn btn-success"><a href=ControladorModificarCliente?codCliente=${cliente.codCliente} style="color: white !important">MODIFICAR </a></button></th>
+					<th><button type="button" class="btn btn-danger"><a href=ControladorEmpleadoEliminar?dni=${empleado.dni} style="color: white !important">DAR DE BAJA </a></button></th>
+					<th><button type="button" class="btn btn-success"><a href=ControladorModificarEmpleado?dni=${empleado.dni} style="color: white !important">MODIFICAR </a></button></th>
 					</tr>
 			
 			
-			</c:forEach>
+					</c:forEach>
          
                
             </section>

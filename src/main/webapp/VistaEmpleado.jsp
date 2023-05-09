@@ -29,7 +29,7 @@
 
 
 
-<link rel="stylesheet" href ="estilos/EstilosVistaEmpleado.css">
+<link rel="stylesheet" href ="estilos/EstiloVistaEmpleado.css">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 

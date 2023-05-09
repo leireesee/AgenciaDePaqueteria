@@ -178,6 +178,16 @@ a{
 
 }
 
+.cuadrado2:hover{
+
+  box-shadow: 0px 0px 15px #ffb62e;
+
+  transition: 0.3s;
+
+  transform: scale(105%)
+
+}
+
 
 
 #funciones .grupo-cuadrado{

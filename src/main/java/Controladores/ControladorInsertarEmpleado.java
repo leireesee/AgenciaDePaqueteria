@@ -65,14 +65,13 @@ public class ControladorInsertarEmpleado extends HttpServlet {
 		empleado.setCategoria(categoria);
 		empleado.setNomina(nomina);
 		empleado.setComision(comision);
-		empleado.setDepartamento(modeloDepartamento.verDepartamento(codSucursal));
+		empleado.setDepartamento(modeloDepartamento.verDepartamento(codDepartamento));
 		empleado.setContrasena(contrasena);
 		
 		modeloEmpleado.insertarEmpleado(empleado);
 		
-		
-		//aqui te lleva otra vez a la vista del administrador
-		doGet(request, response);
+		response.sendRedirect("ControladorVistaAdmin");
+
 	}
 
 }
