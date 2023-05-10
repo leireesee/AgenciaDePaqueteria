@@ -14,15 +14,17 @@
 </head>
 <body>
     
-   <c:if test="${ !requestScope.comprobar }">
-   	<div class="alert alert-warning" role="alert">
-  		A simple warning alert—check it out!
-	</div>
-   </c:if>
+  
 
     <section style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; width: 100%; height: 100vh;">
         <div style="box-shadow: 0px 0px 10px rgb(127, 140, 255); padding: 30px;">
             <h2>Registrarse</h2>
+            <br>
+              <c:if test="${MensajeError eq 'ERROR'}" >
+          	<div class="alert alert-danger" role="alert">
+  			Error, vuelva a intentarlo!
+			</div>
+          </c:if> 
             <br>
             <form method="post" action = "ControladorRegistrarse" class="signin-form" style="width: 400px;">
                 

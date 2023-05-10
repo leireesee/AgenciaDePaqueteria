@@ -23,6 +23,12 @@
         <div style="box-shadow: 0px 0px 10px rgb(127, 140, 255); padding: 30px;">
             <h2>Insertar Envio</h2>
             <br>
+            <c:if test="${MensajeError eq 'ERROR'}" >
+          	<div class="alert alert-danger" role="alert">
+  			Error, vuelva a intentarlo!
+			</div>
+     	   </c:if> 
+          <br>
             <form method="post" action = "ControladorEnvioInsertar"  class="signin-form" style="width: 400px;">
                 
                 <label class="label" for="password">Tipo Envio</label>
@@ -35,12 +41,12 @@
                   
                     
                 <div class="form-group mb-3">
-                    <label class="label" for="name">Sucursal</label>
+                    <label class="label" for="name">Codigo Sucursal</label>
                     <input type="text" class="form-control" placeholder="Sucursal" required name="cod_sucursal">
                 </div>
 
                 <div class="form-group mb-3">
-                    <label class="label" for="name">Cliente </label>
+                    <label class="label" for="name">Codigo Cliente </label>
                     <input type="text" class="form-control" placeholder="Cliente" required name="cod_cliente">
                 </div>
 

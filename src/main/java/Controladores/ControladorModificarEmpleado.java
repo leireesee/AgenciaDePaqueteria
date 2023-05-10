@@ -47,6 +47,7 @@ public class ControladorModificarEmpleado extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		try {
 		Empleado empleado = new Empleado ();
 		ModeloDepartamento modeloDepartamento = new ModeloDepartamento();
 		ModeloEmpleado modeloEmpleado = new ModeloEmpleado();
@@ -77,7 +78,11 @@ public class ControladorModificarEmpleado extends HttpServlet {
 		empleado.setContrasena(contrasena);
 		
 		modeloEmpleado.modificarEmpleado(empleado);
-		response.sendRedirect("ControladorVistaAdmin");
+		} catch (Exception e) {
+			String MensajeError= "ERROR";
+			request.setAttribute("MensajeError", MensajeError);
+			request.getRequestDispatcher("ModificarEmpleado.jsp").forward(request, response);
+		}
 	
 	
 	}

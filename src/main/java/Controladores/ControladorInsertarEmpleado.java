@@ -71,14 +71,14 @@ public class ControladorInsertarEmpleado extends HttpServlet {
 			
 			modeloEmpleado.insertarEmpleado(empleado);
 			
-			response.sendRedirect("ControladorVistaAdmin");
 		} catch (Exception e) {
-			request.setAttribute("MensajeError", "!ERROR!");
+			String MensajeError= "ERROR";
+			request.setAttribute("MensajeError", MensajeError);
 			request.getRequestDispatcher("InsertarEmpleado.jsp").forward(request, response);
 		}
-		
-		
+		response.sendRedirect("ControladorVistaAdmin");
 
+		
 	}
 
 }

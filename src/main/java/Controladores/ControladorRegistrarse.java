@@ -40,7 +40,7 @@ public class ControladorRegistrarse extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		try {
 		Cliente cliente = new Cliente();
 		ModeloCliente modeloCliente = new ModeloCliente();
 
@@ -59,7 +59,14 @@ public class ControladorRegistrarse extends HttpServlet {
 		modeloCliente.insertarCliente(cliente);
 
 		// hay que poner se ha realizado con exito
-		doGet(request, response);
+		} catch (Exception e) {
+			String MensajeError= "ERROR";
+			request.setAttribute("MensajeError", MensajeError);
+			request.getRequestDispatcher("InsertarCliente.jsp").forward(request, response);
+		}
+		
+		request.getRequestDispatcher("Home.jsp").forward(request, response);
+
 	}
 
 }

@@ -47,6 +47,7 @@ public class ControladorModificarCliente extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+	try {	
 		Cliente cliente = new Cliente();
 		ModeloCliente modeloCliente = new ModeloCliente();
 		
@@ -66,7 +67,14 @@ public class ControladorModificarCliente extends HttpServlet {
 
 		modeloCliente.modificarCliente(cliente);
 
-		response.sendRedirect("ControladorVerClientes");
+	} catch (Exception e) {
+		String MensajeError= "ERROR";
+		request.setAttribute("MensajeError", MensajeError);
+		request.getRequestDispatcher("ModificarCliente.jsp").forward(request, response);
+	}
+	response.sendRedirect("ControladorHome");
+
+	
 	}
 
 }

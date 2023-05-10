@@ -48,7 +48,7 @@ public class ControladorPaquete extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		try {
 		// añadir bulto a paquete
 		ModeloEnvio modeloEnvio = new ModeloEnvio();
 		ModeloPaquete modeloPaquete = new ModeloPaquete();
@@ -63,8 +63,13 @@ public class ControladorPaquete extends HttpServlet {
 		paquete.setTamano(tamano);
 
 		modeloPaquete.insertarPaquete(paquete);
-
-		response.sendRedirect("ControladorVistaEmpleado");
+		doGet(request, response);
+		} catch (Exception e) {
+		String MensajeError= "ERROR";
+		request.setAttribute("MensajeError", MensajeError);
+		request.getRequestDispatcher("InsertarCliente.jsp").forward(request, response);
+	}
+		response.sendRedirect("ControladorHome");
 
 	}
 

@@ -19,8 +19,11 @@
         <div style="box-shadow: 0px 0px 10px rgb(127, 140, 255); padding: 30px;">
             <h2>Insertar Empleado</h2>
             <br>
-            
-            ${MensajeError}
+         <c:if test="${MensajeError eq 'ERROR'}" >
+          	<div class="alert alert-danger" role="alert">
+  			Error, vuelva a intentarlo!
+			</div>
+          </c:if> 
             	
             <br>
             <form method="post" action = "ControladorInsertarEmpleado"  class="signin-form" style="width: 400px;">

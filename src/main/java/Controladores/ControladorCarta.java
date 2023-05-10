@@ -38,6 +38,8 @@ public class ControladorCarta extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		try {
 		String mensual = request.getParameter("mensual");
 		
 		Carta carta = new Carta();
@@ -53,9 +55,15 @@ public class ControladorCarta extends HttpServlet {
 		
 		modeloCarta.insertarCarta(carta);
 		
+
+		} catch (Exception e) {
+			String MensajeError= "ERROR";
+			request.setAttribute("MensajeError", MensajeError);
+			request.getRequestDispatcher("InsertarCarta.jsp").forward(request, response);
+		}
+		
 		response.sendRedirect("ControladorVistaEmpleado");
 
-		
 	}
 	
 
