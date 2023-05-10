@@ -9,13 +9,16 @@
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 </head>
-<body>
 
+
+<body style="background-image: url(img/fondo-formulario.jpg); background-size: cover; background-repeat: no-repeat;">
 
     <section style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; width: 100%; height: 80vh;">
-        <div style="box-shadow: 0px 0px 10px rgb(127, 140, 255); padding: 30px;">
+        <div style="box-shadow: 0px 0px 10px rgb(127, 140, 255); padding: 30px; background-color:white;">
+        	  <img alt="" src="img/logo.svg" width="200px" style="margin-left:25%;">
+        	 <br>
+        	  <br>
             <h2>Insertar Carta</h2>
-            <br>
               <c:if test="${MensajeError eq 'ERROR'}" >
           	<div class="alert alert-danger" role="alert">
   			Error, vuelva a intentarlo!

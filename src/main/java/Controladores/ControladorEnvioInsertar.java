@@ -83,9 +83,9 @@ public class ControladorEnvioInsertar extends HttpServlet {
 
 			modeloEnvio.insertarEnvio(envio);
 			} catch (Exception e) {
-			String MensajeError= "ERROR";
-			request.setAttribute("MensajeError", MensajeError);
-			request.getRequestDispatcher("InsertarEnvio.jsp").forward(request, response);
+//			String MensajeError= "ERROR";
+//			request.setAttribute("MensajeError", MensajeError);
+//			request.getRequestDispatcher("InsertarEnvio.jsp").forward(request, response);
 		}
 
 
