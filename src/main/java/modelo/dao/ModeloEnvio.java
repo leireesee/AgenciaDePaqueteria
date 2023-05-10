@@ -105,6 +105,45 @@ public class ModeloEnvio extends Conector {
 		return envios;
 	}// fin clase verEnvios
 	
+
+	public ArrayList<Envio> verEnviosASC() {
+
+		String senteciaSelect = "SELECT * FROM envio ORDER BY cod_envio ASC";
+		java.sql.Statement st = null;
+		try {
+			st = super.conexion.createStatement();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		ArrayList<Envio> envios = new ArrayList<Envio>();
+
+		ResultSet resultado;
+		try {
+			resultado = st.executeQuery(senteciaSelect);
+			while (resultado.next()) {
+
+				Envio envio = new Envio();
+				ModeloSucursal modeloSucursal = new ModeloSucursal();
+				ModeloCliente modeloCliente = new ModeloCliente();
+
+				envio.setCodEnvio(resultado.getInt("cod_envio"));
+				envio.setSucursal(modeloSucursal.verSucursal(resultado.getInt("cod_sucursal")));
+				envio.setCliente(modeloCliente.verCliente(resultado.getInt("cod_cliente")));
+				envio.setFechaEntrada(resultado.getDate("fecha_entrada"));
+				envio.setFechaSalida(resultado.getDate("fecha_salida"));
+				envio.setFechaLlegada(resultado.getDate("fecha_llegada"));
+				envio.setEntregado(resultado.getString("entregado"));
+				envio.setDireccionDestino(resultado.getString("direccion_destino"));
+				envio.setTracking(resultado.getString("tracking"));
+				envios.add(envio);
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return envios;
+	}// fin clase verEnvios
 	
 	
 	public ArrayList<Envio> verEnviosPersonal(int codCliente) {

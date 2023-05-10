@@ -20,7 +20,7 @@
 
     <link rel="stylesheet" href="estilos/EstiloVistaEmpleado.css">
 
-    <title>Vista Cliente</title>
+    <title>Vista Cliente -- SanchezExpress</title>
 
 </head>
 
@@ -135,8 +135,7 @@
     
 
     <section class="envios-cliente">
-
-    
+		   
 	       <!---foreach ver envios-->
                 <table class="table ">
 		

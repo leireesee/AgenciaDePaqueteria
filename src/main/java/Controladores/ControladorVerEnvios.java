@@ -33,12 +33,23 @@ public class ControladorVerEnvios extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		ModeloEnvio modeloEnvio = new ModeloEnvio();
-
 		ArrayList<Envio> envios = null;
 		envios = modeloEnvio.verEnvios();
 
+		String ordenar = request.getParameter("Ordenar");
+		if (ordenar==null) {
+			ordenar="desc";
+		}
+		if(ordenar.equals("asc")) {
+			envios = modeloEnvio.verEnviosASC();
+		}
+		request.setAttribute("ordenar", ordenar);
 		request.setAttribute("envios", envios);
 		request.getRequestDispatcher("VerEnvios.jsp").forward(request, response);
+		
+
+	
+
 
 	}
 
@@ -48,7 +59,7 @@ public class ControladorVerEnvios extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		doGet(request, response);
+	
 	}
 
 }

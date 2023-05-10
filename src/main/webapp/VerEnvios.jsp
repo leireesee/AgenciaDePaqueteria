@@ -20,9 +20,25 @@
                 
                 <!---foreach ver envios-->
                 <table class="table ">
+                
+             <br>
+             <br>
+             
+          
 		
 				<tr>
-					<th>CODIGO ENVIO</th>
+			<th>CODIGO ENVIO
+			 <c:if test="${ordenar eq 'asc'}">
+                <a class="ordenar"  name="Ordenar" href="ControladorVerEnvios" >
+                   <i class="fa-solid fa-sort-down" style="color: #1064f4;"></i></a> 
+             </c:if>  
+                
+              <c:if test="${ordenar ne 'asc'}">
+                <a class="ordenar"  name="Ordenar" href="ControladorVerEnvios?Ordenar=asc" >
+                    <i class="fa-solid fa-sort-up" style="color: #005cfa;"></i>
+          		</a> 
+             </c:if>  
+					</th>
 					<th>CODIGO SUCURSAL</th>
 					<th>CODIGO CLIENTE</th>
 					<th>FECHA ENTRADA</th>
