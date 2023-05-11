@@ -101,8 +101,6 @@ public class ModeloEmpleado extends Conector {
 				empleado.setContrasena(resultado.getString("contrasena"));
 				empleados.add(empleado);
 
-				
-
 			}
 			return empleados;
 		} catch (SQLException e) {
@@ -154,12 +152,11 @@ public class ModeloEmpleado extends Conector {
 			pstSelect.setString(1, dni);
 			pstSelect.setString(2, contrasena);
 
-
 			ModeloSucursal modeloSucursal = new ModeloSucursal();
 			ModeloDepartamento modeloDepartamento = new ModeloDepartamento();
 			ResultSet resultado = pstSelect.executeQuery();
 
-			while(resultado.next()) {
+			while (resultado.next()) {
 				empleado.setSucursal(modeloSucursal.verSucursal(resultado.getInt("cod_sucursal")));
 				empleado.setDni(resultado.getString("dni"));
 				empleado.setNombre(resultado.getString("nombre"));
@@ -171,12 +168,11 @@ public class ModeloEmpleado extends Conector {
 				empleado.setComision(resultado.getDouble("comision"));
 				empleado.setDepartamento(modeloDepartamento.verDepartamento(resultado.getInt("cod_departamento")));
 			}
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
-		
 		return empleado;
 	}
 
@@ -188,12 +184,11 @@ public class ModeloEmpleado extends Conector {
 			PreparedStatement pstSelect = super.conexion.prepareStatement(senteciaSelect);
 			pstSelect.setString(1, categoria);
 
-
 			ModeloSucursal modeloSucursal = new ModeloSucursal();
 			ModeloDepartamento modeloDepartamento = new ModeloDepartamento();
 			ResultSet resultado = pstSelect.executeQuery();
 
-			while(resultado.next()) {
+			while (resultado.next()) {
 				empleado.setSucursal(modeloSucursal.verSucursal(resultado.getInt("cod_sucursal")));
 				empleado.setDni(resultado.getString("dni"));
 				empleado.setNombre(resultado.getString("nombre"));
@@ -205,16 +200,15 @@ public class ModeloEmpleado extends Conector {
 				empleado.setComision(resultado.getDouble("comision"));
 				empleado.setDepartamento(modeloDepartamento.verDepartamento(resultado.getInt("cod_departamento")));
 			}
-			
+
 			return empleado;
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
-		
 		return null;
-		
+
 	}
 
 }

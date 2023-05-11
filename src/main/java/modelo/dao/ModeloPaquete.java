@@ -13,8 +13,7 @@ public class ModeloPaquete extends Conector {
 	public void insertarPaquete(Paquete paquete) {
 		PreparedStatement pstInsert;
 		try {
-			pstInsert = super.conexion
-					.prepareStatement("INSERT INTO paquete (peso,tamano, cod_envio) VALUES (?,?,?)");
+			pstInsert = super.conexion.prepareStatement("INSERT INTO paquete (peso,tamano, cod_envio) VALUES (?,?,?)");
 
 			pstInsert.setDouble(1, paquete.getPeso());
 			pstInsert.setString(2, paquete.getTamano());
@@ -37,7 +36,7 @@ public class ModeloPaquete extends Conector {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void modificarPaquete(Paquete paquete) {
 		PreparedStatement pstUpdate;
 
@@ -55,11 +54,10 @@ public class ModeloPaquete extends Conector {
 		}
 
 	}
-	
-	
+
 	public Paquete verPaquete(int codEnvio) {
 		String senteciaSelect = "SELECT * FROM paquete WHERE cod_envio=?";
-		
+
 		try {
 			PreparedStatement pstSelect = super.conexion.prepareStatement(senteciaSelect);
 			pstSelect.setInt(1, codEnvio);
@@ -68,7 +66,6 @@ public class ModeloPaquete extends Conector {
 			resultado.next();
 
 			Paquete paquete = new Paquete();
-			
 
 			paquete.setCodPaquete(resultado.getInt("cod_paquete"));
 			paquete.setPeso(resultado.getDouble("peso"));
@@ -82,8 +79,7 @@ public class ModeloPaquete extends Conector {
 
 		return null;
 	}
-	
-	
+
 	public int recibirUltimoCodigoEnvio() {
 
 		String senteciaSelect = "SELECT MAX(cod_envio) FROM paquete ";
@@ -103,7 +99,7 @@ public class ModeloPaquete extends Conector {
 		}
 		return -1;
 	}
-	
+
 	public int recibirUltimoCodigoPaquete() {
 
 		String senteciaSelect = "SELECT MAX(cod_paquete) FROM paquete ";
@@ -123,7 +119,5 @@ public class ModeloPaquete extends Conector {
 		}
 		return -1;
 	}
-	
-	
 
 }// fin clase modelo paquete

@@ -20,21 +20,23 @@ import modelo.dto.Envio;
 @WebServlet("/ControladorVistaCliente")
 public class ControladorVistaCliente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ControladorVistaCliente() {
-        super();
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	public ControladorVistaCliente() {
+		super();
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		HttpSession session = request.getSession();
-		
+
 		Cliente cliente = (Cliente) session.getAttribute("cliente");
 
 		ModeloEnvio modeloEnvio = new ModeloEnvio();
@@ -43,13 +45,15 @@ public class ControladorVistaCliente extends HttpServlet {
 		envios = modeloEnvio.verEnviosPersonal(cliente.getCodCliente());
 		request.setAttribute("envios", envios);
 		request.getRequestDispatcher("VistaCliente.jsp").forward(request, response);
-	
+
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
 

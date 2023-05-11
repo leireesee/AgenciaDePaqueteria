@@ -40,7 +40,7 @@ public class ControladorEnvioInsertar extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		request.getRequestDispatcher("InsertarEnvio.jsp").forward(request, response);
 
 	}
@@ -71,7 +71,7 @@ public class ControladorEnvioInsertar extends HttpServlet {
 			String direccionDestino = request.getParameter("direccion_destino");
 			String tracking = request.getParameter("tracking");
 
-			//envio.setSucursal(modeloSucursal.verSucursal(codSucursal));
+			// envio.setSucursal(modeloSucursal.verSucursal(codSucursal));
 			modeloSucursal.verSucursal(codSucursal);
 			envio.setCliente(modeloCliente.verCliente(codCliente));
 			envio.setFechaEntrada(fechaEntrada);
@@ -82,12 +82,11 @@ public class ControladorEnvioInsertar extends HttpServlet {
 			envio.setTracking(tracking);
 
 			modeloEnvio.insertarEnvio(envio);
-			} catch (Exception e) {
+		} catch (Exception e) {
 //			String MensajeError= "ERROR";
 //			request.setAttribute("MensajeError", MensajeError);
 //			request.getRequestDispatcher("InsertarEnvio.jsp").forward(request, response);
 		}
-
 
 		String tipoEnvio = request.getParameter("tipoEnvio");
 

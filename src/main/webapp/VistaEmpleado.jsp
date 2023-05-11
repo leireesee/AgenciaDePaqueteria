@@ -29,7 +29,7 @@
 
 
 
-<link rel="stylesheet" href ="estilos/EstiloVistaEmpleado.css">
+<link rel="stylesheet" href="estilos/EstiloVistaEmpleado.css">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
@@ -57,8 +57,7 @@
 
 							<c:if test="${sessionScope.empleado.dni!=null}">
 								<li style="margin-left: 100px;">
-									<div>
-										Bienvenid@, ${sessionScope.empleado.nombre}!</div>
+									<div>Bienvenid@, ${sessionScope.empleado.nombre}!</div>
 								</li>
 							</c:if>
 
@@ -89,7 +88,8 @@
 
 										<ul class="dropdown-menu dropdown-menu-light">
 
-											<li><a class="dropdown-item" href="ControladorCerrarSesion">Cerrar Sesión</a></li>
+											<li><a class="dropdown-item"
+												href="ControladorCerrarSesion">Cerrar Sesión</a></li>
 
 											<li><a class="dropdown-item" href="#">Ajustes</a></li>
 

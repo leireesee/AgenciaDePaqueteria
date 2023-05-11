@@ -15,32 +15,36 @@ import modelo.dao.ModeloEmpleado;
 @WebServlet("/ControladorEmpleadoEliminar")
 public class ControladorEmpleadoEliminar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ControladorEmpleadoEliminar() {
-        super();
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	String dni = request.getParameter("dni");
-	
-	ModeloEmpleado modeloEmpleado = new ModeloEmpleado();
-	
-	modeloEmpleado.eliminarEmpleado(dni);
-	
-	request.getRequestDispatcher("ControladorVistaAdmin").forward(request, response);
+	public ControladorEmpleadoEliminar() {
+		super();
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String dni = request.getParameter("dni");
+
+		ModeloEmpleado modeloEmpleado = new ModeloEmpleado();
+
+		modeloEmpleado.eliminarEmpleado(dni);
+
+		request.getRequestDispatcher("ControladorVistaAdmin").forward(request, response);
 
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
 

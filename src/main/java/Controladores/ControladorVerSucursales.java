@@ -18,34 +18,37 @@ import modelo.dto.Sucursal;
 @WebServlet("/ControladorVerSucursales")
 public class ControladorVerSucursales extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ControladorVerSucursales() {
-        super();
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	ModeloSucursal modeloSucursal = new ModeloSucursal();
-	
-	ArrayList<Sucursal> sucursales=null;
-	
-	sucursales = modeloSucursal.verSucursales();
-	
-	request.setAttribute("sucursales", sucursales);
-	request.getRequestDispatcher("VerSucursales.jsp").forward(request, response);
-	
-	
+	public ControladorVerSucursales() {
+		super();
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		ModeloSucursal modeloSucursal = new ModeloSucursal();
+
+		ArrayList<Sucursal> sucursales = null;
+
+		sucursales = modeloSucursal.verSucursales();
+
+		request.setAttribute("sucursales", sucursales);
+		request.getRequestDispatcher("VerSucursales.jsp").forward(request, response);
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
 

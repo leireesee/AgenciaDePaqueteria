@@ -34,9 +34,9 @@ public class ControladorModificarCliente extends HttpServlet {
 		ModeloCliente modeloCliente = new ModeloCliente();
 		Cliente cliente = new Cliente();
 		int codCliente = Integer.parseInt(request.getParameter("codCliente"));
-		
+
 		cliente = modeloCliente.verCliente(codCliente);
-		
+
 		request.setAttribute("cliente", cliente);
 		request.getRequestDispatcher("ModificarCliente.jsp").forward(request, response);
 	}
@@ -47,34 +47,33 @@ public class ControladorModificarCliente extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-	try {	
-		Cliente cliente = new Cliente();
-		ModeloCliente modeloCliente = new ModeloCliente();
-		
-		int codCliente = Integer.parseInt(request.getParameter("codCliente"));
-		String dniCif = request.getParameter("dniCif");
-		String nombre = request.getParameter("nombre");
-		String telefono = request.getParameter("telefono");
-		String direccion = request.getParameter("direccion");
-		String contrasena = request.getParameter("contrasena");
+		try {
+			Cliente cliente = new Cliente();
+			ModeloCliente modeloCliente = new ModeloCliente();
 
-		cliente.setCodCliente(codCliente);
-		cliente.setDniCif(dniCif);
-		cliente.setNombre(nombre);
-		cliente.setTelefono(telefono);
-		cliente.setDireccion(direccion);
-		cliente.setContrasena(contrasena);
+			int codCliente = Integer.parseInt(request.getParameter("codCliente"));
+			String dniCif = request.getParameter("dniCif");
+			String nombre = request.getParameter("nombre");
+			String telefono = request.getParameter("telefono");
+			String direccion = request.getParameter("direccion");
+			String contrasena = request.getParameter("contrasena");
 
-		modeloCliente.modificarCliente(cliente);
+			cliente.setCodCliente(codCliente);
+			cliente.setDniCif(dniCif);
+			cliente.setNombre(nombre);
+			cliente.setTelefono(telefono);
+			cliente.setDireccion(direccion);
+			cliente.setContrasena(contrasena);
 
-	} catch (Exception e) {
-		String MensajeError= "ERROR";
-		request.setAttribute("MensajeError", MensajeError);
-		request.getRequestDispatcher("ModificarCliente.jsp").forward(request, response);
-	}
-	response.sendRedirect("ControladorHome");
+			modeloCliente.modificarCliente(cliente);
 
-	
+		} catch (Exception e) {
+			String MensajeError = "ERROR";
+			request.setAttribute("MensajeError", MensajeError);
+			request.getRequestDispatcher("ModificarCliente.jsp").forward(request, response);
+		}
+		response.sendRedirect("ControladorHome");
+
 	}
 
 }

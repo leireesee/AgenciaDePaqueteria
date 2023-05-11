@@ -103,7 +103,6 @@ public class ModeloEnvio extends Conector {
 
 		return envios;
 	}// fin clase verEnvios
-	
 
 	public ArrayList<Envio> verEnviosASC() {
 
@@ -143,8 +142,7 @@ public class ModeloEnvio extends Conector {
 
 		return envios;
 	}// fin clase verEnvios
-	
-	
+
 	public ArrayList<Envio> verEnviosPersonal(int codCliente) {
 
 		String senteciaSelect = "SELECT * FROM envio WHERE cod_cliente=? ORDER BY cod_envio DESC ";
@@ -153,10 +151,10 @@ public class ModeloEnvio extends Conector {
 			pstSelect = super.conexion.prepareStatement(senteciaSelect);
 			pstSelect.setInt(1, codCliente);
 
-		ArrayList<Envio> envios = new ArrayList<Envio>();
+			ArrayList<Envio> envios = new ArrayList<Envio>();
 
-		ResultSet resultado;
-	
+			ResultSet resultado;
+
 			resultado = pstSelect.executeQuery();
 			while (resultado.next()) {
 

@@ -37,54 +37,53 @@ public class ModeloDepartamento extends Conector {
 	}
 
 	public ArrayList<Departamento> verDepartamentos() {
-	String sentenciaSelect ="SELECT * FROM departamentos";
-		
+		String sentenciaSelect = "SELECT * FROM departamentos";
+
 		try {
-			PreparedStatement pstSelect= super.conexion.prepareStatement(sentenciaSelect);
+			PreparedStatement pstSelect = super.conexion.prepareStatement(sentenciaSelect);
 			ArrayList<Departamento> departamentos = new ArrayList<Departamento>();
-			
+
 			ResultSet resultado = pstSelect.executeQuery();
 			while (resultado.next()) {
-			
-			Departamento departamento = new Departamento();
-			
-			departamento.setCodDepartamento(resultado.getInt("cod_departamento"));
-			departamento.setNombre(resultado.getString("nombre"));
-			departamentos.add(departamento);
-			
+
+				Departamento departamento = new Departamento();
+
+				departamento.setCodDepartamento(resultado.getInt("cod_departamento"));
+				departamento.setNombre(resultado.getString("nombre"));
+				departamentos.add(departamento);
+
 			}
-			
+
 			return departamentos;
 
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return null;
-	
+
 	}
 
 	public Departamento verDepartamento(int codDepartamento) {
-		String sentenciaSelect ="SELECT * FROM departamentos WHERE cod_departamento=?";
-		
+		String sentenciaSelect = "SELECT * FROM departamentos WHERE cod_departamento=?";
+
 		try {
-			PreparedStatement pstSelect= super.conexion.prepareStatement(sentenciaSelect);
+			PreparedStatement pstSelect = super.conexion.prepareStatement(sentenciaSelect);
 			pstSelect.setInt(1, codDepartamento);
-			
+
 			ResultSet resultado = pstSelect.executeQuery();
 			resultado.next();
-			
+
 			Departamento departamento = new Departamento();
-			
+
 			departamento.setCodDepartamento(resultado.getInt(1));
 			departamento.setNombre(resultado.getString(2));
 			return departamento;
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
-	
-	
+
 	public int recibirUltimoCodigoDepartamento() {
 
 		String senteciaSelect = "SELECT MAX(cod_departamento) FROM departamento ";

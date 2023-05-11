@@ -21,77 +21,75 @@ import modelo.dto.Envio;
 @WebServlet("/ControladorModificarEnvio")
 public class ControladorModificarEnvio extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ControladorModificarEnvio() {
-        super();
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	ModeloEnvio modeloEnvio = new ModeloEnvio ();
-	
-	Envio envio = new Envio();
-	
-	int codEnvio=Integer.parseInt(request.getParameter("codEnvio"));
-	
-	envio = modeloEnvio.verEnvio(codEnvio);
-	
-	request.setAttribute("envio", envio);
-	request.getRequestDispatcher("ModificarEnvio.jsp").forward(request, response);
-	
+	public ControladorModificarEnvio() {
+		super();
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		
-			Envio envio = new Envio ();
-			
-			ModeloEnvio modeloEnvio= new ModeloEnvio();
-			ModeloSucursal modeloSucursal = new ModeloSucursal();
-			ModeloCliente modeloCliente = new ModeloCliente();
-			
-			try {
-				int codEnvio = Integer.parseInt(request.getParameter("codEnvio"));
-				int codSucursal = Integer.parseInt(request.getParameter("cod_sucursal"));
-				int codCliente = Integer.parseInt(request.getParameter("cod_cliente"));
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		ModeloEnvio modeloEnvio = new ModeloEnvio();
 
-				Date fechaEntrada = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("fecha_entrada"));
-				Date fechaSalida = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("fecha_salida"));
-				Date fechaLlegada = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("fecha_llegada"));
+		Envio envio = new Envio();
 
-				String entregado = request.getParameter("entregado");
-				String direccionDestino = request.getParameter("direccion_destino");
-				String tracking = request.getParameter("tracking");
-				envio.setCodEnvio(codEnvio);
-				envio.setSucursal(modeloSucursal.verSucursal(codSucursal));
-				envio.setCliente(modeloCliente.verCliente(codCliente));
-				envio.setFechaEntrada(fechaEntrada);
-				envio.setFechaSalida(fechaSalida);
-				envio.setFechaLlegada(fechaLlegada);
-				envio.setEntregado(entregado);
-				envio.setDireccionDestino(direccionDestino);
-				envio.setTracking(tracking);
-				modeloEnvio.modificarEnvio(envio);
-				response.sendRedirect("ControladorVistaEmpleado");
-				} catch (Exception e) {
-					
-						String MensajeError= "ERROR";
-						request.setAttribute("MensajeError", MensajeError);
-						request.getRequestDispatcher("ModificarEnvio.jsp").forward(request, response);
-					}
+		int codEnvio = Integer.parseInt(request.getParameter("codEnvio"));
+
+		envio = modeloEnvio.verEnvio(codEnvio);
+
+		request.setAttribute("envio", envio);
+		request.getRequestDispatcher("ModificarEnvio.jsp").forward(request, response);
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		Envio envio = new Envio();
+
+		ModeloEnvio modeloEnvio = new ModeloEnvio();
+		ModeloSucursal modeloSucursal = new ModeloSucursal();
+		ModeloCliente modeloCliente = new ModeloCliente();
+
+		try {
+			int codEnvio = Integer.parseInt(request.getParameter("codEnvio"));
+			int codSucursal = Integer.parseInt(request.getParameter("cod_sucursal"));
+			int codCliente = Integer.parseInt(request.getParameter("cod_cliente"));
+
+			Date fechaEntrada = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("fecha_entrada"));
+			Date fechaSalida = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("fecha_salida"));
+			Date fechaLlegada = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("fecha_llegada"));
+
+			String entregado = request.getParameter("entregado");
+			String direccionDestino = request.getParameter("direccion_destino");
+			String tracking = request.getParameter("tracking");
+			envio.setCodEnvio(codEnvio);
+			envio.setSucursal(modeloSucursal.verSucursal(codSucursal));
+			envio.setCliente(modeloCliente.verCliente(codCliente));
+			envio.setFechaEntrada(fechaEntrada);
+			envio.setFechaSalida(fechaSalida);
+			envio.setFechaLlegada(fechaLlegada);
+			envio.setEntregado(entregado);
+			envio.setDireccionDestino(direccionDestino);
+			envio.setTracking(tracking);
+			modeloEnvio.modificarEnvio(envio);
+			response.sendRedirect("ControladorVistaEmpleado");
+		} catch (Exception e) {
+
+			String MensajeError = "ERROR";
+			request.setAttribute("MensajeError", MensajeError);
+			request.getRequestDispatcher("ModificarEnvio.jsp").forward(request, response);
 		}
-	
-		
-	
-	
 	}
 
-
+}

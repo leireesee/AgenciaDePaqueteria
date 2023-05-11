@@ -18,75 +18,78 @@ import modelo.dto.Empleado;
 @WebServlet("/ControladorModificarEmpleado")
 public class ControladorModificarEmpleado extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ControladorModificarEmpleado() {
-        super();
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ModeloEmpleado modeloEmpleado = new ModeloEmpleado();
-		
-		Empleado empleado = new Empleado();
-		
-		String dni = request.getParameter("dni");
-		
-		empleado = modeloEmpleado.verEmpleado(dni);
-		
-		request.setAttribute("empleado", empleado);
-		request.getRequestDispatcher("ModificarEmpleado.jsp").forward(request, response);
-	
+	public ControladorModificarEmpleado() {
+		super();
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try {
-		Empleado empleado = new Empleado ();
-		ModeloDepartamento modeloDepartamento = new ModeloDepartamento();
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		ModeloEmpleado modeloEmpleado = new ModeloEmpleado();
-		ModeloSucursal modeloSucursal = new ModeloSucursal();
-		
-		int codSucursal = Integer.parseInt(request.getParameter("cod_sucursal"));
+
+		Empleado empleado = new Empleado();
+
 		String dni = request.getParameter("dni");
-		String nombre= request.getParameter("nombre");
-		String direccion =request.getParameter("direccion");
-		String telefono = request.getParameter("telefono");
-		String nss = request.getParameter("nss");
-		String categoria = request.getParameter("categoria");
-		double nomina = Double.parseDouble(request.getParameter("nomina"));
-		double comision = Double.parseDouble(request.getParameter("comision"));
-		int codDepartamento = Integer.parseInt(request.getParameter("cod_departamento"));
-		String contrasena = request.getParameter("contrasena");
-	
-		empleado.setSucursal(modeloSucursal.verSucursal(codSucursal));
-		empleado.setDni(dni);
-		empleado.setNombre(nombre);
-		empleado.setDireccion(direccion);
-		empleado.setTelefono(telefono);
-		empleado.setNumSeguridadS(nss);
-		empleado.setCategoria(categoria);
-		empleado.setNomina(nomina);
-		empleado.setComision(comision);
-		empleado.setDepartamento(modeloDepartamento.verDepartamento(codDepartamento));
-		empleado.setContrasena(contrasena);
-		
-		modeloEmpleado.modificarEmpleado(empleado);
-		response.sendRedirect("ControladorVistaEmpleado");
+
+		empleado = modeloEmpleado.verEmpleado(dni);
+
+		request.setAttribute("empleado", empleado);
+		request.getRequestDispatcher("ModificarEmpleado.jsp").forward(request, response);
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		try {
+			Empleado empleado = new Empleado();
+			ModeloDepartamento modeloDepartamento = new ModeloDepartamento();
+			ModeloEmpleado modeloEmpleado = new ModeloEmpleado();
+			ModeloSucursal modeloSucursal = new ModeloSucursal();
+
+			int codSucursal = Integer.parseInt(request.getParameter("cod_sucursal"));
+			String dni = request.getParameter("dni");
+			String nombre = request.getParameter("nombre");
+			String direccion = request.getParameter("direccion");
+			String telefono = request.getParameter("telefono");
+			String nss = request.getParameter("nss");
+			String categoria = request.getParameter("categoria");
+			double nomina = Double.parseDouble(request.getParameter("nomina"));
+			double comision = Double.parseDouble(request.getParameter("comision"));
+			int codDepartamento = Integer.parseInt(request.getParameter("cod_departamento"));
+			String contrasena = request.getParameter("contrasena");
+
+			empleado.setSucursal(modeloSucursal.verSucursal(codSucursal));
+			empleado.setDni(dni);
+			empleado.setNombre(nombre);
+			empleado.setDireccion(direccion);
+			empleado.setTelefono(telefono);
+			empleado.setNumSeguridadS(nss);
+			empleado.setCategoria(categoria);
+			empleado.setNomina(nomina);
+			empleado.setComision(comision);
+			empleado.setDepartamento(modeloDepartamento.verDepartamento(codDepartamento));
+			empleado.setContrasena(contrasena);
+
+			modeloEmpleado.modificarEmpleado(empleado);
+			response.sendRedirect("ControladorVistaEmpleado");
 
 		} catch (Exception e) {
-			String MensajeError= "ERROR";
+			String MensajeError = "ERROR";
 			request.setAttribute("MensajeError", MensajeError);
 			request.getRequestDispatcher("ModificarEmpleado.jsp").forward(request, response);
 		}
-	
-	
+
 	}
 
 }

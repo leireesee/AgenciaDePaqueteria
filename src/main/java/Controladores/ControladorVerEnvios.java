@@ -37,19 +37,15 @@ public class ControladorVerEnvios extends HttpServlet {
 		envios = modeloEnvio.verEnvios();
 
 		String ordenar = request.getParameter("Ordenar");
-		if (ordenar==null) {
-			ordenar="desc";
+		if (ordenar == null) {
+			ordenar = "desc";
 		}
-		if(ordenar.equals("asc")) {
+		if (ordenar.equals("asc")) {
 			envios = modeloEnvio.verEnviosASC();
 		}
 		request.setAttribute("ordenar", ordenar);
 		request.setAttribute("envios", envios);
 		request.getRequestDispatcher("VerEnvios.jsp").forward(request, response);
-		
-
-	
-
 
 	}
 
@@ -59,7 +55,7 @@ public class ControladorVerEnvios extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-	
+
 	}
 
 }

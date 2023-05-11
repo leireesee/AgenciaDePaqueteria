@@ -18,34 +18,37 @@ import modelo.dto.Departamento;
 @WebServlet("/ControladorVerDepartamentos")
 public class ControladorVerDepartamentos extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ControladorVerDepartamentos() {
-        super();
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ModeloDepartamento modeloDepartamento = new ModeloDepartamento();
-		
-		ArrayList<Departamento>departamentos = null;
-		
-		departamentos = modeloDepartamento.verDepartamentos();
-		
-		request.setAttribute("departamentos", departamentos);
-		request.getRequestDispatcher("VerDepartamentos.jsp").forward(request, response);
-
-	
+	public ControladorVerDepartamentos() {
+		super();
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		ModeloDepartamento modeloDepartamento = new ModeloDepartamento();
+
+		ArrayList<Departamento> departamentos = null;
+
+		departamentos = modeloDepartamento.verDepartamentos();
+
+		request.setAttribute("departamentos", departamentos);
+		request.getRequestDispatcher("VerDepartamentos.jsp").forward(request, response);
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
 

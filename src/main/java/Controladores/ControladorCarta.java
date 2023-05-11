@@ -62,13 +62,12 @@ public class ControladorCarta extends HttpServlet {
 			request.setAttribute("MensajeError", MensajeError);
 			request.getRequestDispatcher("InsertarCarta.jsp").forward(request, response);
 		}
-		
-		
+
 		HttpSession session = request.getSession();
 		Empleado empleado = (Empleado) session.getAttribute("empleado");
 		if (empleado.getCategoria().equals("Administrador")) {
-		response.sendRedirect("ControladorVistaAdmin");
-		}else {
+			response.sendRedirect("ControladorVistaAdmin");
+		} else {
 			response.sendRedirect("ControladorVistaEmpleado");
 
 		}

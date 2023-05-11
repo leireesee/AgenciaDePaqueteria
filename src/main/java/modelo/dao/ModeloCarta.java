@@ -51,7 +51,7 @@ public class ModeloCarta extends Conector {
 		}
 
 	}
-	
+
 	public int recibirUltimoCodigoEnvio() {
 
 		String senteciaSelect = "SELECT MAX(cod_envio) FROM paquete ";
@@ -71,7 +71,6 @@ public class ModeloCarta extends Conector {
 		}
 		return -1;
 	}
-	
-	
+
 }
 // fin clase modeloCarta
