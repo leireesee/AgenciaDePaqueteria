@@ -6,10 +6,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import modelo.dao.ModeloCarta;
+import modelo.dao.ModeloEmpleado;
 import modelo.dao.ModeloEnvio;
 import modelo.dto.Carta;
+import modelo.dto.Empleado;
 
 /**
  * Servlet implementation class ControladorCarta
@@ -17,54 +20,58 @@ import modelo.dto.Carta;
 @WebServlet("/ControladorCarta")
 public class ControladorCarta extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ControladorCarta() {
-        super();
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("InsertarCarta.jsp").forward(request, response);
-
-	
+	public ControladorCarta() {
+		super();
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		request.getRequestDispatcher("InsertarCarta.jsp").forward(request, response);
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		try {
-		String mensual = request.getParameter("mensual");
-		
-		Carta carta = new Carta();
-		ModeloEnvio modeloEnvio = new ModeloEnvio();
-		ModeloCarta modeloCarta = new ModeloCarta();
-		
-		
-	
-		
-		
-		carta.setCodEnvio(modeloEnvio.recibirUltimoCodigo());
-		carta.setMensual(mensual);
-		
-		modeloCarta.insertarCarta(carta);
-		
+			String mensual = request.getParameter("mensual");
+
+			Carta carta = new Carta();
+			ModeloEnvio modeloEnvio = new ModeloEnvio();
+			ModeloCarta modeloCarta = new ModeloCarta();
+
+			carta.setCodEnvio(modeloEnvio.recibirUltimoCodigo());
+			carta.setMensual(mensual);
+
+			modeloCarta.insertarCarta(carta);
 
 		} catch (Exception e) {
-			String MensajeError= "ERROR";
+			String MensajeError = "ERROR";
 			request.setAttribute("MensajeError", MensajeError);
 			request.getRequestDispatcher("InsertarCarta.jsp").forward(request, response);
 		}
 		
-		response.sendRedirect("ControladorVistaEmpleado");
+		
+		HttpSession session = request.getSession();
+		Empleado empleado = (Empleado) session.getAttribute("empleado");
+		if (empleado.getCategoria().equals("Administrador")) {
+		response.sendRedirect("ControladorVistaAdmin");
+		}else {
+			response.sendRedirect("ControladorVistaEmpleado");
 
+		}
 	}
-	
 
 }

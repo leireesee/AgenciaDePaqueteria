@@ -17,14 +17,59 @@
     
         
         <section class="bienvenido row">
-                <div class="col-12">
-                    <c:if test="${sessionScope.empleado.dni!=null}">
+           		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+						<div class="navegador container-fluid">
+
+							<c:if test="${sessionScope.empleado.dni!=null}">
 								<li style="margin-left: 100px;">
 									<div>
 										Bienvenid@, ${sessionScope.empleado.nombre}!</div>
 								</li>
 							</c:if>
-                </div>       
+
+							<button class="navbar-toggler" type="button"
+								data-bs-toggle="collapse"
+								data-bs-target="#navbarNavDarkDropdown"
+								aria-controls="navbarNavDarkDropdown" aria-expanded="false"
+								aria-label="Toggle navigation">
+
+								<span class="navbar-toggler-icon"></span>
+
+							</button>
+
+							<div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+
+								<ul class="navbar-nav">
+
+									<li class="nav-item dropdown">
+
+										<button class="btn btn-light dropdown-toggle"
+											data-bs-toggle="dropdown" aria-expanded="false">
+
+											<i class="fa-solid fa-user" style="color: #4979ff;"></i>
+
+
+
+										</button>
+
+										<ul class="dropdown-menu dropdown-menu-light">
+
+											<li><a class="dropdown-item" href="ControladorCerrarSesion">Cerrar Sesión</a></li>
+
+											<li><a class="dropdown-item" href="#">Ajustes</a></li>
+
+										</ul>
+
+									</li>
+
+								</ul>
+
+							</div>
+
+						</div>
+
+					</nav>   
             </section>
             <img src="" alt="">
             
@@ -37,7 +82,7 @@
 
                     
 
-                    <a href="ControladorRegistrarse">
+                    <a href="ControladorInsertarClienteVistaAdmin">
                         <div class="cuadrado col-2 col-md-3">
                             <i class="fa-solid fa-person-circle-plus fa-2xl" style="color: #FFFF;"></i>
                             <br>

@@ -8,10 +8,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import modelo.dao.ModeloEnvio;
 import modelo.dao.ModeloPaquete;
 import modelo.dto.Carta;
+import modelo.dto.Empleado;
 import modelo.dto.Paquete;
 
 /**
@@ -49,27 +51,34 @@ public class ControladorPaquete extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
-		// añadir bulto a paquete
-		ModeloEnvio modeloEnvio = new ModeloEnvio();
-		ModeloPaquete modeloPaquete = new ModeloPaquete();
+			// añadir bulto a paquete
+			ModeloEnvio modeloEnvio = new ModeloEnvio();
+			ModeloPaquete modeloPaquete = new ModeloPaquete();
 
-		Paquete paquete = new Paquete();
+			Paquete paquete = new Paquete();
 
-		String tamano = request.getParameter("tamano");
-		double peso = Double.parseDouble(request.getParameter("peso"));
+			String tamano = request.getParameter("tamano");
+			double peso = Double.parseDouble(request.getParameter("peso"));
 
-		paquete.setCodEnvio(modeloEnvio.recibirUltimoCodigo());
-		paquete.setPeso(peso);
-		paquete.setTamano(tamano);
+			paquete.setCodEnvio(modeloEnvio.recibirUltimoCodigo());
+			paquete.setPeso(peso);
+			paquete.setTamano(tamano);
 
-		modeloPaquete.insertarPaquete(paquete);
-		doGet(request, response);
+			modeloPaquete.insertarPaquete(paquete);
+			doGet(request, response);
 		} catch (Exception e) {
-		String MensajeError= "ERROR";
-		request.setAttribute("MensajeError", MensajeError);
-		request.getRequestDispatcher("InsertarCliente.jsp").forward(request, response);
-	}
-		response.sendRedirect("ControladorHome");
+			String MensajeError = "ERROR";
+			request.setAttribute("MensajeError", MensajeError);
+			request.getRequestDispatcher("InsertarCliente.jsp").forward(request, response);
+		}
+		HttpSession session = request.getSession();
+		Empleado empleado = (Empleado) session.getAttribute("empleado");
+		if (empleado.getCategoria().equals("Administrador")) {
+			response.sendRedirect("ControladorVistaAdmin");
+		} else {
+			response.sendRedirect("ControladorVistaEmpleado");
+
+		}
 
 	}
 
