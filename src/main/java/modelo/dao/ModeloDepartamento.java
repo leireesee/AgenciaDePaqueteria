@@ -14,7 +14,7 @@ public class ModeloDepartamento extends Conector {
 		PreparedStatement pstInsert;
 
 		try {
-			pstInsert = super.conexion.prepareStatement("INSERT INTO departamentos  ( nombre) VALUES (?)");
+			pstInsert = super.conexion.prepareStatement("INSERT INTO departamentos ( nombre) VALUES (?)");
 			pstInsert.setString(1, departamento.getNombre());
 			pstInsert.execute();
 
