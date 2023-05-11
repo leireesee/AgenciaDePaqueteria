@@ -1,368 +1,189 @@
 @charset "ISO-8859-1";
 
+@import
+	url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap')
+	;
 
+@import
+	url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap')
+	;
 
+@import
+	url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap')
+	;
 
-
-
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
-
-
-
-*{box-sizing: border-box; margin: 0;}
-
-
-
-body{
-
-    background-color: #F5F5F5 !important;
-
-    overflow-x: hidden;
-
+* {
+	box-sizing: border-box;
+	margin: 0;
 }
 
-
+body {
+	background-color: #F5F5F5 !important;
+	overflow-x: hidden;
+}
 
 /*TEXTOS*/
-
-h1 span{
-
-    font-family: 'Montserrat', sans-serif;
-
-    color: white;
-
-    font-weight: 700;
-
+h1 span {
+	font-family: 'Montserrat', sans-serif;
+	color: white;
+	font-weight: 700;
 }
 
-
-
-.grande{
-
-    color: white;
-
-
-
+.grande {
+	color: white;
 }
 
-
-
-.info{
-
-    color: white;
-
-    font-family: 'Poppins', sans-serif !important;
-
+.info {
+	color: white;
+	font-family: 'Poppins', sans-serif !important;
 }
 
-
-
-.nav-link{
-
-    font-family: 'Poppins', sans-serif;
-
+.nav-link {
+	font-family: 'Poppins', sans-serif;
 }
 
-
-
-p{
-
-   font-family: 'Poppins', sans-serif;
-
+p {
+	font-family: 'Poppins', sans-serif;
 }
 
-
-
-.card-title{
-
-    font-family: 'Montserrat';
-
-    font-size: 22px;
-
-    font-weight: 700;
-
-    margin-bottom: 20px;
-
+.card-title {
+	font-family: 'Montserrat';
+	font-size: 22px;
+	font-weight: 700;
+	margin-bottom: 20px;
 }
 
-
-
-.card-text{
-
-    font-size: 16px;
-
+.card-text {
+	font-size: 16px;
 }
-
-
-
-
 
 /*NAV*/
-
-#menu{
-
-    width: 100%;
-
-    position: absolute;
-
-    z-index: 100;
-
-    padding-right: 50px;
-
-    padding-left: 50px
-
+#menu {
+	width: 100%;
+	position: absolute;
+	z-index: 100;
+	padding-right: 50px;
+	padding-left: 50px
 }
 
-
-
-.navbar{
-
-    width: 100%;
-
-    background-color: rgb(255, 255, 255, 0) !important;
-
-    padding-left: 125px !important;
-
+.navbar {
+	width: 100%;
+	background-color: rgb(255, 255, 255, 0) !important;
+	padding-left: 125px !important;
 }
 
-
-
-.nav-link{
-
+.nav-link {
 	color: white !important;
-
 }
-
-
-
-
 
 /*HEADER*/
-
-header{
-
-    width: 100%;
-
-    height: 70vh;
-
-    display: flex;
-
-    justify-content: flex-start;
-
-    align-items: center;
-
-    padding-left: 200px;
-
+header {
+	width: 100%;
+	height: 70vh;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	padding-left: 200px;
 }
 
-
-
-.imagen-header{
-
-    margin-left: 150px; /*cambiarlo en el media query*/
-
+.imagen-header {
+	margin-left: 150px; /*cambiarlo en el media query*/
 }
 
-
-
-.texto-header{
-
+.texto-header {
 	margin-top: 80px;
-
 	margin-left: 115px;
-
 }
-
-
 
 /*CARDS*/
-
-#cards{
-
-    background-color: white;
-
-    padding-top: 70px;
-
-    padding-bottom: 70px
-
+#cards {
+	background-color: white;
+	padding-top: 70px;
+	padding-bottom: 70px
 }
 
-
-
-.cards-display{
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    justify-content: center; 
-
-    gap: 60px
-
+.cards-display {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 60px
 }
 
-
-
-.card{
-
-    box-shadow: 0px 0px 10px #0000FF60;
-
-    width: 90%;
-
-    background-color: #ffffff !important;
-
+.card {
+	box-shadow: 0px 0px 10px #0000FF60;
+	width: 90%;
+	background-color: #ffffff !important;
 }
 
-
-
-.card-title{
-
-    color: #004E86 !important;
-
+.card-title {
+	color: #004E86 !important;
 }
 
-
-
-.card-link{
-
-    background-color: #FFC000;
-
-    padding-left: 10px;
-
-    padding-right: 10px;
-
-    padding-top: 2px;
-
-    padding-bottom: 3px;
-
-    color: black;
-
-    border-radius: 15px;
-
-    text-decoration: none;
-
-    
-
+.card-link {
+	background-color: #FFC000;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 2px;
+	padding-bottom: 3px;
+	color: black;
+	border-radius: 15px;
+	text-decoration: none;
 }
-
-
 
 /*VENTAJAS*/
-
-#ventajas{
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    flex-wrap: wrap;
-
-    padding-top: 100px;
-
-    padding-bottom: 100px;
-
+#ventajas {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	padding-top: 100px;
+	padding-bottom: 100px;
 }
 
-
-
-.ventajas-texto{
-
-    width: 500px;
-
-    margin-right: 50px;
-
+.ventajas-texto {
+	width: 500px;
+	margin-right: 50px;
 }
 
-
-
-.ventajas-texto ul{
-
-    padding: 0;
-
+.ventajas-texto ul {
+	padding: 0;
 }
 
-
-
-.ventajas-texto li{
-
-    list-style-type: none;
-
-    display: flex;
-
+.ventajas-texto li {
+	list-style-type: none;
+	display: flex;
 }
 
-
-
-.ventajas-texto li i{
-
-    margin-right: 20px;
-
+.ventajas-texto li i {
+	margin-right: 20px;
 }
-
-
 
 /*FOOTER*/
-
-footer{
-
-    background-color: #333333;
-
-    padding-top: 50px;
-
-    padding-bottom: 50px;
-
-    display: flex;
-
-    justify-content: center;
-
-    color: white ;
-
+footer {
+	background-color: #333333;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	display: flex;
+	justify-content: center;
+	color: white;
 }
 
-
-
-footer h2{
-
-    margin-bottom: 40px;
-
+footer h2 {
+	margin-bottom: 40px;
 }
 
-
-
-footer a{
-
-    color: #FFC000;
-
+footer a {
+	color: #FFC000;
 }
 
-
-
-footer .row{
-
-    width: 80%;
-
+footer .row {
+	width: 80%;
 }
 
-
-
-footer .row .col-12{
-
-    margin-bottom: 40px;
-
+footer .row .col-12 {
+	margin-bottom: 40px;
 }
 
-
-
-footer .row ul{
-
-    list-style-type: none;
-
+footer .row ul {
+	list-style-type: none;
 }
-
