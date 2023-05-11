@@ -67,7 +67,7 @@
 					<td>${envio.tracking}</td>		
 					
 					<th><button type="button" class="btn btn-danger"><a href=ControladorEnvioEliminar?codEnvio=${envio.codEnvio} style="color: white !important">CANCELAR ENVIO </a></button></th>
-					<th><button type="button" class="btn btn-success"><a href=ControladorModificarCliente?codCliente=${cliente.codCliente} style="color: white !important">MODIFICAR </a></button></th>
+					<th><button type="button" class="btn btn-success"><a href=ControladorModificarEnvio?codEnvio=${envio.codEnvio} style="color: white !important">MODIFICAR </a></button></th>
 				</tr>
 			
 			

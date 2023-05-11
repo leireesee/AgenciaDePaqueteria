@@ -46,10 +46,9 @@ public class ModeloEnvio extends Conector {
 
 	public void modificarEnvio(Envio envio) {
 		PreparedStatement pstUpdate;
-
 		try {
 			pstUpdate = super.conexion.prepareStatement(
-					"UPDATE envio SET cod_sucursal=? cod_cliente=? , fecha_entrada=?, fecha_salida=?, fecha_llegada=?, entregado=?, direccion_destino=?, tracking=? WHERE cod_envio=?");
+					"UPDATE envio SET cod_sucursal=?, cod_cliente=? , fecha_entrada=?, fecha_salida=?, fecha_llegada=?, entregado=?, direccion_destino=?, tracking=? WHERE cod_envio=?");
 			pstUpdate.setInt(1, envio.getSucursal().getCodSucursal());
 			pstUpdate.setInt(2, envio.getCliente().getCodCliente());
 			pstUpdate.setDate(3, new Date(envio.getFechaEntrada().getTime()));

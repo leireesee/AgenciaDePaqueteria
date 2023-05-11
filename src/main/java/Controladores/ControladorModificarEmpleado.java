@@ -78,6 +78,8 @@ public class ControladorModificarEmpleado extends HttpServlet {
 		empleado.setContrasena(contrasena);
 		
 		modeloEmpleado.modificarEmpleado(empleado);
+		response.sendRedirect("ControladorVistaEmpleado");
+
 		} catch (Exception e) {
 			String MensajeError= "ERROR";
 			request.setAttribute("MensajeError", MensajeError);
