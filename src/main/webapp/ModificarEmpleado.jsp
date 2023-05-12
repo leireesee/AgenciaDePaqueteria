@@ -25,6 +25,7 @@
 	<br>
 	<br>
 	<c:set var="empleado" value="${ requestScope.empleado }" />
+	<!-- formulario modificar empleado-->
 
 	<section
 		style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; width: 100%; height: 80vh;">

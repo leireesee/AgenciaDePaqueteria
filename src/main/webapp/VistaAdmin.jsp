@@ -23,6 +23,7 @@
 <body>
 
 
+	<!-- menu-->
 
 	<section class="bienvenido row">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -81,6 +82,8 @@
 	<img src="" alt="">
 
 	<br>
+
+	<!--  funciones-->
 
 	<section id="funciones">
 		<h2>Opciones</h2>
@@ -147,7 +150,7 @@
 		<!--ver todos los envios hasta x linea-->
 		<!--podemos poner para modificar o eliminar botones al lado de los envios-->
 		<h2>Empleados de la sucursal</h2>
-		<!---foreach ver envios-->
+		<!---foreach ver empleados-->
 
 		<table class="table">
 

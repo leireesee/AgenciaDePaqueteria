@@ -136,7 +136,7 @@
 
 	<section class="envios-cliente">
 
-		<!---foreach ver envios-->
+		<!---foreach ver clientes-->
 		<table class="table ">
 
 			<tr>

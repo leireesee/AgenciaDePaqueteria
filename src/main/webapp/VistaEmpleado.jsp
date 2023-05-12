@@ -197,7 +197,7 @@
 
 				<h2>Últimos envíos</h2>
 
-				<!---foreach ver envios-->
+				<!---foreach ver empleados-->
 
 				<table class="table">
 

@@ -36,7 +36,6 @@
 <script src="https://kit.fontawesome.com/1257316c57.js"
 	crossorigin="anonymous"></script>
 
-<!---AÑADIR UN FAVICON--->
 
 
 
@@ -48,7 +47,7 @@
 
 <body>
 
-
+	<!-- MENU -->
 
 	<section id="menu">
 
@@ -202,7 +201,7 @@
 	</section>
 
 
-
+	<!-- resto del home -->
 	<header
 		style="background-image: url(img/fondo3.jpg); background-size: cover; background-position: bottom;">
 

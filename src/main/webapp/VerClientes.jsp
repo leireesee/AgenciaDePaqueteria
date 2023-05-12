@@ -23,19 +23,19 @@
 	<section id="clientes">
 
 		<h1>VER CLIENTES</h1>
-			<c:if test="${empleado.categoria eq 'Administrador'}">
-		<button type="button" class="btn btn-primary">
-			<a href="ControladorVistaAdmin" style="color: white">VOLVER</a>
+		<c:if test="${empleado.categoria eq 'Administrador'}">
+			<button type="button" class="btn btn-primary">
+				<a href="ControladorVistaAdmin" style="color: white">VOLVER</a>
 
-		</button>
-		
+			</button>
+
 		</c:if>
-		
-		<c:if test="${empleado.categoria ne 'Administrador' }">
-		<button type="button" class="btn btn-primary">
-			<a href="ControladorVistaEmpleado" style="color: white">VOLVER</a>
 
-		</button>
+		<c:if test="${empleado.categoria ne 'Administrador' }">
+			<button type="button" class="btn btn-primary">
+				<a href="ControladorVistaEmpleado" style="color: white">VOLVER</a>
+
+			</button>
 		</c:if>
 		<!--podemos poner para modificar o eliminar botones al lado de los envios-->
 		<!---foreach ver CLIENTES-->

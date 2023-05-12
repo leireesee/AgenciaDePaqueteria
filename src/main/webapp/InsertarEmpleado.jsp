@@ -23,6 +23,7 @@
 	<br>
 	<br>
 	<br>
+	<!-- formulario insertar empleado-->
 	<section
 		style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; width: 100%; height: 80vh;">
 		<div

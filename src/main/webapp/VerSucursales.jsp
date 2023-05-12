@@ -30,7 +30,7 @@
 			</h1>
 		</button>
 
-		<!---foreach ver envios-->
+		<!---foreach ver sucursales-->
 		<table class="table ">
 
 			<tr>

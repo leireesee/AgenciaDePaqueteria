@@ -21,6 +21,7 @@
 <body
 	style="background-image: url(img/fondo-formulario.jpg); background-size: cover; background-repeat: no-repeat;">
 
+	<!-- formulario insertar paquete-->
 
 	<section
 		style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; width: 100%; height: 80vh;">
