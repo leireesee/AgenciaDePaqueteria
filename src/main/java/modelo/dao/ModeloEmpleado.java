@@ -80,13 +80,15 @@ public class ModeloEmpleado extends Conector {
 			e.printStackTrace();
 		}
 		ArrayList<Empleado> empleados = new ArrayList<Empleado>();
+		
 		ResultSet resultado;
 		try {
 			resultado = st.executeQuery(sentenciaSelect);
 			while (resultado.next()) {
-				Empleado empleado = new Empleado();
 				ModeloSucursal modeloSucursal = new ModeloSucursal();
 				ModeloDepartamento modeloDepartamento = new ModeloDepartamento();
+				Empleado empleado = new Empleado();
+			
 
 				empleado.setSucursal(modeloSucursal.verSucursal(resultado.getInt("cod_sucursal")));
 				empleado.setDni(resultado.getString("dni"));
@@ -100,13 +102,15 @@ public class ModeloEmpleado extends Conector {
 				empleado.setDepartamento(modeloDepartamento.verDepartamento(resultado.getInt("cod_departamento")));
 				empleado.setContrasena(resultado.getString("contrasena"));
 				empleados.add(empleado);
+				modeloSucursal.cerrarConexion();
+				modeloDepartamento.cerrarConexion();
 
 			}
 			return empleados;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
+	
 		return null;
 
 	}
@@ -136,7 +140,10 @@ public class ModeloEmpleado extends Conector {
 			empleado.setComision(resultado.getDouble("comision"));
 			empleado.setDepartamento(modeloDepartamento.verDepartamento(resultado.getInt("cod_departamento")));
 			empleado.setContrasena(resultado.getString("contrasena"));
+			modeloSucursal.cerrarConexion();
+			modeloDepartamento.cerrarConexion();
 			return empleado;
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -152,11 +159,12 @@ public class ModeloEmpleado extends Conector {
 			pstSelect.setString(1, dni);
 			pstSelect.setString(2, contrasena);
 
-			ModeloSucursal modeloSucursal = new ModeloSucursal();
-			ModeloDepartamento modeloDepartamento = new ModeloDepartamento();
+	
 			ResultSet resultado = pstSelect.executeQuery();
 
 			while (resultado.next()) {
+				ModeloSucursal modeloSucursal = new ModeloSucursal();
+				ModeloDepartamento modeloDepartamento = new ModeloDepartamento();
 				empleado.setSucursal(modeloSucursal.verSucursal(resultado.getInt("cod_sucursal")));
 				empleado.setDni(resultado.getString("dni"));
 				empleado.setNombre(resultado.getString("nombre"));
@@ -167,8 +175,11 @@ public class ModeloEmpleado extends Conector {
 				empleado.setNomina(resultado.getDouble("nomina"));
 				empleado.setComision(resultado.getDouble("comision"));
 				empleado.setDepartamento(modeloDepartamento.verDepartamento(resultado.getInt("cod_departamento")));
+				modeloSucursal.cerrarConexion();
+				modeloDepartamento.cerrarConexion();
 			}
-
+		
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -184,11 +195,12 @@ public class ModeloEmpleado extends Conector {
 			PreparedStatement pstSelect = super.conexion.prepareStatement(senteciaSelect);
 			pstSelect.setString(1, categoria);
 
-			ModeloSucursal modeloSucursal = new ModeloSucursal();
-			ModeloDepartamento modeloDepartamento = new ModeloDepartamento();
 			ResultSet resultado = pstSelect.executeQuery();
 
 			while (resultado.next()) {
+
+				ModeloSucursal modeloSucursal = new ModeloSucursal();
+				ModeloDepartamento modeloDepartamento = new ModeloDepartamento();
 				empleado.setSucursal(modeloSucursal.verSucursal(resultado.getInt("cod_sucursal")));
 				empleado.setDni(resultado.getString("dni"));
 				empleado.setNombre(resultado.getString("nombre"));
@@ -199,10 +211,12 @@ public class ModeloEmpleado extends Conector {
 				empleado.setNomina(resultado.getDouble("nomina"));
 				empleado.setComision(resultado.getDouble("comision"));
 				empleado.setDepartamento(modeloDepartamento.verDepartamento(resultado.getInt("cod_departamento")));
+				modeloSucursal.cerrarConexion();
+				modeloDepartamento.cerrarConexion();
 			}
-
+		
 			return empleado;
-
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

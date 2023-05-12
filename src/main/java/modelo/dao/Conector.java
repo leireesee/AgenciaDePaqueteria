@@ -31,8 +31,12 @@ public class Conector {
 		this.conexion = conexion;
 	}
 
-	public void cerrarConexion() throws SQLException {
-		conexion.close();
+	public void cerrarConexion() {
+		try {
+			conexion.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 
 	}
 

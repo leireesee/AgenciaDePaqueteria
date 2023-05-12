@@ -25,11 +25,21 @@
 		<!--ver todos los envios hasta x linea-->
 		<!--podemos poner para modificar o eliminar botones al lado de los envios-->
 		<h2>VER ENVIOS</h2>
+		<c:if test="${empleado.categoria eq 'Administrador'}">
+		<button type="button" class="btn btn-primary">
+			<a href="ControladorVistaAdmin" style="color: white">VOLVER</a>
+
+		</button>
+		
+		</c:if>
+		
+		<c:if test="${empleado.categoria ne 'Administrador' }">
 		<button type="button" class="btn btn-primary">
 			<a href="ControladorVistaEmpleado" style="color: white">VOLVER</a>
-			</h1>
-		</button>
 
+		</button>
+		</c:if>
+	
 		<!---foreach ver envios-->
 		<table class="table ">
 

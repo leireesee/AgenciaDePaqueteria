@@ -37,7 +37,7 @@ public class ControladorVerClientes extends HttpServlet {
 
 		ArrayList<Cliente> clientes = null;
 		clientes = modeloCliente.verClientes();
-
+		modeloCliente.cerrarConexion();
 		request.setAttribute("clientes", clientes);
 		request.getRequestDispatcher("VerClientes.jsp").forward(request, response);
 	}

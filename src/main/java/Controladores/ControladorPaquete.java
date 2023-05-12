@@ -65,7 +65,7 @@ public class ControladorPaquete extends HttpServlet {
 			paquete.setTamano(tamano);
 
 			modeloPaquete.insertarPaquete(paquete);
-			doGet(request, response);
+			modeloPaquete.cerrarConexion();
 		} catch (Exception e) {
 			String MensajeError = "ERROR";
 			request.setAttribute("MensajeError", MensajeError);

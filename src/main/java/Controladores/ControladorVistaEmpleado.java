@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import modelo.dao.ModeloEnvio;
 import modelo.dto.Envio;
@@ -36,8 +37,10 @@ public class ControladorVistaEmpleado extends HttpServlet {
 
 		ArrayList<Envio> envios = null;
 		envios = modeloEnvio.verEnvios();
-
+		modeloEnvio.cerrarConexion();
 		request.setAttribute("envios", envios);
+		HttpSession session=request.getSession();
+		request.setAttribute("empleado", session.getAttribute("empleado"));
 		request.getRequestDispatcher("VistaEmpleado.jsp").forward(request, response);
 	}
 

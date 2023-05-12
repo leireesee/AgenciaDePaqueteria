@@ -129,7 +129,7 @@
 
 					<li class="nav-item"><a class="nav-link" href="#">Ayuda</a></li>
 
-					<li class="nav-item"><a class="nav-link" href="#">Contacta</a>
+					<li class="nav-item"><a class="nav-link" href="Contactar.jsp">Contacta</a>
 
 					</li>
 

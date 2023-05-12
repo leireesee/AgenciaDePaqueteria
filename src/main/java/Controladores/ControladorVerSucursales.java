@@ -37,7 +37,7 @@ public class ControladorVerSucursales extends HttpServlet {
 		ArrayList<Sucursal> sucursales = null;
 
 		sucursales = modeloSucursal.verSucursales();
-
+		modeloSucursal.cerrarConexion();
 		request.setAttribute("sucursales", sucursales);
 		request.getRequestDispatcher("VerSucursales.jsp").forward(request, response);
 

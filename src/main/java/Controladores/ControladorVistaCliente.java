@@ -43,6 +43,7 @@ public class ControladorVistaCliente extends HttpServlet {
 
 		ArrayList<Envio> envios = null;
 		envios = modeloEnvio.verEnviosPersonal(cliente.getCodCliente());
+		modeloEnvio.cerrarConexion();
 		request.setAttribute("envios", envios);
 		request.getRequestDispatcher("VistaCliente.jsp").forward(request, response);
 

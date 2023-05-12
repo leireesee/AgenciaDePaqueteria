@@ -36,7 +36,7 @@ public class ControladorVistaAdmin extends HttpServlet {
 
 		ArrayList<Empleado> empleados = null;
 		empleados = modeloEmpleado.verEmpleados();
-
+		modeloEmpleado.cerrarConexion();
 		request.setAttribute("empleados", empleados);
 		request.getRequestDispatcher("VistaAdmin.jsp").forward(request, response);
 

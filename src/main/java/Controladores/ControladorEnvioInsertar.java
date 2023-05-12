@@ -71,8 +71,7 @@ public class ControladorEnvioInsertar extends HttpServlet {
 			String direccionDestino = request.getParameter("direccion_destino");
 			String tracking = request.getParameter("tracking");
 
-			// envio.setSucursal(modeloSucursal.verSucursal(codSucursal));
-			modeloSucursal.verSucursal(codSucursal);
+			envio.setSucursal(modeloSucursal.verSucursal(codSucursal));
 			envio.setCliente(modeloCliente.verCliente(codCliente));
 			envio.setFechaEntrada(fechaEntrada);
 			envio.setFechaSalida(fechaSalida);
@@ -80,8 +79,9 @@ public class ControladorEnvioInsertar extends HttpServlet {
 			envio.setEntregado(entregado);
 			envio.setDireccionDestino(direccionDestino);
 			envio.setTracking(tracking);
-
+			
 			modeloEnvio.insertarEnvio(envio);
+			modeloEnvio.cerrarConexion();
 		} catch (Exception e) {
 //			String MensajeError= "ERROR";
 //			request.setAttribute("MensajeError", MensajeError);

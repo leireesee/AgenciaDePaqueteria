@@ -9,6 +9,10 @@ import modelo.dto.Envio;
 import modelo.dto.Sucursal;
 
 public class ModeloSucursal extends Conector {
+	
+	public ModeloSucursal() {
+		super();
+	}
 
 //	public void insertarSucursa(Sucursal sucursal) {
 //		PreparedStatement pstInsert;
@@ -57,9 +61,10 @@ public class ModeloSucursal extends Conector {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return null;
 		}
 
-		return null;
+
 	}
 
 	public ArrayList<Sucursal> verSucursales() {

@@ -50,7 +50,7 @@ public class ControladorLoginEmpleados extends HttpServlet {
 		String contrasena = request.getParameter("contrasena");
 
 		Empleado empleado = modeloEmpleado.verificar(dni, contrasena);
-
+		modeloEmpleado.cerrarConexion();
 		String empleadoCateg = "Administrador";
 
 		if (empleado.getDni() != null) {
@@ -58,13 +58,14 @@ public class ControladorLoginEmpleados extends HttpServlet {
 				HttpSession sesion = request.getSession();
 				sesion.setAttribute("empleado", empleado);
 				request.getRequestDispatcher("ControladorVistaAdmin").forward(request, response);
-			}
+			}else {
 			HttpSession sesion = request.getSession();
 			sesion.setAttribute("empleado", empleado);
 			request.getRequestDispatcher("ControladorVistaEmpleado").forward(request, response);
+			}
 
 		} else {
-			doGet(request, response);
+			request.getRequestDispatcher("InicioSesionEmpleado.jsp").forward(request, response);
 
 		}
 

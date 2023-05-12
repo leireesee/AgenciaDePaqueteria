@@ -10,7 +10,11 @@ import modelo.dto.Cliente;
 import modelo.dto.Envio;
 
 public class ModeloCliente extends Conector {
-
+	
+	public ModeloCliente() {
+		super();
+	}
+	
 	public void insertarCliente(Cliente cliente) {
 		PreparedStatement pstInsert;
 		try {
@@ -76,7 +80,6 @@ public class ModeloCliente extends Conector {
 			while (resultado.next()) {
 
 				Cliente cliente = new Cliente();
-				ModeloEnvio modeloEnvio = new ModeloEnvio();
 				cliente.setCodCliente(resultado.getInt("cod_cliente"));
 				cliente.setDniCif(resultado.getString("Dni_Cif"));
 				cliente.setNombre(resultado.getString("nombre"));
@@ -105,7 +108,6 @@ public class ModeloCliente extends Conector {
 			resultado.next();
 
 			Cliente cliente = new Cliente();
-			ModeloEnvio modeloEnvio = new ModeloEnvio();
 
 			cliente.setCodCliente(resultado.getInt("cod_cliente"));
 			cliente.setDniCif(resultado.getString("Dni_Cif"));

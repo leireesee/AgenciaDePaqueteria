@@ -35,7 +35,7 @@ public class ControladorVerEnvios extends HttpServlet {
 		ModeloEnvio modeloEnvio = new ModeloEnvio();
 		ArrayList<Envio> envios = null;
 		envios = modeloEnvio.verEnvios();
-
+		modeloEnvio.cerrarConexion();
 		String ordenar = request.getParameter("Ordenar");
 		if (ordenar == null) {
 			ordenar = "desc";

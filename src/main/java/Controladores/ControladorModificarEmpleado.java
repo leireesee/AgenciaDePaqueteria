@@ -39,7 +39,7 @@ public class ControladorModificarEmpleado extends HttpServlet {
 		String dni = request.getParameter("dni");
 
 		empleado = modeloEmpleado.verEmpleado(dni);
-
+		modeloEmpleado.cerrarConexion();
 		request.setAttribute("empleado", empleado);
 		request.getRequestDispatcher("ModificarEmpleado.jsp").forward(request, response);
 
@@ -82,6 +82,7 @@ public class ControladorModificarEmpleado extends HttpServlet {
 			empleado.setContrasena(contrasena);
 
 			modeloEmpleado.modificarEmpleado(empleado);
+			modeloEmpleado.cerrarConexion();
 			response.sendRedirect("ControladorVistaEmpleado");
 
 		} catch (Exception e) {

@@ -72,9 +72,10 @@ public class ControladorInsertarEmpleado extends HttpServlet {
 			empleado.setComision(comision);
 			empleado.setDepartamento(modeloDepartamento.verDepartamento(codDepartamento));
 			empleado.setContrasena(contrasena);
-
+			
+			
 			modeloEmpleado.insertarEmpleado(empleado);
-
+			modeloEmpleado.cerrarConexion();
 		} catch (Exception e) {
 			String MensajeError = "ERROR";
 			request.setAttribute("MensajeError", MensajeError);

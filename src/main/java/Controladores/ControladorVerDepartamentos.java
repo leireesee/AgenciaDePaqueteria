@@ -37,7 +37,7 @@ public class ControladorVerDepartamentos extends HttpServlet {
 		ArrayList<Departamento> departamentos = null;
 
 		departamentos = modeloDepartamento.verDepartamentos();
-
+		modeloDepartamento.cerrarConexion();
 		request.setAttribute("departamentos", departamentos);
 		request.getRequestDispatcher("VerDepartamentos.jsp").forward(request, response);
 

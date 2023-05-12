@@ -50,7 +50,7 @@ public class ControladorLoginInicioS extends HttpServlet {
 		String contrasena = request.getParameter("contrasena");
 
 		Cliente cliente = modeloCliente.verificar(dniCif, contrasena);
-
+		modeloCliente.cerrarConexion();
 		if (cliente.getDniCif() != null) {
 			HttpSession sesion = request.getSession();
 			sesion.setAttribute("cliente", cliente);

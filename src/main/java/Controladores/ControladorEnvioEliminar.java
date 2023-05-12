@@ -35,7 +35,7 @@ public class ControladorEnvioEliminar extends HttpServlet {
 		ModeloEnvio modeloEnvio = new ModeloEnvio();
 
 		modeloEnvio.eliminarEnvio(codEnvio);
-
+		modeloEnvio.cerrarConexion();
 		request.getRequestDispatcher("ControladorVerEnvios").forward(request, response);
 	}
 

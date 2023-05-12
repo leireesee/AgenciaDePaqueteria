@@ -57,7 +57,7 @@ public class ControladorRegistrarse extends HttpServlet {
 			cliente.setContrasena(contrasena);
 
 			modeloCliente.insertarCliente(cliente);
-
+			modeloCliente.cerrarConexion();
 			// hay que poner se ha realizado con exito
 		} catch (Exception e) {
 			String MensajeError = "ERROR";

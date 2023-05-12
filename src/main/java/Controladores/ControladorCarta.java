@@ -56,6 +56,7 @@ public class ControladorCarta extends HttpServlet {
 			carta.setMensual(mensual);
 
 			modeloCarta.insertarCarta(carta);
+			modeloCarta.cerrarConexion();
 
 		} catch (Exception e) {
 			String MensajeError = "ERROR";

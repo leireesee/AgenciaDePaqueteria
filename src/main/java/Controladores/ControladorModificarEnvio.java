@@ -42,7 +42,7 @@ public class ControladorModificarEnvio extends HttpServlet {
 		int codEnvio = Integer.parseInt(request.getParameter("codEnvio"));
 
 		envio = modeloEnvio.verEnvio(codEnvio);
-
+		modeloEnvio.cerrarConexion();
 		request.setAttribute("envio", envio);
 		request.getRequestDispatcher("ModificarEnvio.jsp").forward(request, response);
 

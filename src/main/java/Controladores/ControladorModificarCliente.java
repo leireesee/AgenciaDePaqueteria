@@ -36,6 +36,8 @@ public class ControladorModificarCliente extends HttpServlet {
 		int codCliente = Integer.parseInt(request.getParameter("codCliente"));
 
 		cliente = modeloCliente.verCliente(codCliente);
+		
+		modeloCliente.cerrarConexion();
 
 		request.setAttribute("cliente", cliente);
 		request.getRequestDispatcher("ModificarCliente.jsp").forward(request, response);
@@ -66,6 +68,7 @@ public class ControladorModificarCliente extends HttpServlet {
 			cliente.setContrasena(contrasena);
 
 			modeloCliente.modificarCliente(cliente);
+			modeloCliente.cerrarConexion();
 
 		} catch (Exception e) {
 			String MensajeError = "ERROR";

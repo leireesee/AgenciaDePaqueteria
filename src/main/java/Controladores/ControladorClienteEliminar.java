@@ -34,7 +34,7 @@ public class ControladorClienteEliminar extends HttpServlet {
 		ModeloCliente modeloCliente = new ModeloCliente();
 
 		modeloCliente.eliminarCliente(codCliente);
-
+		modeloCliente.cerrarConexion();
 		request.getRequestDispatcher("ControladorVerClientes").forward(request, response);
 	}
 

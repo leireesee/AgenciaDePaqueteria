@@ -34,7 +34,7 @@ public class ControladorEmpleadoEliminar extends HttpServlet {
 		ModeloEmpleado modeloEmpleado = new ModeloEmpleado();
 
 		modeloEmpleado.eliminarEmpleado(dni);
-
+		modeloEmpleado.cerrarConexion();
 		request.getRequestDispatcher("ControladorVistaAdmin").forward(request, response);
 
 	}
