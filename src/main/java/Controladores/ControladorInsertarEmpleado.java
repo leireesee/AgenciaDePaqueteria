@@ -17,6 +17,9 @@ import modelo.dto.Empleado;
  */
 @WebServlet("/ControladorInsertarEmpleado")
 public class ControladorInsertarEmpleado extends HttpServlet {
+	/***
+	 * Este controlador se encarga de recibir Strings del formulario para luego insertarlo en la base de datos.
+	 */
 	private static final long serialVersionUID = 1L;
 
 	/**

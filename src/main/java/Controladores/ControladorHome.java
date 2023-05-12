@@ -13,6 +13,9 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet("/ControladorHome")
 public class ControladorHome extends HttpServlet {
+	/***
+	 * Este controlador se encarga de llevarse a la pagina principa (home).
+	 */
 	private static final long serialVersionUID = 1L;
 
 	/**

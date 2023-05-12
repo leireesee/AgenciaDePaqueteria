@@ -17,6 +17,10 @@ import modelo.dto.Empleado;
  */
 @WebServlet("/ControladorVistaAdmin")
 public class ControladorVistaAdmin extends HttpServlet {
+	/***
+	 * Este controlador se encarga de visualizar la vista administrador al que le pasamos tambien un arrayList de empleados para que se vea en
+	 * la vista.
+	 */
 	private static final long serialVersionUID = 1L;
 
 	/**

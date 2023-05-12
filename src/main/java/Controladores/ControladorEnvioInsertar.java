@@ -25,6 +25,10 @@ import modelo.dto.Carta;
  */
 @WebServlet("/ControladorEnvioInsertar")
 public class ControladorEnvioInsertar extends HttpServlet {
+	/***
+	 * Se encarga de coger String del formulario para luego insertarlos en insertar envio, tambien diferencia si el string que recibe es una carta
+	 * o un paquete, esto le llevara a un controlador o a otro.
+	 */
 	private static final long serialVersionUID = 1L;
 
 	/**

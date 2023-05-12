@@ -17,6 +17,9 @@ import modelo.dto.Envio;
  */
 @WebServlet("/ControladorVerEnvios")
 public class ControladorVerEnvios extends HttpServlet {
+	/***
+	 * Este controlador se conecta a la base de datos y desde ahi  se los enviamos por el doGet el arraylist de envios para que se visualice.
+	 */
 	private static final long serialVersionUID = 1L;
 
 	/**

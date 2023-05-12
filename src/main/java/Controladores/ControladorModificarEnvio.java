@@ -20,6 +20,10 @@ import modelo.dto.Envio;
  */
 @WebServlet("/ControladorModificarEnvio")
 public class ControladorModificarEnvio extends HttpServlet {
+	/***
+	 *  Se encarga de recibir el id del cual se va a modificar  para luego recoger Strings de un formulario y enviarlo a la base de datos 
+	 * para modificarlo.
+	 */
 	private static final long serialVersionUID = 1L;
 
 	/**

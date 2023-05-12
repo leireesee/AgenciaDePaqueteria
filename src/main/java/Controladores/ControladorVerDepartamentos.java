@@ -17,6 +17,9 @@ import modelo.dto.Departamento;
  */
 @WebServlet("/ControladorVerDepartamentos")
 public class ControladorVerDepartamentos extends HttpServlet {
+	/***
+	 * Este controlador se conecta a la base de datos y desde ahi  se los enviamos por el doGet el arraylist de departamentos para que se visualice.
+	 */
 	private static final long serialVersionUID = 1L;
 
 	/**

@@ -14,7 +14,10 @@ public class ModeloCliente extends Conector {
 	public ModeloCliente() {
 		super();
 	}
-	
+	/***
+	 * Este metodo inserta un cliente 
+	 * @param cliente.
+	 */
 	public void insertarCliente(Cliente cliente) {
 		PreparedStatement pstInsert;
 		try {
@@ -32,7 +35,10 @@ public class ModeloCliente extends Conector {
 			e.printStackTrace();
 		}
 	}
-
+	/**
+	 *  Elimina un cliente  siempre que conicida con el codigo cliente 
+	 * @param  codCliente 
+	 */
 	public void eliminarCliente(int codCliente) {
 		PreparedStatement pstDelete;
 		try {
@@ -44,7 +50,10 @@ public class ModeloCliente extends Conector {
 			e.printStackTrace();
 		}
 	}
-
+	/***
+	 * Este metodo se encarga de de modificar un cliente dependiedno del codigo cliente.
+	 * @param  cliente
+	 */
 	public void modificarCliente(Cliente cliente) {
 		PreparedStatement pstUpdate;
 
@@ -63,7 +72,10 @@ public class ModeloCliente extends Conector {
 			e.printStackTrace();
 		}
 	}
-
+	/***
+	 * Se encarga de visualizar todos los clientes 
+	 * @return devuelve un arrayList de clientes
+	 */
 	public ArrayList<Cliente> verClientes() {
 		String senteciaSelect = "SELECT * FROM cliente";
 		java.sql.Statement st = null;
@@ -96,7 +108,11 @@ public class ModeloCliente extends Conector {
 
 		return clientes;
 	}
-
+	/***
+	 * Se encarga de visualizar un cliente dependiendo del codigo cliente 
+	 * @param codCliente
+	 * @return devuelve el cliente
+	 */
 	public Cliente verCliente(int codCliente) {
 		String senteciaSelect = "SELECT * FROM cliente WHERE cod_cliente=?";
 
@@ -123,7 +139,13 @@ public class ModeloCliente extends Conector {
 		}
 		return null;
 	}
-
+	
+	/***
+	 * Se encarga de averiguar si el dni y la contrasena que se le pasa existen en la base de datos.s
+	 * @param    dniCif
+	 * @param   contrasena
+	 * @return devuelve el objeto cliente
+	 */
 	public Cliente verificar(String dniCif, String contrasena) {
 		String senteciaSelect = "SELECT * FROM cliente WHERE Dni_Cif=? AND contrasena =?";
 		Cliente cliente = new Cliente();

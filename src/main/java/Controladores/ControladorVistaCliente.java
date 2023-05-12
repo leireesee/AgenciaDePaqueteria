@@ -19,6 +19,10 @@ import modelo.dto.Envio;
  */
 @WebServlet("/ControladorVistaCliente")
 public class ControladorVistaCliente extends HttpServlet {
+	/***
+	 * Este controlador se encarga de visualizar la vista cliente al que le pasamos tambien un arrayList de clientes para que se vea en
+	 * la vista.
+	 */
 	private static final long serialVersionUID = 1L;
 
 	/**

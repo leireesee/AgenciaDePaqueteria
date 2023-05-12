@@ -15,6 +15,9 @@ import modelo.dao.ModeloEnvio;
  */
 @WebServlet("/ControladorEnvioEliminar")
 public class ControladorEnvioEliminar extends HttpServlet {
+	/***
+	 * Se encarga de coger un codigo para eliminar envio.
+	 */
 	private static final long serialVersionUID = 1L;
 
 	/**

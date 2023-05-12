@@ -9,7 +9,10 @@ import modelo.dto.Cliente;
 import modelo.dto.Departamento;
 
 public class ModeloDepartamento extends Conector {
-
+	/***
+	 * Este metodo inserta un departamento 
+	 * @param departamento
+	 */
 	public void insertarDepartamento(Departamento departamento) {
 		PreparedStatement pstInsert;
 
@@ -23,7 +26,10 @@ public class ModeloDepartamento extends Conector {
 		}
 
 	}
-
+	/**
+	 *  Elimina un departamento  siempre que coincida con el codigo departamento  
+	 * @param codDepartamento 
+	 */
 	public void eliminarDepartamento(int codDepartamento) {
 		PreparedStatement pstDelete;
 
@@ -36,6 +42,11 @@ public class ModeloDepartamento extends Conector {
 		}
 	}
 
+	
+	/***
+	 * Se encarga de visualizar todos los departamentos que se encuentra en la base de datos. 
+	 * @return devuelve un arrayList de departametnos
+	 */
 	public ArrayList<Departamento> verDepartamentos() {
 		String sentenciaSelect = "SELECT * FROM departamentos";
 
@@ -62,6 +73,11 @@ public class ModeloDepartamento extends Conector {
 		return null;
 
 	}
+	/***
+	 * Este metodo se encarga de devolver un departamentod dependiendo del codigo departamento.
+	 * @param  codDepartamento
+	 * @return devuelve un objeto departamento
+	 */
 
 	public Departamento verDepartamento(int codDepartamento) {
 		String sentenciaSelect = "SELECT * FROM departamentos WHERE cod_departamento=?";
@@ -84,6 +100,11 @@ public class ModeloDepartamento extends Conector {
 		return null;
 	}
 
+	
+	/***
+	 *Este metodo sirve para recibir el ultimo codigo del departametno 
+	 * @return devuelve un codigo departamento
+	 */
 	public int recibirUltimoCodigoDepartamento() {
 
 		String senteciaSelect = "SELECT MAX(cod_departamento) FROM departamento ";

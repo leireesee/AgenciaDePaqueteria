@@ -11,7 +11,10 @@ import modelo.dto.Empleado;
 import modelo.dto.Envio;
 
 public class ModeloEmpleado extends Conector {
-
+	/***
+	 * Este metodo inserta un empleado 
+	 * @param  empleado
+	 */
 	public void insertarEmpleado(Empleado empleado) {
 		PreparedStatement pstInsert;
 		try {
@@ -33,7 +36,11 @@ public class ModeloEmpleado extends Conector {
 			e.printStackTrace();
 		}
 	}
-
+	
+	/**
+	 *  Elimina un empleado  siempre que coincida con el dni 
+	 * @param  dni 
+	 */
 	public void eliminarEmpleado(String dni) {
 		PreparedStatement pstDelete;
 		try {
@@ -45,7 +52,10 @@ public class ModeloEmpleado extends Conector {
 			e.printStackTrace();
 		}
 	}
-
+	/***
+	 * Este metodo se encarga de de modificar el empleado dependiedno del dni.
+	 * @param empleado
+	 */
 	public void modificarEmpleado(Empleado empleado) {
 		PreparedStatement pstUpdate;
 
@@ -69,7 +79,10 @@ public class ModeloEmpleado extends Conector {
 		}
 
 	}
-
+	/***
+	 * Se encarga de visualizar todos los empleados 
+	 * @return devuelve un arrayList de empleados
+	 */
 	public ArrayList<Empleado> verEmpleados() {
 		String sentenciaSelect = "SELECT * FROM empleados";
 		java.sql.Statement st = null;
@@ -114,7 +127,11 @@ public class ModeloEmpleado extends Conector {
 		return null;
 
 	}
-
+	/***
+	 * Este metodo se encarga de devolver un empleado dependiendo del dni.
+	 * @param dni
+	 * @return devuelve un objeto empleado
+	 */
 	public Empleado verEmpleado(String dni) {
 		String senteciaSelect = "SELECT * FROM empleados WHERE dni=?";
 
@@ -150,7 +167,12 @@ public class ModeloEmpleado extends Conector {
 
 		return null;
 	}
-
+	/***
+	 * Este verifica si los datos dni y contrasena exiten en la tabla base de datos 
+	 * @param dni
+	 * @param  contrasena 
+	 * @return el objeto empleado
+	 */
 	public Empleado verificar(String dni, String contrasena) {
 		String senteciaSelect = "SELECT * FROM empleados WHERE Dni=? AND contrasena =?";
 		Empleado empleado = new Empleado();
@@ -187,6 +209,12 @@ public class ModeloEmpleado extends Conector {
 		return empleado;
 	}
 
+	/***
+	 * Verifica si la categoria es de administrador
+	 * @param categoria
+	 * @return devuelve objeto empleado.
+	 */
+	
 	public Empleado verificarAdmin(String categoria) {
 
 		String senteciaSelect = "SELECT * FROM empleados WHERE categoria=?";

@@ -14,6 +14,9 @@ import modelo.dao.ModeloEmpleado;
  */
 @WebServlet("/ControladorEmpleadoEliminar")
 public class ControladorEmpleadoEliminar extends HttpServlet {
+	/***
+	 * Se encarga de recoger  un dni  para eliminar un empleado.
+	 */
 	private static final long serialVersionUID = 1L;
 
 	/**

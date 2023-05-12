@@ -9,6 +9,10 @@ import modelo.dto.Carta;
 
 public class ModeloCarta extends Conector {
 
+	/***
+	 * Insertar el objeto carta en la base de datos
+	 * @param  carta
+	 */
 	public void insertarCarta(Carta carta) {
 		PreparedStatement pstInsert;
 		try {
@@ -22,7 +26,11 @@ public class ModeloCarta extends Conector {
 			e.printStackTrace();
 		}
 	}
-
+	
+	/***
+	 * Elimina una carta siempre que conicida con el codigo envio 
+	 * @param  codEnvio
+	 */
 	public void eliminarCarta(int codEnvio) {
 		PreparedStatement pstDelete;
 		try {
@@ -34,7 +42,11 @@ public class ModeloCarta extends Conector {
 			e.printStackTrace();
 		}
 	}
-
+	
+	/***
+	 * Este metodo se encarga de de modificar carta dependiedno del codigo envio.
+	 * @param  carta
+	 */
 	public void modificarCarta(Carta carta) {
 		PreparedStatement pstUpdate;
 
@@ -52,6 +64,10 @@ public class ModeloCarta extends Conector {
 
 	}
 
+	/***
+	 * Este metodo se encarga de mostrar el ultimo paquete con el codigo de envio 
+	 * @return devulve un el ultimo codigo envio
+	 */
 	public int recibirUltimoCodigoEnvio() {
 
 		String senteciaSelect = "SELECT MAX(cod_envio) FROM paquete ";

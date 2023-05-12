@@ -18,6 +18,10 @@ import modelo.dto.Envio;
  */
 @WebServlet("/ControladorVistaEmpleado")
 public class ControladorVistaEmpleado extends HttpServlet {
+	/***
+	 * Este controlador se encarga de visualizar la vista empleados al que le pasamos tambien un arrayList de empleados para que se vea en
+	 * la vista.
+	 */
 	private static final long serialVersionUID = 1L;
 
 	/**

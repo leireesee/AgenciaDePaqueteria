@@ -21,6 +21,9 @@ import modelo.dto.Paquete;
  */
 @WebServlet("/ControladorPaquete")
 public class ControladorPaquete extends HttpServlet {
+	/**
+	 * se encarga de insertar un paquete en la base de datos 
+	 */
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -51,7 +54,6 @@ public class ControladorPaquete extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
-			// añadir bulto a paquete
 			ModeloEnvio modeloEnvio = new ModeloEnvio();
 			ModeloPaquete modeloPaquete = new ModeloPaquete();
 

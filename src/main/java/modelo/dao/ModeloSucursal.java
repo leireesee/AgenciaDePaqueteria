@@ -40,6 +40,12 @@ public class ModeloSucursal extends Conector {
 //			e.printStackTrace();
 //		}
 //	}
+	
+	/***
+	 * Este motodo te muestra una sucursal dependiendo del cod_sucursal
+	 * @param codSucursal
+	 * @return devuelve el objeto sucursal.
+	 */
 
 	public Sucursal verSucursal(int codSucursal) {
 
@@ -66,7 +72,10 @@ public class ModeloSucursal extends Conector {
 
 
 	}
-
+	/***
+	 * Se encarga de visualizar todos las sucursales 
+	 * @return devuelve un arrayList de sucursales
+	 */
 	public ArrayList<Sucursal> verSucursales() {
 
 		String senteciaSelect = "SELECT * FROM sucursal ";

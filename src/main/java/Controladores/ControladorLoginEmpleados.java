@@ -18,6 +18,10 @@ import modelo.dto.Empleado;
  */
 @WebServlet("/ControladorLoginEmpleados")
 public class ControladorLoginEmpleados extends HttpServlet {
+	/***
+	 * Se encarga  de recibir String de un formulario y verificar si estos se encuentran en la base de datos 
+	 * de empleados para luego pode acceder, (Hacer un login).
+	 */
 	private static final long serialVersionUID = 1L;
 
 	/**

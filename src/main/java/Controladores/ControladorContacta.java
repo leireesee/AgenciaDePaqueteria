@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/ControladorContacta")
 public class ControladorContacta extends HttpServlet {
+	/***
+	 * Se encarga de llevar a la pagina Contactar
+	 */
 	private static final long serialVersionUID = 1L;
        
     /**

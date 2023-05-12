@@ -14,6 +14,10 @@ import modelo.dao.ModeloCliente;
  */
 @WebServlet("/ControladorClienteEliminar")
 public class ControladorClienteEliminar extends HttpServlet {
+	
+	/***
+	 * Este controlador  se encarga de coger el int que seria el codigo cliente para luego eliminarlo.
+	 */
 	private static final long serialVersionUID = 1L;
 
 	/**

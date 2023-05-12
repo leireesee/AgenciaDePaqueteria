@@ -13,6 +13,9 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet("/ControladorCerrarSesion")
 public class ControladorCerrarSesion extends HttpServlet {
+	/***
+	 * Este controlador se encarga de cerrar la sesion de HttpSession.
+	 */
 	private static final long serialVersionUID = 1L;
 
 	/**

@@ -15,6 +15,9 @@ import modelo.dto.Cliente;
  */
 @WebServlet("/ControladorRegistrarse")
 public class ControladorRegistrarse extends HttpServlet {
+	/**
+	 * se encarga de recoger Strings de un formulario para luego insertarlos en la base de datos cliente.
+	 */
 	private static final long serialVersionUID = 1L;
 
 	/**

@@ -18,6 +18,10 @@ import modelo.dao.ModeloCliente;
  */
 @WebServlet("/ControladorLoginInicioS")
 public class ControladorLoginInicioS extends HttpServlet {
+	/***
+	 * Se encarga  de recibir String de un formulario y verificar si estos se encuentran en la base de datos 
+	 * de clientes para luego pode acceder, (Hacer un login).
+	 */
 	private static final long serialVersionUID = 1L;
 
 	/**

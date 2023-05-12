@@ -12,6 +12,10 @@ import modelo.dto.Envio;
 
 public class ModeloEnvio extends Conector {
 
+	/***
+	 * Este metodo inserta un envio 
+	 * @param  envio
+	 */
 	public void insertarEnvio(Envio envio) {
 		PreparedStatement pstInsert;
 		try {
@@ -31,7 +35,10 @@ public class ModeloEnvio extends Conector {
 			e.printStackTrace();
 		}
 	}// fin clase insertar
-
+	/**
+	 *  Elimina un envio  siempre que coincida con el codigo envio
+	 * @param  codEnvio 
+	 */
 	public void eliminarEnvio(int codEnvio) {
 		PreparedStatement pstDelete;
 		try {
@@ -44,7 +51,10 @@ public class ModeloEnvio extends Conector {
 		}
 
 	}// fin clase eliminar
-
+	/***
+	 * Este metodo se encarga de de modificar carta dependiedno del codigo envio.
+	 * @param envio
+	 */
 	public void modificarEnvio(Envio envio) {
 		PreparedStatement pstUpdate;
 		try {
@@ -65,7 +75,10 @@ public class ModeloEnvio extends Conector {
 		}
 
 	}// fin clase modificar
-
+	/***
+	 * Se encarga de visualizar todos los envios 
+	 * @return devuelve un arrayList de envios
+	 */
 	public ArrayList<Envio> verEnvios() {
 
 		String senteciaSelect = "SELECT * FROM envio ORDER BY cod_envio DESC";
@@ -106,7 +119,10 @@ public class ModeloEnvio extends Conector {
 		modeloCliente.cerrarConexion();
 		return envios;
 	}// fin clase verEnvios
-
+	/***
+	 * Este metodo se encarga de visualizar envios dependiendo del codigo envio y ordenado de manera ascendente .
+	 * @return devuelve un objeto envios
+	 */
 	public ArrayList<Envio> verEnviosASC() {
 
 		String senteciaSelect = "SELECT * FROM envio ORDER BY cod_envio ASC";
@@ -148,7 +164,11 @@ public class ModeloEnvio extends Conector {
 
 		
 	}// fin clase verEnvios
-
+	/***
+	 * Este metodo se encarga de visualizar envios dependiendo del codigo envio y ordenado de manera descendente  .
+	 * @param codCliente
+	 * @return devuelve un objeto envios
+	 */
 	public ArrayList<Envio> verEnviosPersonal(int codCliente) {
 
 		String senteciaSelect = "SELECT * FROM envio WHERE cod_cliente=? ORDER BY cod_envio DESC ";
@@ -193,7 +213,11 @@ public class ModeloEnvio extends Conector {
 
 		return null;
 	}// fin clase verEnvios
-
+	/***
+	 * Este metodo se encarga de visualizar un envio dependiendo del codigo envio.
+	 * @param codEnvio
+	 * @return devuelve un objeto envios
+	 */
 	public Envio verEnvio(int codEnvio) {
 
 		String senteciaSelect = "SELECT * FROM envio WHERE cod_envio=?";
@@ -229,7 +253,10 @@ public class ModeloEnvio extends Conector {
 
 		return null;
 	}
-
+ /***
+  * Este metodo se encargar de recibir el ultimo codigo envio
+  * @return devuelve el codigo envio
+  */
 	public int recibirUltimoCodigo() {
 
 		String senteciaSelect = "SELECT MAX(cod_envio) FROM envio ";

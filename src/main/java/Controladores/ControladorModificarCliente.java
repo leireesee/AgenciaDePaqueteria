@@ -15,6 +15,10 @@ import modelo.dto.Cliente;
  */
 @WebServlet("/ControladorModificarCliente")
 public class ControladorModificarCliente extends HttpServlet {
+	/***
+	 * Se encarga de recibir el id del cual se va a modificar  para luego recoger Strings de un formulario y enviarlo a la base de datos 
+	 * para modificarlo.
+	 */
 	private static final long serialVersionUID = 1L;
 
 	/**

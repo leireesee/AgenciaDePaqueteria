@@ -9,7 +9,10 @@ import modelo.dto.Envio;
 import modelo.dto.Paquete;
 
 public class ModeloPaquete extends Conector {
-
+	/***
+	 * Este metodo inserta un paquete  
+	 * @param paquete
+	 */
 	public void insertarPaquete(Paquete paquete) {
 		PreparedStatement pstInsert;
 		try {
@@ -24,7 +27,10 @@ public class ModeloPaquete extends Conector {
 			e.printStackTrace();
 		}
 	}
-
+	/**
+	 *  Elimina un paquete   siempre que conicida con el codigo envio 
+	 * @param  codEnvio 
+	 */
 	public void eliminarPaquete(int codEnvio) {
 		PreparedStatement pstDelete;
 		try {
@@ -36,7 +42,10 @@ public class ModeloPaquete extends Conector {
 			e.printStackTrace();
 		}
 	}
-
+	/***
+	 * Este metodo se encarga de de modificar el paquete  dependiedno del codigo envio.
+	 * @param paquete
+	 */
 	public void modificarPaquete(Paquete paquete) {
 		PreparedStatement pstUpdate;
 
@@ -55,6 +64,11 @@ public class ModeloPaquete extends Conector {
 
 	}
 
+	/***
+	 * Este metodo se encarga de visualizar un paquete dependiendo del codigo envio.
+	 * @param  codEnvio
+	 * @return devuelve un objeto paquete
+	 */
 	public Paquete verPaquete(int codEnvio) {
 		String senteciaSelect = "SELECT * FROM paquete WHERE cod_envio=?";
 
@@ -80,6 +94,10 @@ public class ModeloPaquete extends Conector {
 		return null;
 	}
 
+	/***
+	 * Este metodo sirve para recibir  el ultimo codigo de envio
+	 * @return devuelve codigoEnvio
+	 */
 	public int recibirUltimoCodigoEnvio() {
 
 		String senteciaSelect = "SELECT MAX(cod_envio) FROM paquete ";
@@ -99,7 +117,12 @@ public class ModeloPaquete extends Conector {
 		}
 		return -1;
 	}
+	
 
+	/***
+	 * Este metodo sirve para recibir  el ultimo codigo de paquete
+	 * @return devuelve codigoPaquete
+	 */
 	public int recibirUltimoCodigoPaquete() {
 
 		String senteciaSelect = "SELECT MAX(cod_paquete) FROM paquete ";

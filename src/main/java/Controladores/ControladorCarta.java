@@ -19,6 +19,9 @@ import modelo.dto.Empleado;
  */
 @WebServlet("/ControladorCarta")
 public class ControladorCarta extends HttpServlet {
+	/**
+	 * En este controlador se encarga de recibir insertar una carta pero antes tiene que coger strings del formulario.
+	 */
 	private static final long serialVersionUID = 1L;
 
 	/**
