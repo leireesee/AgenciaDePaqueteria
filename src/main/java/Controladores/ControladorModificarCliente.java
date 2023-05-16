@@ -79,7 +79,7 @@ public class ControladorModificarCliente extends HttpServlet {
 			request.setAttribute("MensajeError", MensajeError);
 			request.getRequestDispatcher("ModificarCliente.jsp").forward(request, response);
 		}
-		response.sendRedirect("ControladorHome");
+		response.sendRedirect("ControladorVerClientes");
 
 	}
 

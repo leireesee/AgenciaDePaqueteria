@@ -87,14 +87,14 @@ public class ControladorModificarEmpleado extends HttpServlet {
 
 			modeloEmpleado.modificarEmpleado(empleado);
 			modeloEmpleado.cerrarConexion();
-			response.sendRedirect("ControladorVistaEmpleado");
+			request.getRequestDispatcher("ControladorVistaAdmin").forward(request, response);
 
 		} catch (Exception e) {
 			String MensajeError = "ERROR";
 			request.setAttribute("MensajeError", MensajeError);
 			request.getRequestDispatcher("ModificarEmpleado.jsp").forward(request, response);
 		}
-
+		
 	}
 
 }
